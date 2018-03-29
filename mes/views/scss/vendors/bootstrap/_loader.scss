@@ -1,0 +1,57 @@
+.mes-loader {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: $zindex-loader;
+	border-radius: $border-radius-base;
+	padding: $padding-base-vertical $padding-base-horizontal;
+	text-align: center;
+	
+	&.mes-loader-error {
+		background: $brand-danger;
+		color: $body-bg;
+	}
+	
+	&.mes-loader-timeout {
+		background: $brand-warning;
+		color: $body-bg;
+	}
+	
+	&.mes-loader-success {
+		background: $brand-success;
+		color: $body-bg;
+	}
+	
+	&.mes-loader-loading {
+		background: transparent;
+		color: $gray;
+	}
+
+	&.mes-loader-primary {
+		background: $brand-primary;
+		color: $body-bg;
+	}
+	
+	&.mes-loader-warning {
+		background: $brand-warning;
+		color: $body-bg;
+	}
+
+	&.mes-loader-info {
+		background: $brand-info;
+		color: $body-bg;
+	}
+
+	.mes-loader-icon {
+		margin-right: 10px;
+	}
+	
+	.mes-loader-content {
+		margin: 0;
+	}
+
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="http://localhost/mes/css/bootstrap.min.css"/>
+		<style type="text/css">
+			body {
+				overflow: hidden;
+			}
+
+			.error {
+				position: relative;
+				width: 100%;
+				background-image: url(http://localhost/mes/images/error/500.png);
+				background-repeat: no-repeat;
+				background-position:center;
+				background-size: contain;
+			}
+
+			.error-content {
+				width: 100%;
+				position: absolute;
+				bottom: 10.71rem;
+			}
+
+			.error-content h2 {
+				font-weight: bold;
+				font-size: 17.85rem;
+				color:#0B2D53;
+			}
+
+			.error-content p {
+				font-weight: bold;
+				font-size: 2.85rem;
+				color:#0B2D53;
+			}
+
+			.error-content a {
+				display: inline-block;
+				width: 7.14rem;
+				background: #0B2D53;
+			}
+		</style>
+		<title>页面未找到</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="error">
+						<div class="error-content text-center">
+							<h2>500</h2>
+							<p>页面出错了，正在抢修中</p>
+							<a class="btn btn-primary" href="http://localhost/mes/views/home.html">返回主页</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://localhost/mes/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://localhost/mes/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function () {
+				function setBodyHeight() {
+					$windowHeight = $(window).height()
+					$('body').css('height', $windowHeight)
+					$('.error').css('height', $windowHeight)
+				}
+
+				setBodyHeight()
+				$(window).resize(function () {
+					setBodyHeight()
+				})
+
+				function dosearch() {
+					var sf=document.searchform;
+					var submitto = sf.sengine.value + escape(sf.searchterms.value);
+					window.location.href = submitto;
+					return false;
+				}
+			})
+
+		</script>
+	</body>
+</html>

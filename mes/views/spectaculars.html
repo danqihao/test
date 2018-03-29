@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html style="height:100%">
+
+<!-- 中文简体 -->
+
+<!--<head>-->
+
+<head lang="zh-cmn-Hans">
+
+	<!-- 编码方式 -->
+	<meta charset="UTF-8">
+	<!-- IE兼容模式 -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- 响应式设置 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 选择渲染引擎 -->
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<!-- 内容安全政策-->
+	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+	<!-- 应用名称-->
+	<meta name="application-name" content="天蓝MES系统">
+	<!-- 非常简短的描述（少于 10 个字） -->
+	<meta name="abstract" content="制造企业生产过程执行管理系统">
+	<!-- 简短描述（限制 150 字符）-->
+	<meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+	<!-- 网站主题 -->
+	<meta name="subject" content="MES">
+	<!-- 完整的域名或网址 -->
+	<meta name="url" content="">
+	<!-- 修改器 -->
+	<meta name="generator" content="HBuilder">
+
+	<!-- 作者信息
+		<link rel="author" href="http://www.blue-skyauto.com/show_116.html">
+		<link rel="me" href="http://www.blue-skyauto.com/" type="text/html">
+		<link rel="me" href="tl002@blue-skyauto.com">
+		<link rel="me" href="+86 18825858567">-->
+	<!-- LOGO -->
+	<!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+		<link rel="icon" href="" sizes="32x32" type="image/png">
+		<link rel="icon" href="" sizes="48x48" type="image/png">
+		<link rel="icon" href="" sizes="62x62" type="image/png">
+		<link rel="icon" href="" sizes="192x192" type="image/png"> -->
+	<!-- 版权 -->
+	<!-- <link rel="copyright" href=""> -->
+
+	<!-- CSS插件 -->
+	<!-- sweetalert弹窗 -->
+	<link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+	<!-- animate动画 -->
+	<link rel="stylesheet" href="css/vendors/animate.css" />
+	<!-- hover鼠标悬浮 -->
+	<link rel="stylesheet" href="css/vendors/hover-min.css" />
+	<!-- font-awesome字形图标 -->
+	<link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+	<!-- swiper轮播图 -->
+	<link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+	<!-- element-ui -->
+	<link rel="stylesheet" href="css/vendors/element-ui.css" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/main.css" />
+
+	<style>
+		.el-select__multiple-text{
+			padding-left:8px
+		}
+		.typeface{
+			font-family: PingFang SC;
+			color:#1f2f3d;
+			font-size:18px
+		}
+	</style>
+
+	<title>看板管理</title>
+
+</head>
+
+<body style="background:#fff;height:100%">
+
+	<!-- wrapper -->
+
+    <!-- 模态框 -->
+    <div id="wrapper" style="height:100%">
+
+
+
+    </div>
+	<!-- 通用模态框,第一层调用 -->
+	<div class="modal fade" id="commonModal1">
+	</div>
+
+	<!-- 通用模态框,第二层调用 -->
+	<div class="modal fade" id="commonModal2">
+	</div>
+
+	<!-- 通用模态框,第三层调用 -->
+	<div class="modal fade" id="commonModal3">
+	</div>
+
+	<!-- 通用模态框,第四层调用 -->
+	<div class="modal fade" id="commonModal4">
+	</div>
+
+	<!-- 选择生产计划批次模态框 -->
+	<div class="modal fade" id="batchNumberModel">
+	</div>
+
+	<!-- 选择车间模态框 -->
+	<div class="modal fade" id="workshopModel">
+	</div>
+
+	<!-- 选择工序模态框 -->
+	<div class="modal fade" id="workstageModal">
+	</div>
+
+	<!-- 选择工序模态框 -->
+	<div class="modal fade" id="selectDevicesTypeModal">
+	</div>
+
+	<!-- 选择工序模态框 -->
+	<div class="modal fade" id="staffModel">
+	</div>
+    <!-- JS插件 -->
+    <!-- jquery -->
+    <script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- bootstrap-js -->
+    <script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- jquery-cookie -->
+    <script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <!-- sweetalert弹窗 -->
+    <script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+    <!--Moment日期处理-->
+    <script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+    <!-- swiper轮播图 -->
+    <script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- mydate97日期插件-->
+    <script src="js/vendors/dateControl/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
+    <!-- vue -->
+    <script src="js/vue/vue.js"></script>
+		<!-- element-ui -->
+		<script src="js/vue/echarts.min.js"></script>
+		<script src="js/vue/index.min.js"></script>
+		<script src="js/vue/element-ui.js" type="text/javascript" charset="utf-8"></script>
+    <!-- JS -->
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/basevalue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/spectaculars/spectacularsReqUrl.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="js/reportForms/reportFormsReqUrl.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/reportForms/reportFormsSelect.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/spectaculars/vueComponent.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- <script src="js/spectaculars/spectaculars3.js" type="text/javascript" charset="UTF-8"></script> -->
+	<script src="js/reportForms/reportFormsSelect.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/spectaculars/vueComponent.js" type="text/javascript" charset="UTF-8"></script>
+	<!-- <script src="js/spectaculars/spectaculars2.js" type="text/javascript" charset="UTF-8"></script> -->
+    <script src="js/spectaculars/spectaculars.js" type="text/javascript" charset="UTF-8"></script>
+    <!-- <script src="js/spectaculars/spectacularsSelect.js" type="text/javascript" charset="UTF-8"></script> -->
+
+</body>
+
+</html>

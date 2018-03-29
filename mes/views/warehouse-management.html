@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 中文简体 -->
+
+<!--<head>-->
+
+<head lang="zh-cmn-Hans">
+
+	<!-- 编码方式 -->
+	<meta charset="UTF-8">
+	<!-- IE兼容模式 -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<!-- 响应式设置 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 选择渲染引擎 -->
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<!-- 内容安全政策-->
+	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+	<!-- 应用名称-->
+	<meta name="application-name" content="天蓝MES系统">
+	<!-- 非常简短的描述（少于 10 个字） -->
+	<meta name="abstract" content="制造企业生产过程执行管理系统">
+	<!-- 简短描述（限制 150 字符）-->
+	<meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+	<!-- 网站主题 -->
+	<meta name="subject" content="MES">
+	<!-- 完整的域名或网址 -->
+	<meta name="url" content="">
+	<!-- 编辑器 -->
+	<meta name="generator" content="HBuilder">
+
+	<!-- 相对URL -->
+	<base href="">
+
+	<!-- CSS插件 -->
+	<!-- sweetalert弹窗 -->
+	<link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+	<!-- animate动画 -->
+	<link rel="stylesheet" href="css/vendors/animate.css" />
+	<!-- hover鼠标悬浮 -->
+	<link rel="stylesheet" href="css/vendors/hover-min.css" />
+	<!-- font-awesome字形图标 -->
+	<link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+	<!-- swiper轮播图 -->
+	<link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/pages/warehouse-management.css" />
+
+	<title>仓库管理</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div id="mainLeft" class="col-sm-2 hidden-xs">
+					<div id="mainLeftSidebar">
+						<!-- LOGO -->
+						<div class="sidebar-logo">
+							<b>MES</b>
+						</div>
+
+						<!-- 边栏导航标题 -->
+						<div class="sidebar-nav-header">
+							<span>仓储管理</span>
+						</div>
+						<ul class="sidebar-nav">
+							<li class="treeview">
+								<a href="javascript:;" class="treeview-active">
+									<i class="fa fa-fw fa-cubes"></i>
+									<span>物料库存</span>
+									<span class="pull-right-container">
+										<i class="fa fa-angle-left"></i>
+									</span>
+								</a>
+								<ul class="treeview-menu">
+									<li>
+										<a href="#warehouseManagement1-1"><i class="fa fa-fw fa-circle-o"></i><span>物料信息</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-2"><i class="fa fa-fw fa-circle-o"></i><span>来料登记</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-3"><i class="fa fa-fw fa-circle-o"></i><span>物料入库</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-4"><i class="fa fa-fw fa-circle-o"></i><span>物料出库</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-5"><i class="fa fa-fw fa-circle-o"></i><span>物料退还</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-6"><i class="fa fa-fw fa-circle-o"></i><span>物料调拨</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-7"><i class="fa fa-fw fa-circle-o"></i><span>库存盘点</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement1-8"><i class="fa fa-fw fa-circle-o"></i><span>供应商</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="treeview">
+								<a  href="javascript:;">
+									<i class="fa fa-fw fa-cubes"></i>
+									<span>成品管理</span>
+									<span class="pull-right-container">
+										<i class="fa fa-angle-left"></i>
+									</span>
+								</a>
+								<ul class="treeview-menu">
+									<li>
+										<a href="#warehouseManagement2-1"><i class="fa fa-fw fa-circle-o"></i><span>成品信息</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement2-2"><i class="fa fa-fw fa-circle-o"></i><span>成品库存</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement2-3"><i class="fa fa-fw fa-circle-o"></i><span>成品入库</span></a>
+									</li>
+									<li>
+										<a href="#warehouseManagement2-4"><i class="fa fa-fw fa-circle-o"></i><span>成品出库</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- mainLeft -->
+
+				<!-- 右边 -->
+				<div id="mainRight" class="col-sm-10">
+
+					<!-- 右边顶部 -->
+					<div id="mainRightTop">
+						<div id="mainRightTopMenu">
+
+							<!-- 右边顶部工具栏 -->
+							<div class="menu-toolbar clearfix">
+								<ul class="menu-toolbar-left">
+									<li>
+										<a class="sidebar-toggle" href="javascript:void(0);">
+											<i class="fa fa-bars"></i>
+										</a>
+									</li>
+								</ul>
+								<ul class="menu-toolbar-right pull-right">
+									<li class="toolbar-user">
+										<img src="images/demo/demo.jpg" />
+										<span id="showUserName">&nbsp</span>
+									</li>
+									<!--
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa-bell-o"></i><span class="badge badge-success">5</span></a>
+										<ul class="dropdown-menu dropdown-menu-notifications dropdown-menu-right">
+											<li class="header"><a href="javascript:void(0);">通知</a></li>
+											<li>
+												<ul class="menu">
+													<li>
+														<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-success"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+													</li>
+													<li>
+														<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-warning"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+													</li>
+													<li>
+														<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-danger"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+													</li>
+													<li>
+														<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-primary"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+													</li>
+												</ul>
+											</li>
+											<li class="footer"><a href="javascript:void(0);">查看全部通知</a></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa fa-flag-o"></i><span class="badge badge-warning">3</span></a>
+										<ul class="dropdown-menu dropdown-menu-tasks dropdown-menu-right">
+											<li class="header">
+												<a href="javascript:void(0);">工作进度</a>
+											</li>
+											<li>
+												<ul class="menu">
+													<li>
+														<a href="javascript:void(0);">
+															<h5>某项工作<span class="pull-right">60%</span></h5>
+															<div class="progress xs">
+																<div class="progress-bar progress-bar-success" style="width: 60%;">
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<h5>某项工作<span class="pull-right">10%</span></h5>
+															<div class="progress xs">
+																<div class="progress-bar progress-bar-warning" style="width: 10%;">
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<h5>某项工作<span class="pull-right">30%</span></h5>
+															<div class="progress xs">
+																<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<h5>某项工作<span class="pull-right">30%</span></h5>
+															<div class="progress xs">
+																<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																</div>
+															</div>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<h5>某项工作<span class="pull-right">30%</span></h5>
+															<div class="progress xs">
+																<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																</div>
+															</div>
+														</a>
+													</li>
+												</ul>
+											</li>
+											<li class="footer">
+												<a href="javascript:void(0);">查看全部工作进度</a>
+											</li>
+										</ul>
+									</li> -->
+
+									<li>
+										<a id="exitSystem" href="javascript:void(0);">
+											<i class="fa fa-power-off"></i>
+										</a>
+									</li>
+									<li>
+										<!-- 					<a href="javascript:void(0);"><i class="fa fa-gears"></i></a> -->
+									</li>
+								</ul>
+							</div>
+
+							<!-- 右边顶部一级导航栏 -->
+							<div class="menu-navbar">
+								<div class="row">
+									<div class="col-xs-1">
+										<div class="menu-navbar-pre">
+											<i class="fa fa-angle-left"></i>
+										</div>
+									</div>
+									<div class="col-xs-10">
+										<div class="menu-navbar-nav swiper-container">
+											<div class="swiper-wrapper">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-1">
+										<div class="menu-navbar-next">
+											<i class="fa fa-angle-right"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 右边内容区域 -->
+					<div id="mainRightContent">
+						<div id="LevelTwoMenuContainer" class="swiper-container">
+							<div class="swiper-wrapper">
+
+								<!-- 二级菜单内容区域 -->
+								<div id="warehouseManagement1-1" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>物料信息</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-1-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#publicHorizontalTableModal">新增物料</a>
+																					<a href="javascript:;" class="btn btn-primary btn-sm" id="importMaterialInfo">导入物料信息</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-6">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-2" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>来料登记</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																	<a href="#" class="btn btn-primary btn-sm">保存</a>
+																	<a href="#" class="btn btn-primary btn-sm">重置</a>
+																	<a href="#" class="btn btn-primary btn-sm">发布</a>
+																</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-2-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">登记</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-3" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>物料入库</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																	<a href="#" class="btn btn-primary btn-sm">保存</a>
+																	<a href="#" class="btn btn-primary btn-sm">重置</a>
+																	<a href="#" class="btn btn-primary btn-sm">发布</a>
+																</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-3-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">入库</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-4" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>物料出库</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																	<a href="#" class="btn btn-primary btn-sm">保存</a>
+																	<a href="#" class="btn btn-primary btn-sm">重置</a>
+																	<a href="#" class="btn btn-primary btn-sm">发布</a>
+																</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-4-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">出库</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-5" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>物料退还</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																	<a href="#" class="btn btn-primary btn-sm">保存</a>
+																	<a href="#" class="btn btn-primary btn-sm">重置</a>
+																	<a href="#" class="btn btn-primary btn-sm">发布</a>
+																</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-5-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">退还</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-6" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>物料调拨</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-6-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">调拨</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-7" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>库存盘点</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-7-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">盘点</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<select class="form-control input-sm material-type-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="物料搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement1-8" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>供应商</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement1-8-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#publicHorizontalTableModal">新增供应商</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement2-1" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>成品信息</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement2-1-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1">新增成品</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm product-type-option"></select>
+																					<!-- <select class="form-control input-sm warehouse-option"></select> -->
+																					<!-- <select class="form-control input-sm material-type-option"></select> -->
+																					<!-- <input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"/> -->
+																					<!-- <div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div> -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement2-2" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>成品库存</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement2-2-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<!-- <a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">调拨</a> -->
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm product-type-option"></select>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<!-- <select class="form-control input-sm material-type-option"></select> -->
+																					<!-- <input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"/> -->
+																					<!-- <div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div> -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement2-3" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>成品入库</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement2-3-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">入库</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm product-type-option"></select>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="warehouseManagement2-4" class="swiper-slide">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="content-header">
+												<div class="col-xs-4">
+													<div class="content-header-tab">
+														<div class="tab-logo">
+															<i class="fa fa-cubes"></i>
+														</div>
+														<div class="tab-body">
+															<div class="tab-title">
+																<p>成品出库</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-8">
+													<div class="content-header-toolbar">
+														<div class="content-header-toolbar">
+															<!--<div class="btn-group">
+																<a href="#" class="btn btn-primary btn-sm">保存</a>
+																<a href="#" class="btn btn-primary btn-sm">重置</a>
+																<a href="#" class="btn btn-primary btn-sm">发布</a>
+															</div>-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="container-fluid">
+
+										<!-- 右边内容区域 -->
+										<!-- navbar-fixed-top -->
+										<div class="content-body swiper-container">
+											<div class="swiper-wrapper">
+
+												<!-- accessPlan1-1 -->
+												<div class="swiper-slide swiper-no-swiping" id="warehouseManagement2-4-1">
+
+													<!-- 内容区域 -->
+													<div class="row">
+														<div class="col-sm-12">
+															<div class="panel panel-default">
+																<div class="panel-heading panel-heading-table">
+																	<div class="row">
+																		<div class="col-xs-4">
+																			<form class="form-inline">
+																				<fieldset>
+																					<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#mainModal_1">出库</a>
+																				</fieldset>
+																			</form>
+																		</div>
+																		<div class="col-xs-8">
+																			<form class="form-inline pull-right">
+																				<fieldset>
+																					<select class="form-control input-sm product-type-option"></select>
+																					<select class="form-control input-sm warehouse-option"></select>
+																					<input class="form-control input-sm date-search-start" type="text" placeholder="起始日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																					/>
+																					<div class="input-group input-group-sm">
+																						<input class="form-control input-sm date-search-end" type="text" placeholder="结束日期" onclick="WdatePicker({maxDate:'%y-%M-%d'})"
+																						/>
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary date-search-btn">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="search" placeholder="搜索" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</fieldset>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div class="table-height-10">
+																	<table class="table table-bordered table-hover">
+																		<thead>
+																		</thead>
+																		<tbody>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel-footer panel-footer-table">
+																	<ul class="pagination pagination-sm pull-right">
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- mainRightContent -->
+				</div>
+				<!-- mainRight -->
+			</div>
+		</div>
+	</div>
+	<!-- wrapper -->
+
+	<!-- 模态框 -->
+	<div id="modalBox">
+
+		<!-- 通用横向表格模态框 -->
+		<div class="modal fade" id="publicHorizontalTableModal">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">
+							<span>
+								<i class="fa fa-close"></i>
+							</span>
+						</button>
+						<h4 class="modal-title">新增物料</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<table class="table table-bordered table-responsive">
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-xs-6">
+								<!--<button class="btn btn-primary pull-left">打印</button>-->
+							</div>
+							<div class="col-xs-6">
+								<button class="btn btn-primary modal-submit">确认提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 详情查看 -->
+		<div class="modal fade" id="dataDetails">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+						<h4 class="modal-title">新增物料</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<table class="table table-bordered table-responsive">
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-xs-6">
+								<!-- <button class="btn btn-primary pull-left">修改</button> -->
+							</div>
+							<div class="col-xs-6">
+								<button class="btn btn-primary">确认提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 主要按钮1  -->
+		<div class="modal fade" id="mainModal_1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<!-- panel_1 -->
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+											</div>
+										</div>
+										<table class="table table-bordered table-responsive">
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- panel_2 -->
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+												<div class="col-xs-8">
+												</div>
+											</div>
+										</div>
+										<table class="table table-bordered table-responsive table-hover">
+											<thead>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- panel_3 -->
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+												<div class="col-xs-8">
+													<form class="form-inline pull-right">
+														<fieldset>
+															<select class="form-control input-sm warehouse-option"></select>
+															<select class="form-control input-sm product-type-option"></select>
+															<select class="form-control input-sm material-type-option"></select>
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="search" placeholder="名称搜索" />
+																<!-- <input class="form-control" type="search" placeholder="批次搜索" / style="display:none"> -->
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary">
+																			<i class="fa fa-search"></i>
+																	</button>
+																</div>
+															</div>
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div class="table-height-10">
+											<table class="table table-bordered table-responsive table-hover">
+												<thead>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel-footer panel-footer-table">
+											<ul class="pagination pagination-sm pull-right">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-xs-6">
+								<!--<button class="btn btn-primary pull-left">打印</button>-->
+							</div>
+							<div class="col-xs-6">
+								<button class="btn btn-primary modal-submit">确认提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 通用选择模态框  -->
+		<div class="modal fade" id="publicSelectModalBox">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close">
+						<span>
+							<i class="fa fa-close"></i>
+						</span>
+				</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+												<div class="col-xs-8">
+													<form class="form-inline pull-right">
+														<fieldset>
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="search" placeholder="搜索" />
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary">
+																			<i class="fa fa-search"></i>
+																	</button>
+																</div>
+															</div>
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div class="table-height-10">
+											<table class="table table-bordered table-responsive table-hover">
+												<thead>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel-footer panel-footer-table">
+											<ul class="pagination pagination-sm pull-right">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 新增成品 -->
+		<div class="modal fade" id="addProductionModal">
+			<div class="modal-dialog">
+			</div>
+		</div>
+
+		<!-- 修改成品 -->
+		<div class="modal fade" id="modifyProductionModal">
+			<div class="modal-dialog">
+			</div>
+		</div>
+
+		<!-- 导入excel物料信息 -->
+		<div class="modal fade" id="importMaterialInfoModal">
+			<div class="modal-dialog">
+			</div>
+		</div>
+
+		<div class="modal fade" id="commonModal">
+			<div class="modal-dialog">
+			</div>
+		</div>
+	</div>
+
+
+	<!-- JS插件 -->
+	<!-- jquery -->
+	<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 日期选择插件 -->
+	<script src="js/vendors/dateControl/WdatePicker.js" charset="utf-8"></script>
+	<!-- bootstrap-js -->
+	<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- jquery-cookie -->
+	<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	<!-- js动画 -->
+	<!-- <script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- sweetalert弹窗 -->
+	<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+	<!--Moment日期处理-->
+	<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+	<!--echarts图表插件-->
+	<!-- <script src="js/vendors/echarts.min.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- swiper轮播图 -->
+	<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- JS -->
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/basevalue.js"></script>
+
+
+	<!-- vue -->
+	<script src="js/vue/vue.js"></script>
+	<script src="js/vue/element-ui.js"></script>
+	<script src="js/vue/vueCommon.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/vue/vueComponent.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/vue/vueCommonModal.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/warehouse/productionManage.js"></script>
+	<script src="js/warehouse-management.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+
+</html>

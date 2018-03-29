@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>退出</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+<!-- 引入bootstrap css样式 -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- 	为了IE8支持HTML5元素和媒体查询 -->
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js" type="text/javascript"></script>
+      <script src ="js/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+
+<style type="text/css">
+body{
+    background-image: url(images/backgrounds/success-bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+}
+.contenter{
+  margin-top:20%;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 contenter">
+			  
+				  <h1 class="text-center text-success">恭喜您已经成功修改密码!</h1>
+					<h1 class="text-center">
+						<span id="totalSecond">3</span>秒后，自动返回到登录页面。
+					</h1>
+					<p class="text-center"><a  href="login.html">立即返回</a></p>
+			</div>
+		</div>
+	</div>
+<!-- 引入jquery和bootstrap js样式 -->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<!-- 	ie9以下对jQuery的支持 -->
+<!--[if lt IE 9]>
+      <script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <![endif]-->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script>
+	var second = document.getElementById('totalSecond').innerText-1;//获取页面开始设定的时间,解决初始停留问题减1秒
+		setInterval("redirect()", 1000); //每1秒钟调用redirect()方法一次
+		function redirect() {
+			if (second < 1) {
+				location.href = 'login.html';
+			} else {
+				document.getElementById('totalSecond').innerText = second--;
+			}
+		}
+	</script>
+</body>
+</html>

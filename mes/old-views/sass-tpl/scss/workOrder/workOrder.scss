@@ -1,0 +1,56 @@
+header,section{
+    width: 100%;
+    min-width: 800px;
+}
+p{
+    margin: 0 auto;
+    padding: 0;
+}
+select{
+    height: 30px;
+}
+/*表格标题*/
+table caption{
+    font-weight: 700;
+}
+#table2,#table3,#table4,#table5,#table6,#table7{
+    display: none;
+}
+.workOrder-operate{
+    padding: 20px;
+    text-align: right;
+}
+.workOrder-box{
+    position: relative;
+    padding: 2px;
+    min-width: 800px;
+    min-height: 600px;
+    background: #fff;
+    
+    .workOrder-head{
+        margin: 20px auto;
+        min-width: 800px;
+        
+        .workOrder-head-left{
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        .workOrder-head-right{
+            position: absolute;
+            top: 4px;
+            right: 55px;
+        }
+    }
+    .workOrder-table{
+        .table-number{
+            padding-bottom:15px ;
+            font-weight: 700;
+        }
+    }
+}
+.workOrder-btn{
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+}

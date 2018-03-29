@@ -1,0 +1,130 @@
+body {
+    background: $gray-dark;
+}
+
+#mainLeft {
+    padding: 0px;
+    
+    a {
+        text-decoration: none;
+    }
+    
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    
+    #mainLeftSidebar {
+        
+        //logo
+        .sidebar-logo {
+            height: 50px;
+            background: $brand-primary-dark;
+            
+            color: $gray-lighter;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        // 搜索栏
+//      .sidebar-search {
+//         display: flex;
+//          align-items: center; 
+//         padding: $padding-base-vertical $padding-base-horizontal; 
+//         height: 50px;
+//         
+//         input, button {
+//             border-color: $gray;
+//             color: $gray-light4;
+//             background: $gray;
+//             
+//             &:focus {
+//                 border-color: $gray-light;
+//                 box-shadow: none;
+//             }
+//         }
+//      }
+        
+        // 导航标题
+        .sidebar-nav-header {
+            padding-left: $padding-base-horizontal;
+            height: 50px;
+            background: $gray-darker;
+            
+            color: $gray-light3;
+            line-height: 50px;
+            font-size: $font-size-h4;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        //导航菜单
+        .sidebar-nav {
+            
+            // 一级菜单
+            .treeview {
+                > a {
+                    display: inline-block;
+                    position: relative;
+                    
+                    padding: 0 0 0 15px;
+                    height: 45px;
+                    width: 100%;
+                    
+                    font-size: $font-size-slightly-large;
+                    color: $gray-light3;
+                    line-height: 45px;
+                
+                    .pull-right-container {
+                        position: absolute;
+                        right: 15px;
+                    }
+                    
+                    &:hover {
+                        background-color: $gray-darker;
+                        
+                        color: $gray-lighter;
+                    }
+                    
+                    i {
+                    	margin-right: 5px;
+                    }
+                }
+                
+                .treeview-active {
+                    border-left: 3px solid $brand-primary;
+                    
+                    color: $gray-lighter;
+                }
+                
+                // 二级菜单
+                .treeview-menu {
+                    overflow: hidden;
+                    height: 0;
+                    a {
+                        display: inline-block;
+                        padding: 0 0 0 25px;
+                        height: 35px;
+                        width: 100%;
+                        
+                        background-color: $gray;
+                        
+                        font-size: $font-size-slightly-large;
+                        color: $gray-light3;
+                        line-height: 35px;
+                        
+                        &:hover {
+                            color: $gray-lighter;
+                            background-color: darken($gray, 10%);
+                        }
+                        
+                        i {
+                        	margin-right: 5px;
+                        }
+                    }
+                }
+            } 
+        } // .sidebar-nav
+    } // #mainLeftSidebar
+} // #mainLeft

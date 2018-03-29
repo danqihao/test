@@ -1,0 +1,58 @@
+{
+  "include": [
+    "ts/**/*"
+  ],
+  "exclude": [],
+  "compilerOptions": {
+    /* 基础选项 */
+    "target": "ES2015", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "module": "ES2015", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    // "lib": [],                             /* 库，编译过程中需要引入的库文件的列表  */
+    // "allowJs": true,                       /* 允许Js，允许编译javascript文件 */
+    // "checkJs": true,                       /* 检查Js，在 .js文件中报告错误。与 --allowJs配合使用 */
+    // "jsx": "preserve",                     /* 在 .tsx文件里支持JSX： "React"或 "Preserve"。查看 JSX */
+    // "declaration": true,                   /* 声明，生成相应的 .d.ts文件。 */
+    // "sourceMap": true,                     /* 源映射，生成相应的 .map文件。 */
+    // "outFile": "./",                       /* 输出文件，将输出文件合并为一个文件。合并的顺序是根据传入编译器的文件顺序和 ///<reference``>和 import的文件顺序决定的。查看输出文件顺序文件了解详情。 */
+    "outDir": "js",                        /* 输出目录，重定向输出目录。 */
+    // "rootDir": "./",                       /* 根目录，仅用来控制输出的目录结构 --outDir */
+    // "removeComments": true,                /* 移除备注，删除所有注释，除了以 /!*开头的版权信息 */
+    // "noEmit": true,                        /* 不发射，不生成输出文件 */
+    // "importHelpers": true,                 /* 输入辅助工具，从 tslib 导入辅助工具函数（比如 __extends， __rest等） */
+    // "downlevelIteration": true,            /* 底层迭代，支持for-of循环 */
+    // "isolatedModules": true,               /* 单独模块，将每个文件作为单独的模块（与“ts.transpileModule”类似） */
+
+    /* 严格类型检查选项 */
+    // "strict": true                         /* 严格，启用所有严格类型检查选项。 启用 --strict相当于启用 --noImplicitAny */
+    // "noImplicitAny": true,                 /* 不隐含所有，在表达式和声明上有隐含的 any类型时报错。 */
+    // "strictNullChecks": true,              /* 严格null检查，在严格的 null检查模式下， null和 undefined值不包含在任何类型里，只允许用它们自己和 any来赋值（有个例外， undefined可以赋值到 void */
+    // "strictFunctionTypes": true,           /* 严格函数类型，禁用函数参数双向协变检查 */
+    // "noImplicitThis": true,                /* 不隐含this，当 this表达式的值为 any类型的时候，生成一个错误 */
+    // "alwaysStrict": true,                  /* 永远严格，以严格模式解析并为每个源文件生成 "use strict"语句 */
+
+    /* 附加检查 */
+    // "noUnusedLocals": true,                /* Report errors on unused locals. */
+    // "noUnusedParameters": true,            /* Report errors on unused parameters. */
+    // "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
+    // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+
+    /* 模块解决选项 */
+    // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
+    // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
+    // "typeRoots": [],                       /* List of folders to include type definitions from. */
+    // "types": [],                           /* Type declaration files to be included in compilation. */
+    // "allowSyntheticDefaultImports": true,  /* 允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查 */
+    // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
+
+    /* 源索引选项 */
+    // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // "mapRoot": "./",                       /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+    /* Experimental Options */
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+  }
+}

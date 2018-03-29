@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- 中文简体 -->
+
+    <!--<head>-->
+        <head lang="zh-cmn-Hans">
+
+        <!-- 编码方式 -->
+        <meta charset="UTF-8">
+        <!-- IE兼容模式 -->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- 响应式设置 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 选择渲染引擎 -->
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <!-- 内容安全政策-->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+        <!-- 应用名称-->
+        <meta name="application-name" content="天蓝MES系统">
+        <!-- 非常简短的描述（少于 10 个字） -->
+        <meta name="abstract" content="制造企业生产过程执行管理系统">
+        <!-- 简短描述（限制 150 字符）-->
+        <meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+        <!-- 网站主题 -->
+        <meta name="subject" content="MES">
+        <!-- 完整的域名或网址 -->
+        <meta name="url" content="">
+        <!-- 修改器 -->
+        <meta name="generator" content="HBuilder">
+
+        <!-- 相对URL -->
+        <!--<base href="http://localhost/mes/views/">-->
+
+        <!-- 作者信息
+        <link rel="author" href="http://www.blue-skyauto.com/show_116.html">
+        <link rel="me" href="http://www.blue-skyauto.com/" type="text/html">
+        <link rel="me" href="tl002@blue-skyauto.com">
+        <link rel="me" href="+86 18825858567">-->
+        <!-- LOGO -->
+        <!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+        <link rel="icon" href="" sizes="32x32" type="image/png">
+        <link rel="icon" href="" sizes="48x48" type="image/png">
+        <link rel="icon" href="" sizes="62x62" type="image/png">
+        <link rel="icon" href="" sizes="192x192" type="image/png"> -->
+        <!-- 版权 -->
+        <!-- <link rel="copyright" href=""> -->
+
+        <!-- CSS插件 -->
+        <!-- sweetalert弹窗 -->
+        <link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+        <!-- animate动画 -->
+        <link rel="stylesheet" href="css/vendors/animate.css" />
+        <!-- hover鼠标悬浮 -->
+        <link rel="stylesheet" href="css/vendors/hover-min.css" />
+        <!-- font-awesome字形图标 -->
+        <link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+        <!-- swiper轮播图 -->
+        <link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+        <!-- element-ui -->
+        <link rel="stylesheet" href="css/vendors/element-ui.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" />
+
+
+        <title>报表管理</title>
+
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="mainLeft" class="col-sm-2 hidden-xs">
+                        <div id="mainLeftSidebar">
+
+                            <!-- LOGO -->
+                            <div class="sidebar-logo">
+                                <b>MES</b>
+                            </div>
+
+                            <!-- 边栏导航标题 -->
+                            <div class="sidebar-nav-header">
+                                <span>报表管理</span>
+                            </div>
+                            <ul class="sidebar-nav">
+
+                                <li class="treeview">
+                                    <a class="" href="#conditionQueryRF">
+                                        <i class="fa fa-fw fa-table"></i>
+                                        <span>生产报表</span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="#conditionQueryRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>电芯数据查询报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#processProductionRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>工序生产报表</span>
+                                            </a>
+                                        </li>
+                                        <!-- <li>
+                                            <a href="#productionStatusRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>生产状态报表</span>
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <a href="#productionReachRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>计划达成率报表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="treeview">
+                                    <a class="" href="#devicesOEERF">
+                                        <i class="fa fa-fw fa-hourglass-2"></i>
+                                        <span>设备报表</span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="#devicesOEERF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>设备OEE报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#devicesAbnormalRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>设备异常报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#devicesMaintainRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>设备维修报表</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="treeview">
+                                    <a class="" href="#IQCgoodRateRF">
+                                        <i class="fa fa-fw fa-hourglass-2"></i>
+                                        <span>质量报表</span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="#IQCgoodRateRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>IQC优率报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#IQCbadnessRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>IQC不良内容统计及分布</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#PQCgoodRateRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>PQC优率报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#PQCbadnessRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>PQC不良内容统计及分布</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#FQCgondAndBadnessRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>FQC优率报表</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#processGoodAndBadnessRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>工序优率及不良率</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#processBadProduct">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>综合坏品及坏品分布</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#workOrderGoodAndBadnessRF">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>工单优率及不良率</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#workOrdersBadProduct">
+                                                <i class="fa fa-fw fa-circle-o"></i>
+                                                <span>工单坏品及坏品分布</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mainLeft -->
+
+                    <!-- 右边 -->
+                    <div id="mainRight" class="col-sm-10">
+
+                        <!-- 右边顶部 -->
+                        <div id="mainRightTop">
+                            <div id="mainRightTopMenu">
+
+                                <!-- 右边顶部工具栏 -->
+                                <div class="menu-toolbar clearfix">
+                                    <ul class="menu-toolbar-left">
+                                        <li>
+                                            <a class="sidebar-toggle" href="javascript:;"><i class="fa fa-bars"></i></a>
+                                        </li>
+                                    </ul>
+                                    <ul class="menu-toolbar-right pull-right">
+                                        <li class="toolbar-user">
+                                            <img src="images/demo/demo.jpg" />
+                                            <span id="showUserName">&nbsp</span>
+                                        </li>
+                                        <li>
+                                            <a id="exitSystem" href="javascript:;"><i class="fa fa-power-off"></i></a>
+                                        </li>
+                                        <li>
+                                                <!-- 					<a href="javascript:;"><i class="fa fa-gears"></i></a> -->
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- 右边顶部一级导航栏 -->
+                                <div class="menu-navbar">
+                                    <div class="row">
+                                        <div class="col-xs-1">
+                                            <div class="menu-navbar-pre"><i class="fa fa-angle-left"></i></div>
+                                        </div>
+                                        <div class="col-xs-10">
+                                            <div class="menu-navbar-nav swiper-container">
+                                                <div class="swiper-wrapper">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <div class="menu-navbar-next"><i class="fa fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 右边内容区域 -->
+                        <div id="mainRightContent">
+                            <div id="LevelTwoMenuContainer" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- 条件查询报表 -->
+                                    <div id="conditionQueryRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>电芯数据查询报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="conditionQueryRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 工序生产报表 -->
+                                    <div id="processProductionRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>工序生产报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="processProductionRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- 生产状态报表 -->
+                                    <div id="productionStatusRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>生产状态报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="productionStatusRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 计划达成率报表 -->
+                                    <div id="productionReachRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>计划达成率报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="productionReachRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 设备OEE报表 -->
+                                    <div id="devicesOEERF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>设备OEE报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="devicesOEERFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 设备异常报表 -->
+                                    <div id="devicesAbnormalRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>设备异常报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="devicesAbnormalRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 设备维修报表 -->
+                                    <div id="devicesMaintainRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>设备维修报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="devicesMaintainRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- IQC优率报表 -->
+                                    <div id="IQCgoodRateRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>IQC优率报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="IQCgoodRateRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- IQC不良内容统计及分布 -->
+                                    <div id="IQCbadnessRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>IQC不良内容统计及分布</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="IQCbadnessRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- PQC优率报表 -->
+                                    <div id="PQCgoodRateRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>PQC优率报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="PQCgoodRateRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- PQC不良内容统计及分布 -->
+                                    <div id="PQCbadnessRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>PQC不良内容统计及分布</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="PQCbadnessRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- FQC优率报表 -->
+                                    <div id="FQCgondAndBadnessRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>FQC优率报表</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="FQCgondAndBadnessRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 工序优率及不良率 -->
+                                    <div id="processGoodAndBadnessRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>工序优率及不良率</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="processGoodAndBadnessRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 综合坏品及坏品分布 -->
+                                    <div id="processBadProduct" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>综合坏品及坏品分布</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="processBadProductInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 工单优率及不良率 -->
+                                    <div id="workOrderGoodAndBadnessRF" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>工单优率及不良率</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="workOrderGoodAndBadnessRFInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 工单坏品及坏品分布 -->
+                                    <div id="workOrdersBadProduct" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>工单坏品及坏品分布</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="workOrdersBadProductInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            <!-- mainRightContent -->
+                            </div>
+                        <!-- mainRight -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+                <!-- wrapper -->
+        <!-- 模态框 -->
+        <div class="">
+            <!-- 通用模态框,第一层调用 -->
+            <div class="modal fade" id="commonModal1">
+            </div>
+
+            <!-- 通用模态框,第二层调用 -->
+            <div class="modal fade" id="commonModal2">
+            </div>
+
+            <!-- 通用模态框,第三层调用 -->
+            <div class="modal fade" id="commonModal3">
+            </div>
+
+            <!-- 通用模态框,第四层调用 -->
+            <div class="modal fade" id="commonModal4">
+            </div>
+
+            <!-- 选择生产计划批次模态框 -->
+            <div class="modal fade" id="batchNumberModel">
+            </div>
+
+            <!-- 选择车间模态框 -->
+            <div class="modal fade" id="workshopModel">
+            </div>
+
+            <!-- 选择工序模态框 -->
+            <div class="modal fade" id="workstageModal">
+            </div>
+
+            <!-- 选择工序模态框 -->
+            <div class="modal fade" id="selectDevicesTypeModal">
+            </div>
+        </div>
+        <!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jquery-cookie -->
+		<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<!-- js动画 -->
+		<script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- sweetalert弹窗 -->
+		<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+		<!--Moment日期处理-->
+		<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+		<!-- swiper轮播图 -->
+		<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- mydate97日期插件-->
+		<script src="js/vendors/dateControl/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- mock.js-->
+		<script src="js/vendors/mock.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- vue -->
+		<script src="js/vue/vue.js"></script>
+		<!-- <script src="js/vue/vueCommon.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/qualityManagement.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/quality/basicsMessage.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- element-ui -->
+		<script src="js/vue/element-ui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- JS -->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/basevalue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/reportForms/reportFormsReqUrl.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/reportForms/reportForms.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/reportForms/reportFormsSelect.js" type="text/javascript" charset="UTF-8"></script>
+
+
+		<script>
+
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* 登录相关页面css */
+body, html {
+	font-size: 100%;
+}
+/* Reset */
+body {
+	font-weight: 500;
+	font-size: 1.05em;
+	font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica,
+		Arial, sans-serif;
+	background: url(../images/backgrounds/login-bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+}
+
+a {
+	color: #fff;
+	outline: none;
+	text-decoration: none;
+}
+
+.html-container {
+	margin: 0 auto;
+}
+/* 头部 */
+.html-header {
+	padding: 1em 190px 1em;
+	letter-spacing: -1px;
+	text-align: center;
+	border-bottom: 1px solid;
+	color: #fff;
+}
+/* 标题 */
+.html-header h1 {
+	color: #fff;
+	font-weight: 600;
+	font-size: 1.8em;
+	line-height: 1;
+	margin-bottom: 0;
+}
+
+.html-header h1 span {
+	display: block;
+	font-size: 60%;
+	font-weight: 400;
+	padding: 0.8em 0 0.5em 0;
+	color: #c3c8cd;
+}
+/* 当屏幕小于1024px时标题样式 */
+@media screen and (max-width: 1024px) {
+	.html-header {
+		padding: 2em 10% 2em;
+	}
+	.html-header h1 {
+		font-size: 1.4em;
+	}
+}
+/* 当屏幕小于640px时标题样式 */
+@media screen and (max-width: 640px) {
+	.html-header {
+		padding: 1.5em 10% 1.5em;
+	}
+	.html-header h1 {
+		font-size: 1em;
+	}
+}
+
+/* 表单 */
+.form-horizontal {
+	margin: 0px auto;
+	background: rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+	padding-bottom: 40px;
+	text-align: center;
+	border-radius: 60px 10px 60px 10px;
+	color: #fff;
+}
+/* 表单标题 */
+.form-horizontal .heading {
+	display: block;
+	font-size: 30px;
+	font-weight: 700;
+	padding: 30px 0;
+	border-bottom: 1px solid #f0f0f0;
+	margin-bottom: 30px;
+}
+/* 小号表单标题 */
+.form-horizontal .heading-re {
+	display: block;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 10px 0;
+	border-bottom: 1px solid #f0f0f0;
+	margin-bottom: 10px;
+}
+/* 输入框组div */
+.form-horizontal .form-group {
+	padding: 0 20px;
+	margin: 0 0 25px 0;
+	position: relative;
+}
+
+.form-group .control-label {
+	font-size: 16px;
+}
+/* 输入框样式 */
+.form-horizontal .form-control {
+	background: rgba(255, 255, 255, 0.8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8ffffff,
+		endColorstr=#C8ffffff);
+	border: none;
+	box-shadow: none;
+	padding: 0 20px 0 45px;
+	height: 40px;
+	transition: all 0.3s ease 0s;
+}
+/* 提示信息 */
+.form-horizontal .notice {
+	display: block;
+	margin-bottom: -25px;
+	font-size: 0.8em;
+}
+/* 输入框获取焦点 */
+.form-horizontal .form-control:focus {
+	background: #fff;
+	box-shadow: 0 3px 7px 2px rgba(255, 255, 255, 0.5) inset, 0 3px 7px 0
+		rgba(255, 255, 255, 0.5);
+	outline: 0 none;
+}
+/* 验证码输入框 */
+.form-horizontal .form-group .verification {
+	width: 55%;
+	float: left;
+	line-height: 40px;
+	height: 40px;
+}
+/* 注册页单选框 */
+.form-horizontal .main-checkbox {
+	float: left;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	margin: 5px 0 0 5px;
+}
+.form-horizontal .main-checkbox label {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+.form-horizontal .main-checkbox input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    background-color: #00b4ef;
+    line-height: 20px;
+    color:#00b4ef;
+}
+.form-horizontal .main-checkbox input[type=checkbox]:after  {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 14px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #00b4ef;
+}
+
+/* 注册协议 */
+.form-horizontal .text {
+	float: left;
+	margin-left: 7px;
+	line-height: 20px;
+	padding-top: 9px;
+	text-transform: capitalize;
+}
+/* 单选框后面文本链接 */
+.form-horizontal .form-group .agree-link {
+	display: block;
+	font-size: 14px;
+	margin-top: 8px;
+	margin-left: 1%;
+	color: #00b4ef;
+	text-decoration: underline;
+}
+
+.form-horizontal .form-group .agree-link:hover {
+	display: block;
+	font-size: 14px;
+	margin-top: 8px;
+	margin-left: 1%;
+	color: #00ff40;
+}
+/* 提交按钮 */
+.form-horizontal .sub {
+	float: right;
+	font-size: 14px;
+	color: #fff;
+	background: #00b4ef;
+	border-radius: 10px;
+	padding: 10px 25px;
+	border: none;
+	text-transform: capitalize;
+	transition: all 0.5s ease 0s;
+}
+
+/*表单底部链接 */
+.form-horizontal .link a {
+	color: #00b4ef;
+}
+
+.form-horizontal .link a:hover {
+	color: #00ff00;
+}
+/* 当屏幕小于479px时部分更改的样式 */
+@media only screen and (max-width: 479px) {
+	.form-horizontal {
+		padding: 0px;
+	}
+	.form-horizontal .heading {
+		font-size: 20px;
+	}
+	.form-horizontal .form-group {
+		padding: 5px;
+	}
+	.form-horizontal .form-group .verification {
+		width: 100%;
+	}
+	.form-horizontal .btn {
+		padding: 10px 20px;
+	}
+}
+/*底部链接 */
+.footer p {
+	color: #c0c0c0;
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* ie提示 */
+#ieNotice{
+	display:none;
+    position:fixed;
+    top:0px;
+    width:100%;
+    height:35px;
+    line-height:35px;
+    color:#E67E22;
+    text-align:center;
+}
+#ieNotice p{
+	margin:0 auto;
+	width:620px;
+	text-align:center;
+/*     background-color:#0B2D53; */
+}
+#ieNotice p a{
+   color:#0f0;
+}
+#ieNotice p a:hover{
+   color:#0f0;
+}
+#ieNotice button{
+	width:35px;
+	height:35px;
+	border:0px solid #fff;
+	background-color:#0B2D53;
+}
+
+

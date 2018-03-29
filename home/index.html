@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>麦子智能科技_智慧工厂_工业4.0_MES_生产执行系统_生产管理系统</title>
+<meta name="description" content="深圳市麦子智能科技有限公司成立于2014年，结合设备行业优势与专业软件研发及服务的相互又是，致力于成为新能源行业智能制造专家，主要为锂电生产企业提供智慧工厂、智能制造相关的企业IT规划、MES系统建设、系统集成、数据分析等咨询与服务。" />
+<meta name="keywords" content="mes 生产执行系统 智能制造 工业4.0 智慧工厂 生产管理系统" />
+<meta name="author" content="imes" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<link rel="stylesheet" type="text/css" href="style/css/style_2_common.css" />
+<link rel="stylesheet" type="text/css" href="style/css/style_2_portal_index.css" />
+<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="style/js/common.js" type="text/javascript"></script>
+<script src="style/js/pace.js" type="text/javascript"></script>
+<link href="style/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+   PTM(window).load(function(){
+   // Animate loader off screen
+     PTM (".loading").hide()
+  });
+
+
+</script>
+</head>
+
+<body id="nv_portal" class="pg_index">
+<div class="loading"><img src="uploads/loading.gif"></div>
+
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="toptb" class="cl" style="display:none;"> </div>
+<div id="hd" style="background:#FFF; height:60px; border-bottom:1px solid #E6E6E6; ">
+  <div class="clear"></div>
+  <div id="week_nav">
+    <div class="wk_navwp">
+      <div class="wk_lonav">
+        <div class="wk_logo">
+          <h2><a href="index.html" title=""><img src="style/images/logo.png" alt="" border="0" /></a></h2>
+        </div>
+        <div class="wk_inav">
+          <ul class="nav">
+            <li><a href="index.html">网站首页</a></li>
+
+            <li>
+              <a href="case.html">产品介绍</a>
+            </li>
+
+            <li><a href="news.html" >新闻资讯</a></li>
+
+            <li><a href="about.html" >关于我们</a></li>
+
+            <li><a href="contact.html" >联系我们</a></li>
+
+            <li>
+              <a  href="http://www.imes-inc.ser:8082/mes/login.html"  id="toLogin" >登录</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="mu" class="cl">
+  <div class="wp"> </div>
+</div>
+<script src="style/js/week_nav.js" type="text/javascript"></script>
+<div id="wp" class="wp">
+<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="style/js/jquery.fullpage.min.js" type="text/javascript"></script>
+<script src="style/js/scoll.js" type="text/javascript"></script>
+<script src="style/js/addons.js" type="text/javascript"></script>
+<script src="style/js/case.js" type="text/javascript"></script>
+<script src="style/js/tab.lib.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+PTM(document).ready(function(){
+
+PTM(".wk_about").tab({
+
+tabId:"#wk_about_menu",tabTag:"a",conId:"#wk_about_div",conTag:"div.wk_aaa",act:"mouseover",effact: "scrollx",dft:0
+
+});
+
+});
+
+</script>
+</div>
+<div class="clear"></div>
+<div class="wk_index_main">
+
+  <!--page1-->
+
+  <div class="section page1">
+    <div class="wk_slide-wrap">
+      <ul>
+        <li id="wk_s1" class="wk_selected">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner13"><img src="style/images/banner13.png" alt="" /></div>
+            <div class="wk_banner12"><img src="style/images/11.png" alt="" /></div>
+            <div class="wk_banner14"><img src="style/images/banner14.png" alt="" /></div>
+
+          </div>
+        </li>
+        <li id="wk_s2">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner22"><img src="style/images/12.png" alt="" /></div>
+            <div class="wk_banner23"><img src="style/images/13.png" alt="" /></div>
+            <!-- <div class="wk_banner24"><a href="#" target="_blank">了解更多</a></div> -->
+            <div class="wk_banner24"><a href="case.html">了解更多</a></div>
+          </div>
+        </li>
+        <li id="wk_s3">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner32"><img src="style/images/14.png" alt="" /></div>
+            <div class="wk_banner33"><img src="style/images/15.png" alt="" /></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="wk_arrow"><a href="#service"><img src="style/images/ico3.png" /></a></div>
+    <div class="wk_slide-nav-wrap">
+      <div id="wk_slide-nav">
+        <ul>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container active" data-index="0"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            <div class="nav-text">MES系统</div>
+            </a></li>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container" data-index="1"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            <div class="nav-text">智能制造</div>
+            </a></li>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container" data-index="2"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            <div class="nav-text">生态链</div>
+            </a></li>
+          <li class="wk_nav-line"> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--page2-->
+
+  <div class="section page2">
+    <div class="wk_fwxm">
+      <ul>
+        <li class="wk_li1">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>数据对接方式多样化</h2>
+            <p>DATA DOCKING</p>
+            <div class="wk_fwxm_des">Mes系统能够与市面上常见的ERP系统进行无缝链接，实现实时数据共享；另外，Mes还可以 通过PLC或者数据对接从SPI、AOI等自动化设备自动抓取数据，实现数据传输自动化。</div>
+            <div class="wk_ljzx"><a href="contact.html" target="_blank">立即咨询</a></div>
+          </div>
+        </li>
+        <li class="wk_li2">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>系统功能模块灵活调配</h2>
+            <p>SYSTEM FUNCTION</p>
+            <div class="wk_fwxm_des">Mes系统可根据不同产品生产要求，定义不同的工艺流程与物料配置，实现多级工艺嵌套配置，同时系统会自动记录工单已经配置好的内容，下次生产此工单时系统将自动选择配置进行生产。</div>
+            <div class="wk_ljzx"><a href="contact.html" target="_blank">立即咨询</a></div>
+          </div>
+        </li>
+        <li class="wk_li3">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>物料全程标示及追溯</h2>
+            <p>MATERIAL TRACEABILITY</p>
+            <div class="wk_fwxm_des">Mes系统对物料进行全程管理，物料从入库时就进行标示。对物料的入库、库存、领料、发料全程进行防呆管控，避免物料收发错误，记录物料的收发人、时间、物料名、数量等内容，并在后续生产流通环节控制它们的流转。</div>
+            <div class="wk_ljzx"><a href="contact.html" target="_blank">立即咨询</a></div>
+          </div>
+        </li>
+        <li class="wk_li4">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>自动化设备控制技术</h2>
+            <p>AUTOMATION EQUIPMENT</p>
+            <div class="wk_fwxm_des">Mes系统将拥有自主研发的自动化标签贴标、数据采集模组及PLC数据对接模组，在生产时采用自动贴标；在生产设备环节，采用PLC自动数据对接模组，实时采集机台数据；为企业全自动化管理提供最有效的帮助，同时大大减少企业的生产成本。</div>
+            <div class="wk_ljzx"><a href="contact.html" target="_blank">立即咨询</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--page3-->
+ <!--
+  <div class="section page3">
+    <div class="case">
+      <h2><img src="style/images/case_title.png" alt="" /></h2>
+      <h2 class="wk_h2"><img src="style/images/case_title1.png" alt="" /></h2>
+
+      <div class="wk_scrollcontainer">
+        <ul>
+          <li>
+            <div class="wk_case_list"> <a href="case.html" target="_blank" title="Jackery app">
+              <div class="wk_case_img"><img src="./style/images/1-1.png" width="275" height="190" alt="Jackery app"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="为律生活打造在线法律服务平">
+              <div class="wk_case_img"><img src="./style/images/1-2.png" width="275" height="190" alt="为律生活打造在线法律服务平"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="优品汇手机助手">
+              <div class="wk_case_img"><img src="./style/images/1-3.png" width="275" height="190" alt="优品汇手机助手"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="我开始健身pad端app">
+              <div class="wk_case_img"><img src="./style/images/1-4.png" width="275" height="190" alt="我开始健身pad端app"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="四维图新 - 趣逛地图">
+              <div class="wk_case_img"><img src="./style/images/1-5.png" width="275" height="190" alt="四维图新 - 趣逛地图"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="硅谷明星教育团队米豆教育">
+              <div class="wk_case_img"><img src="./style/images/1-6.png" width="275" height="190" alt="硅谷明星教育团队米豆教育"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="携手正量网开创工程建设电商">
+              <div class="wk_case_img"><img src="./style/images/1-7.png" width="275" height="190" alt="携手正量网开创工程建设电商"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="case.html" target="_blank" title="vivo Xplay5双曲面屏">
+              <div class="wk_case_img"><img src="./style/images/1-8.png" width="275" height="190" alt="vivo Xplay5双曲面屏"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+
+          </li>
+        </ul>
+
+        <!-首页-案例-内部调用代码设置位置-->
+
+    <!--   </div>
+    </div>
+    <script type="text/javascript">
+
+PTM(function(){
+
+PTM(".case").Xslider({
+
+unitdisplayed:1,
+
+numtoMove:1,
+
+speed:500,
+
+scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
+
+})
+
+})
+
+</script>
+  </div>  -->
+
+
+  <!--page4-->
+
+  <div class="section page4">
+    <div class="wk_about">
+      <h2><img src="style/images/about_title.png" alt="" /></h2>
+      <h2 class="wk_h2"><img src="style/images/about_title1.png" alt=""/></h2>
+      <div class="wk_about_menu" id="wk_about_menu"><a class="active">简介</a><a>动态</a><a>历程</a></div>
+      <div class="wk_about_div" id="wk_about_div">
+        <div class="wk_about_main wk_aaa">
+          <div class="wk_about_left"><img src="style/images/about_img.png" alt="" /></div>
+          <div class="wk_about_right">
+            <div class="wk_about_top"> <a><img src="style/images/about_ico1.png" alt="" /></a> <a><img src="style/images/about_ico2.png" alt="" /></a> <a><img src="style/images/about_ico3.png" alt="" /></a> <a style="margin-right:0;"><img src="style/images/about_ico4.png" alt="" /></a>
+              <div class="clear"></div>
+            </div>
+            <div class="wk_about_des">深圳市麦子智能科技有限公司成立于2014年，是东莞市天蓝智能装备有限公司设立的控股子公司，结合设备行业优势与专业软件研发及服务的相互优势，致力于成为新能源行业智能制造专家，主要为锂电生产企业提供智慧工厂、智能制造相关的企业IT规划、MES系统建设、系统集成、数据分析等咨询与服务。
+            </div>
+          </div>
+        </div>
+        <div class="wk_news_list wk_aaa">
+          <ul>
+            <li >
+              <dl>
+                <dt>2014-03-17</dt>
+              </dl>
+              <h4><a href="" title="什么是MES" target="_blank">什么是MES</a></h4>
+              <div class="wk_news_des">MES系统即制造执行系统，是企业信息集成的纽带，企业实施敏捷制造战略，实现车间生产敏捷化的基本手段...</div>
+              <div class="wk_news_more"><a href="#javascript:;" title="阅读更多" target="_blank"></a></div>
+            </li>
+<li >
+              <dl>
+                <dt>2016-05-12</dt>
+              </dl>
+              <h4><a href="#javascript:;" title="工业4.0时代--自主可控、定制化的“互联网+”制造" target="_blank">工业4.0时代--自主可控、定制化的“互联网+”制造</a></h4>
+              <div class="wk_news_des">实现工业4.0的核心是智能工厂与智能生产，作为目标核心的载体智能工厂，即分散的、具备一定智能化的生产设备，在实现了数据交互之后能够形成高智能话的有机体，实现网络化分布式的生产设施...</div>
+              <div class="wk_news_more"><a href="#javascript:;" title="阅读更多" target="_blank"></a></div>
+            </li>
+<li >
+              <dl>
+                <dt>2016-06-15</dt>
+              </dl>
+              <h4><a href="#javascript:;" title="如何提升18650后端生产自动化" target="_blank">如何提升18650后端生产自动化</a></h4>
+              <div class="wk_news_des">据了解，该技术装置可解决送膜长短不一，切膜边不整齐的弊端。在抱夹辅助配合下生产效率提高，目前产量已≧65 PCS/min。使用寿命在1000万次以上...</div>
+              <div class="wk_news_more"><a href="#javascript:;" title="阅读更多" target="_blank"></a></div>
+            </li>
+<li >
+              <dl>
+                <dt>2016-06-15</dt>
+              </dl>
+              <h4><a href="#javascript:;" title="电池厂情系“全自动化”，为何难找理想的设备厂伴侣？" target="_blank">电池厂情系“全自动化”，为何难找理想的设备厂伴侣？</a></h4>
+              <div class="wk_news_des">动力电池及高端数码锂电池生产线正逐步走向全自动化。电池厂正在积极改造升级旧生产线，并希望提高新建生产线的自动化水平。近期高工锂电便常常接到电池厂的来电咨询：“你们知道哪些设备厂可以做整线设备的？我们新投产线需要...</div>
+              <div class="wk_news_more"><a href="#javascript:;" title="阅读更多" target="_blank"></a></div>
+            </li>
+
+          </ul>
+
+          <!--首页-新闻动态-内部调用代码设置位置-->
+
+        </div>
+        <div class="wk_history wk_aaa">
+          <div class="wk_blk_18"> <a class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></a>
+            <div class="wk_pcont" id="ISL_Cont_11">
+              <div class="ScrCont">
+                <div id="List1_1">
+                  <div id="List1_1">
+                    <div class="wk_fzlc_s">
+                      <h4>2009年4月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img1.jpg"></dt>
+                        <dd>公司涉足圆柱镍氢电池，开发一部分非标的装配设备...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_b">
+                      <h4>2011年9月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img2.jpg"></dt>
+                        <dd>开发圆柱形镍氢电池卧式套膜机...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_s">
+                      <h4>2012年7月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img3.jpg"></dt>
+                        <dd>开发圆柱18650立式套膜机并将磁悬浮原理运用到包装机上，发明磁悬浮式套膜杆机构...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_b">
+                      <h4>2013年5月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img4.jpg"></dt>
+                        <dd>移师东莞塘厦...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_s">
+                      <h4>2013年10月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img5.jpg"></dt>
+                        <dd>推出自动包装线概念，整合电池清洗、套膜、分选工序，并开发智能仓储自动化设备...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_b">
+                      <h4>2014年4月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img6.jpg"></dt>
+                        <dd>推出动力电池装配以及化成自动化设备...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_s">
+                      <h4>2014年9月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img7.jpg"></dt>
+                        <dd>将立体仓库概念运用在电池静置工序，极大节约静置空间以及环境控制费用
+                          ...</dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_b">
+                      <h4>2015年7月</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/history_img8.jpg"></dt>
+                        <dd>中外合作，实施“走出去、引进来”战略，涉足工业4.0领域成功开发AGV及MES系统...</dd>
+                      </dl>
+                    </div>
+                  </div>
+
+                  <!--首页-发展历程-内部调用代码设置位置-->
+
+                </div>
+                <div id="List2_1"></div>
+              </div>
+            </div>
+            <a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()" onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a> </div>
+          <div class="c"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--page5-->
+
+  <div class="section page5">
+    <div class="wk_service">
+      <h2><img src="style/images/service_title.png" alt="" /></h2>
+      <h2 class="wk_h2"><img src="style/images/service_title1.png" alt="" /></h2>
+      <div class="wk_service_xian"></div>
+      <div class="wk_service_main">
+        <ul>
+          <li> <img src="style/images/1-11.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-12.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-13.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-14.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-15.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-16.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-17.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-18.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-19.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-20.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-21.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-22.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-23.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-24.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+          <li> <img src="style/images/1-25.png" alt="" /> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </li>
+        </ul>
+
+        <!--首页-合作客户-内部调用代码设置位置-->
+
+      </div>
+    </div>
+  </div>
+
+  <!--page6-->
+
+  <div class="section page6">
+    <div class="wk_contact">
+      <div class="wk_contact_left"><img src="style/images/5.jpg" alt="" /></div>
+      <div class="wk_contact_right">
+        <h2><img src="style/images/contact_title.png" alt="" /></h2>
+        <ul class="wk_cont_div">
+          <li class="wk_serve-ico-kf"><span class="wk_cont_a"><img src="style/images/phone.png" /></span><a href="#javascript:;">158-9975-5556（陈先生）</a></li>
+          <li class="wk_serve-ico-kf"><span class="wk_cont_a"><img src="style/images/html.png" /></span><a href="http://www.imes.ai" target="_blank">www.imes.ai</a></li>
+          <li><span class="wk_cont_c"></span>hr@imes-inc.com</li>
+          <li><span class="wk_cont_d"></span>深圳市龙华区和平路64号振华工业园B506</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--index_footer-->
+
+<div class="section fp-auto-height">
+  <div class="wk_footer_side">
+    <div class="wk_footer"><a title="" href="#javascript:;">版权所有:Copyright © 2017 天蓝智能科技（深圳）有限公司</a> <a href="#javascript:;" title=""> All rights reserved</a> <br />
+      <a href='#javascript:;'>技术支持:</a><a href='#javascript:;'>麦子智能科技</a></div>
+  </div>
+</div>
+
+</div>
+<script src="style/js/banner.js" type="text/javascript"></script>
+<div class="clear"></div>
+<div class="wp"><!--[diy=diy1]-->
+
+  <div id="diy1" class="area"></div>
+
+  <!--[/diy]--></div>
+<div class="clear"></div>
+<div id="wp" class="wp"> </div>
+<div id="wk_ft" style="display:none; ">
+  <div id="ft" class="wp cl" style="border:0;"> </div>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;">
+</ul>
+
+<link href="style/css/service.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+PTM(document).ready(function(){
+
+PTM('#close_im').bind('click',function(){
+
+PTM('#main-im').css("height","0");
+
+PTM('#im_main').hide();
+
+PTM('#open_im').show();
+
+});
+
+PTM('#open_im').bind('click',function(e){
+
+PTM('#main-im').css("height","272");
+
+PTM('#im_main').show();
+
+PTM(this).hide();
+
+});
+
+
+
+PTM(".weixing-container").bind('mouseenter',function(){
+
+PTM('.weixing-show').show();
+
+})
+
+PTM(".weixing-container").bind('mouseleave',function(){
+
+PTM('.weixing-show').hide();
+
+});
+
+});
+
+</script>
+
+<script src="style/js/home.js" type="text/javascript"></script>
+<div id="scrolltop"> <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span> </div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<div id="discuz_tips" style="display:none;"></div>
+<script src="style/js/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

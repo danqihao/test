@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- 中文简体 -->
+
+	<!--<head>-->
+		<head lang="zh-cmn-Hans">
+
+		<!-- 编码方式 -->
+		<meta charset="UTF-8">
+		<!-- IE兼容模式 -->
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- 响应式设置 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 选择渲染引擎 -->
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<!-- 内容安全政策-->
+		<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+		<!-- 应用名称-->
+		<meta name="application-name" content="天蓝MES系统">
+		<!-- 非常简短的描述（少于 10 个字） -->
+		<meta name="abstract" content="制造企业生产过程执行管理系统">
+		<!-- 简短描述（限制 150 字符）-->
+		<meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+		<!-- 网站主题 -->
+		<meta name="subject" content="MES">
+		<!-- 完整的域名或网址 -->
+		<meta name="url" content="">
+		<!-- 编辑器 -->
+		<meta name="generator" content="HBuilder">
+
+		<!-- 相对URL -->
+		<!-- <base href="http://localhost/mes/views/"> -->
+
+		<!-- 作者信息 -->
+<!-- 		<link rel="author" href="http://www.blue-skyauto.com/show_116.html"> -->
+<!-- 		<link rel="me" href="http://www.blue-skyauto.com/" type="text/html"> -->
+<!-- 		<link rel="me" href="tl002@blue-skyauto.com"> -->
+<!-- 		<link rel="me" href="+86 18825858567"> -->
+		<!-- LOGO -->
+		<!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+		<link rel="icon" href="" sizes="32x32" type="image/png">
+		<link rel="icon" href="" sizes="48x48" type="image/png">
+		<link rel="icon" href="" sizes="62x62" type="image/png">
+		<link rel="icon" href="" sizes="192x192" type="image/png"> -->
+		<!-- 版权 -->
+		<!-- <link rel="copyright" href=""> -->
+
+		<!-- CSS插件 -->
+		<!-- sweetalert弹窗 -->
+		<link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+		<!-- animate动画 -->
+		<link rel="stylesheet" href="css/vendors/animate.css" />
+		<!-- hover鼠标悬浮 -->
+		<link rel="stylesheet" href="css/vendors/hover-min.css" />
+		<!-- font-awesome字形图标 -->
+		<link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+		<!-- swiper轮播图 -->
+		<link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+		<title>数据看板</title>
+
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div id="mainLeft" class="col-sm-2 hidden-xs">
+						<div id="mainLeftSidebar">
+
+							<!-- LOGO -->
+							<div class="sidebar-logo">
+								天蓝<b>MES</b>
+							</div>
+
+							<!-- 搜索 -->
+							<!--<div class="sidebar-search">
+								<div class="input-group input-group-sm">
+									<input class="form-control" type="text" placeholder="搜索" />
+									<span class="input-group-btn">
+										<button class="btn btn-default">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
+								</div>
+							</div>-->
+
+							<!-- 边栏导航标题 -->
+							<div class="sidebar-nav-header">
+								<span>数据看板</span>
+							</div>
+							<ul class="sidebar-nav">
+								<li class="treeview">
+									<a class="treeview-active" href="javascript:void(0);">
+										<i class="fa fa-fw fa-address-book-o"></i>
+										<span>一级菜单</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li>
+											<a href="#devicesManage1-1"><i class="fa fa-fw fa-circle-o"></i><span>二级菜单</span></a>
+										</li>
+										<li>
+											<a href="#devicesManage1-2"><i class="fa fa-fw fa-circle-o"></i><span>二级菜单</span></a>
+										</li>
+										<li>
+											<a href="#devicesManage1-3"><i class="fa fa-fw fa-circle-o"></i><span>二级菜单</span></a>
+										</li>
+										<li>
+											<a href="#devicesManage1-4"><i class="fa fa-fw fa-circle-o"></i><span>二级菜单</span></a>
+										</li>
+										<li>
+											<a href="#devicesManage1-5"><i class="fa fa-fw fa-circle-o"></i><span>二级菜单</span></a>
+										</li>
+									</ul>
+								</li>
+								<li class="treeview">
+									<a class="" href="#devicesManage2">
+										<i class="fa fa-fw fa-address-book-o"></i>
+										<span>一级菜单</span>
+									</a>
+								</li>
+								<li class="treeview">
+									<a class="" href="#devicesManage3">
+										<i class="fa fa-fw fa-address-book-o"></i>
+										<span>一级菜单</span>
+									</a>
+								</li>
+								<li class="treeview">
+									<a class="" href="#devicesManage4">
+										<i class="fa fa-fw fa-address-book-o"></i>
+										<span>一级菜单</span>
+									</a>
+								</li>
+								<li class="treeview">
+									<a class="" href="#devicesManage5">
+										<i class="fa fa-fw fa-address-book-o"></i>
+										<span>一级菜单</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- mainLeft -->
+
+					<div id="mainRight" class="col-sm-10">
+						<div id="mainRightTop">
+							<div id="mainRightTopMenu">
+
+								<!-- 顶部工具栏 -->
+								<div class="menu-toolbar">
+									<ul class="menu-toolbar-left clearfix">
+										<li>
+											<a class="sidebar-toggle" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+										</li>
+									</ul>
+
+									<ul class="menu-toolbar-right pull-right clearfix">
+										<li class="toolbar-user">
+											<img src="images/demo/demo.jpg" />
+											<span id="showUserName">admin</span>
+										</li>
+										<li>
+											<a href="javascript:void(0);"><i class="fa fa fa-flag-o"></i><span class="badge badge-success">5</span></a>
+										</li>
+										<li>
+											<a href="javascript:void(0);"><i class="fa fa-bell-o"></i><span class="badge badge-warning">3</span></a>
+										</li>
+										<li>
+											<a href="javascript:void(0);"><i class="fa fa-envelope-o"></i><span class="badge badge-danger">2</span></a>
+										</li>
+										<li>
+											<a id="exitSystem" href="javascript:void(0);"><i class="fa fa-power-off"></i></a>
+										</li>
+										<li>
+											<a href="javascript:void(0);"><i class="fa fa-gears"></i></a>
+										</li>
+									</ul>
+								</div>
+
+								<!-- 边栏导航栏 -->
+								<div class="menu-navbar">
+									<div class="row">
+										<div class="col-xs-1">
+											<div class="menu-navbar-pre"><i class="fa fa-angle-left"></i></div>
+										</div>
+										<div class="col-xs-10">
+											<div class="menu-navbar-nav swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide slide-active">
+														<a class="building" href="javascript:void(0);">看板报表</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="javascript:void(0);" class="building">工艺管控</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="http://localhost/mes/setting.do">系统管理</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="http://localhost/mes/accessPlan.do">生产计划</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="javascript:void(0);" class="building">工单管理</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="http://localhost/mes/accessDevicesManage.do">设备监控</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="javascript:void(0);" class="building">仓储管理</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="javascript:void(0);" class="building">质量管控</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="javascript:void(0);" class="building">追溯模块</a>
+													</div>
+													<div class="swiper-slide">
+														<a href="http://localhost/mes/accessStaff.do">员工管理</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-1">
+											<div class="menu-navbar-next"><i class="fa fa-angle-right"></i></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div id="mainRightContent">
+							<div id="devicesManageContent" class="swiper-container">
+								<div class="swiper-wrapper">
+									<div id="devicesManage1-1" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#haha">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#haha2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="javascript:void(0);">选项三</a>
+																	</li>
+																	<li>
+																		<a href="javascript:void(0);">选项四</a>
+																	</li>
+																	<li>
+																		<a href="javascript:void(0);">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-sm-12">
+
+												</div>
+											</div>
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="haha">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="content-body-alert">
+																	<div class="alert alert-danger alert-dismissable fade in">
+																		<button type="button" class="close" data-dismiss="alert">
+																		<i class="fa fa-close"></i>
+																	</button>
+																		<span>#Y07机器进料故障！</span>
+																		<a href="javascript:void(0);" class="alert-link">详情</a>
+																	</div>
+																</div>
+															</div>
+
+															<div class="col-sm-12">
+																<div class="alert alert-warning alert-dismissable fade in">
+																	<button type="button" class="close" data-dismiss="alert">
+																		<i class="fa fa-close"></i>
+																	</button>
+																	<span>#008仓库中#FA2383物料不足，请及时补充！</span>
+																	<a href="javascript:void(0);" class="alert-link">详情</a>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-sm-8">
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="content-body-carousel  swiper-container">
+																			<div class="swiper-wrapper">
+																		        <div class="swiper-slide" style="background-image: url(images/demo/slide-01.png);"></div>
+																		        <div class="swiper-slide" style="background-image: url(images/demo/slide-02.jpg);"></div>
+																		        <div class="swiper-slide" style="background-image: url(images/demo/slide-03.jpg);"></div>
+																			</div>
+																	        <div class="swiper-pagination"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="content-body-workFlow panel panel-primary">
+																			<div class="panel-heading">
+																				<div class="panel-title">
+																					<span>工作流程</span>
+																				</div>
+																			</div>
+																			<div class="panel-body">
+																				<ul class="nav nav-tabs">
+																					<li class="active">
+																						<a href="#workFlow_01" data-toggle="tab">已办<span class="badge"></span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_02" data-toggle="tab">待办<span class="badge badge-warning">5</span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_03" data-toggle="tab">追踪<span class="badge"></span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_04" data-toggle="tab">已完成<span class="badge badge-success">3</span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_05" data-toggle="tab" >督办<span class="badge"></span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_06" data-toggle="tab">反馈<span class="badge"></span></a>
+																					</li>
+																					<li>
+																						<a href="#workFlow_07" data-toggle="tab">超时<span class="badge badge-danger">2</span></a>
+																					</li>
+																				</ul>
+																				<div class="tab-content">
+																				    <div class="tab-pane active fade in" id="workFlow_01">
+																				    	<table class="table table-hover table-condensed table-responsive">
+																				    		<thead>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    			</tr>
+																				    		</thead>
+																				    		<tbody>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr class="danger">
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr class="warning">
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    		</tbody>
+																				    		<tfoot>
+
+																				    		</tfoot>
+																				    	</table>
+																				    	<nav class="pull-right">
+																							<ul class="pagination pagination-sm">
+																								<li><a href="javascript:void(0);"><span class="fa fa-angle-double-left"></span></a></li>
+																								<li><a href="javascript:void(0);"><span class="fa fa-angle-left"></span></a></li>
+																								<li><a href="javascript:void(0);">1</a></li>
+																								<li><a href="javascript:void(0);">2</a></li>
+																								<li><a href="javascript:void(0);">3</a></li>
+																								<li><a href="javascript:void(0);">…</a></li>
+																								<li><a href="javascript:void(0);">38</a></li>
+																								<li><a href="javascript:void(0);"><span class="fa fa-angle-right"></span></a></li>
+																								<li><a href="javascript:void(0);"><span class="fa fa-angle-double-right"></span></a></li>
+																							</ul>
+																						</nav>
+																				    </div>
+																					<div class="tab-pane fade" id="workFlow_02">
+																						<h1>测试测试02</h1>
+																					</div>
+																					<div class="tab-pane fade" id="workFlow_03">
+																						<h1>测试测试03</h1>
+																					</div>
+																					<div class="tab-pane fade" id="workFlow_04">
+																						<h1>测试测试04</h1>
+																					</div>
+																					<div class="tab-pane fade" id="workFlow_05">
+																						<h1>测试测试05</h1>
+																					</div>
+																					<div class="tab-pane fade" id="workFlow_06">
+																						<h1>测试测试06</h1>
+																					</div>
+																					<div class="tab-pane fade" id="workFlow_07">
+																						<h1>测试测试07</h1>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="content-body-calendar panel panel-primary">
+																			<div class="panel-heading">
+																				<div class="panel-title">
+																					<span>日历</span>
+																				</div>
+																			</div>
+																			<div class="panel-body">
+																				<p>这是日历</p>
+																				<p>这是日历</p>
+																				<p>这是日历</p>
+																				<p>这是日历</p>
+																				<p>这是日历</p>
+																				<p>这是日历</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="content-body-addressBook panel panel-primary">
+																			<div class="panel-heading">
+																				<div class="panel-title">
+																					<span>通讯录</span>
+																				</div>
+																			</div>
+
+
+
+																			<div class="panel-body">
+																				<ul class="nav nav-tabs dropup">
+																					<li class="active">
+																						<a href="#addressBook_01" data-toggle="tab">最近</a>
+																					</li>
+																					<li>
+																						<a href="#addressBook_02" data-toggle="tab">同部门</a>
+																					</li>
+																					<li>
+																						<a href="#addressBook_03" data-toggle="tab">下属</a>
+																					</li>
+																				</ul>
+																				<div class="tab-content">
+																				    <div class="tab-pane fade in active" id="addressBook_01">
+																				    	<table class="table table-hover table-condensed table-responsive">
+																				    		<thead>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    				<th>演示演示</th>
+																				    			</tr>
+																				    		</thead>
+																				    		<tbody>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    			<tr>
+																				    				<th>演示演示</th>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    				<td>演示演示</td>
+																				    			</tr>
+																				    		</tbody>
+																				    		<tfoot></tfoot>
+																				    	</table>
+																				    	<nav class="pull-right">
+																							<ul class="pagination pagination-sm">
+																								<li><a href="#"><span class="fa fa-angle-double-left"></span></a></li>
+																								<li><a href="#"><span class="fa fa-angle-left"></span></a></li>
+																								<li><a href="#">1</a></li>
+																								<li><a href="#">2</a></li>
+																								<li><a href="#">3</a></li>
+																								<li><a href="#">…</a></li>
+																								<li><a href="#">12</a></li>
+																								<li><a href="#"><span class="fa fa-angle-right"></span></a></li>
+																								<li><a href="#"><span class="fa fa-angle-double-right"></span></a></li>
+																							</ul>
+																						</nav>
+																				    </div>
+																				    <div class="tab-pane fade" id="addressBook_02">
+																				    	<h1>测试测试2</h1>
+																				    </div>
+																				    <div class="tab-pane fade" id="addressBook_03">
+																				    	<h1>测试测试3</h1>
+																				    </div>
+																				</div>
+																			</div>
+
+
+
+
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-sm-8">
+
+															</div>
+															<div class="col-sm-4">
+
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping" id="haha2">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>04</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>05</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- container-body -->
+									</div>
+									<div id="devicesManage1-2" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage1-3" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage1-4" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage1-5" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage2" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage3" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage4" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesManage5" class="swiper-slide">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-address-book"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>选项卡标题</p>
+																</div>
+																<ul class="tab-menu list-inline list-unstyled">
+																	<li>
+																		<a class="tab-menu-active" href="#hehe1">选项一</a>
+																	</li>
+																	<li>
+																		<a href="#hehe2">选项二</a>
+																	</li>
+																	<li>
+																		<a href="#">选项三</a>
+																	</li>
+																	<li>
+																		<a href="#">选项四</a>
+																	</li>
+																	<li>
+																		<a href="#">选项五</a>
+																	</li>
+																	<li class="dropdown">
+																		<a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<i class="fa fa-fw fa-angle-down"></i></a>
+																		<ul class="dropdown-menu">
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																			<li>
+																				<a>选项一</a>
+																			</li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2">
+														<div class="content-header-toolbar">
+															<ul class="header-toolbar list-inline list-unstyled">
+																<li class="fa fa-search"></li>
+																<li class="fa fa-table"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="hehe1" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>01</h1>
+															</div>
+														</div>
+													</div>
+													<div id="hehe2" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>02</h1>
+															</div>
+														</div>
+													</div>
+													<div class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<h1>03</h1>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- mainRightContent -->
+					</div>
+					<!-- mainRight -->
+				</div>
+			</div>
+		</div>
+		<!-- wrapper -->
+
+		<!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jquery-cookie -->
+		<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<!-- js动画 -->
+		<script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- sweetalert弹窗 -->
+		<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+		<!--Moment日期处理-->
+		<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+		<!--echarts图表插件-->
+		<script src="js/vendors/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- swiper轮播图 -->
+		<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- JS -->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

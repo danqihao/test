@@ -1,0 +1,154 @@
+/*全局设置*/
+body { 
+	overflow-y: hidden; 
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.backgound-img {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.xycenter-box {
+	height: 100%;
+	width: 100%;
+	display: table;	
+}
+
+.xycenter-content {
+	display: table-cell;
+	vertical-align:middle;
+}
+
+
+/*顶部导航栏*/
+
+.header {
+	width: 100%;
+	position: absolute;
+}
+
+.header > .container > .navbar {
+	margin-bottom: 0rem;
+}
+
+.header ul {
+	margin-right: 2.14rem;
+}
+
+.header li {
+	margin-left: 2.14rem;
+}
+
+.header span {
+	color: #ccc !important;
+}
+
+.header span a {
+	color: #ccc !important;
+	font-weight: bold;
+	letter-spacing: 0.14rem;
+	text-decoration: underline !important;
+}
+
+.header span a:hover {
+	color: #fff !important;
+}
+
+#head2 {
+	padding: 1.07rem;
+	margin-top: -15px;
+}
+
+#head2 marquee {
+	color: #ccc;
+}
+
+/*功能导航*/
+
+.navigate {
+	height: 100%;
+	width: 100%;
+}
+
+.navigate .wrap {
+	padding: 1.42rem;
+}
+
+.navigate .col-xs-4 {
+	height: 14.28rem;
+	background: #007aff;
+	background-clip: content-box;
+	padding: 0.71rem;
+	text-align: center;
+	transition: all 0.5s;
+}
+
+.navigate .col-xs-4:hover, .navigate .col-xs-4:active, .navigate .col-xs-4:focus {
+	background-color: #003ecb;
+}
+
+.navigate .col-xs-4 span {
+	color: #fff;
+	font-size: 5.71rem;
+	transition: all 0.5s;
+}
+
+.navigate .col-xs-4 p {
+	color: #fff;
+	font-size: 2.14rem;
+	margin-top: 0.71rem;
+	transition: all 0.5s;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	
+	.header > .container > .navbar {
+		height: 20px !important;
+	}
+	
+	.header ul {
+		position: absolute;
+	}
+	
+	#exitButton {
+		right: 1.07rem;
+		top: 1.07rem;
+		position: fixed;
+	}
+	
+	.navigate .col-xs-4 span {
+		color: #fff;
+		font-size: 2.85rem;
+		transition: all 0.5s;
+	}
+	
+	.navigate .col-xs-4 p {
+		color: #fff;
+		font-size: 1.42rem;
+		margin-top: 0.35rem;
+		margin-bottom: 0rem;
+		transition: all 0.5s;
+	}
+	
+	.navigate .col-xs-4 {
+		height: 9rem;
+		padding: 0.35rem;
+	}
+}
+
+/*页脚*/
+
+.footer .row {
+	position: relative;
+	bottom: 3.57rem;
+}
+
+.footer .copyright {
+	text-align: center;
+	color: #777;
+	font-size: 0.71rem;
+}

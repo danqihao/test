@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- 中文简体 -->
+
+    <!--<head>-->
+        <head lang="zh-cmn-Hans">
+
+        <!-- 编码方式 -->
+        <meta charset="UTF-8">
+        <!-- IE兼容模式 -->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- 响应式设置 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 选择渲染引擎 -->
+        <meta name="renderer" content="webkit|ie-comp|ie-stand">
+        <!-- 内容安全政策-->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+        <!-- 应用名称-->
+        <meta name="application-name" content="天蓝MES系统">
+        <!-- 非常简短的描述（少于 10 个字） -->
+        <meta name="abstract" content="制造企业生产过程执行管理系统">
+        <!-- 简短描述（限制 150 字符）-->
+        <meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+        <!-- 网站主题 -->
+        <meta name="subject" content="MES">
+        <!-- 完整的域名或网址 -->
+        <meta name="url" content="">
+        <!-- 修改器 -->
+        <meta name="generator" content="HBuilder">
+
+        <!-- 相对URL -->
+        <!--<base href="http://localhost/mes/views/">-->
+
+        <!-- 作者信息
+        <link rel="author" href="http://www.blue-skyauto.com/show_116.html">
+        <link rel="me" href="http://www.blue-skyauto.com/" type="text/html">
+        <link rel="me" href="tl002@blue-skyauto.com">
+        <link rel="me" href="+86 18825858567">-->
+        <!-- LOGO -->
+        <!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+        <link rel="icon" href="" sizes="32x32" type="image/png">
+        <link rel="icon" href="" sizes="48x48" type="image/png">
+        <link rel="icon" href="" sizes="62x62" type="image/png">
+        <link rel="icon" href="" sizes="192x192" type="image/png"> -->
+        <!-- 版权 -->
+        <!-- <link rel="copyright" href=""> -->
+
+        <!-- CSS插件 -->
+        <!-- sweetalert弹窗 -->
+        <link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+        <!-- animate动画 -->
+        <link rel="stylesheet" href="css/vendors/animate.css" />
+        <!-- hover鼠标悬浮 -->
+        <link rel="stylesheet" href="css/vendors/hover-min.css" />
+        <!-- font-awesome字形图标 -->
+        <link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+        <!-- swiper轮播图 -->
+        <link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+        <!-- element-ui -->
+        <link rel="stylesheet" href="css/vendors/element-ui.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/main.css" />
+        <style>
+            /*离开之前*/
+
+            /* .fade-leave {
+                opacity: 1;
+            } */
+            /*离开的过程中*/
+
+            /* .fade-leave-active {
+                transition: opacity 3s;
+            } */
+            /*离开完成*/
+            /*
+            .fade-leave-to {
+                opacity: 0;
+            } */
+            /*进入之前*/
+
+            /* .fade-enter {
+                opacity: 0;
+            }
+            .fade-enter-active {
+                transition: opacity 5s;
+            }
+            .fade-enter-to {
+                opacity: 1;
+                }    */
+             /*工单追溯搜索框隐藏显示*/
+            .fade-leave, .fade-enter-to{
+                height: 480px;
+            }
+            .fade-enter-active, .fade-leave-active {
+                transition: height .5s;
+            }
+            .fade-enter, .fade-leave-to {
+                height: 0;
+            }
+            /*点击查询显示隐藏对应信息*/
+            .search-leave, .search-enter-to{
+                opacity: 1;
+            }
+            .search-enter-active, .search-leave-active {
+                transition: opacity .5s;
+            }
+            .search-enter, .search-leave-to {
+                opacity: 0;
+            }
+             /*点击行显示隐藏对应信息*/
+            .workOrderFade-leave, .workOrderFade-enter-to{
+                height: 450px;
+            }
+            .workOrderFade-enter-active, .workOrderFade-leave-active {
+                transition: height .5s;
+            }
+            .workOrderFade-enter, .workOrderFade-leave-to {
+                height: 0;
+            }
+            .el-button--primary{
+                color:#fff;
+                background-color: #177cb0;
+                border-color:#146c99
+            }
+            .el-button:focus, .el-button:hover{
+                color:#fff;
+                background-color: #115c83;
+                border-color:#0d4663
+            }
+        </style>
+
+        <title>追溯模块</title>
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="mainLeft" class="col-sm-2 hidden-xs">
+                        <div id="mainLeftSidebar">
+
+                            <!-- LOGO -->
+                            <div class="sidebar-logo">
+                                <b>MES</b>
+                            </div>
+
+                            <!-- 搜索 -->
+                            <!--<div class="sidebar-search">
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" placeholder="搜索" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>-->
+
+                            <!-- 边栏导航标题 -->
+                            <div class="sidebar-nav-header">
+                                <span>追溯模块</span>
+                            </div>
+                            <ul class="sidebar-nav">
+
+                                <li class="treeview">
+                                    <a class="" href="#workOrderAscend">
+                                        <i class="fa fa-fw fa-table"></i>
+                                        <span>工单追溯</span>
+                                    </a>
+                                </li>
+
+                                <li class="treeview">
+                                    <a class="" href="#forwardDirectionAscend">
+                                        <i class="fa fa-fw fa-hourglass-2"></i>
+                                        <span>正向追溯</span>
+                                    </a>
+                                </li>
+
+                                <li class="treeview">
+                                    <a class="" href="#reverseAscend">
+                                        <i class="fa fa-fw fa-hourglass-2"></i>
+                                        <span>逆向追溯</span>
+
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mainLeft -->
+
+                    <!-- 右边 -->
+                    <div id="mainRight" class="col-sm-10">
+
+                        <!-- 右边顶部 -->
+                        <div id="mainRightTop">
+                            <div id="mainRightTopMenu">
+
+                                <!-- 右边顶部工具栏 -->
+                                <div class="menu-toolbar clearfix">
+                                    <ul class="menu-toolbar-left">
+                                        <li>
+                                            <a class="sidebar-toggle" href="javascript:;"><i class="fa fa-bars"></i></a>
+                                        </li>
+                                    </ul>
+                                    <ul class="menu-toolbar-right pull-right">
+                                        <li class="toolbar-user">
+                                            <img src="images/demo/demo.jpg" />
+                                            <span id="showUserName">&nbsp</span>
+                                        </li>
+                                        <li>
+                                            <a id="exitSystem" href="javascript:;"><i class="fa fa-power-off"></i></a>
+                                        </li>
+                                        <li>
+                                                <!-- 					<a href="javascript:;"><i class="fa fa-gears"></i></a> -->
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- 右边顶部一级导航栏 -->
+                                <div class="menu-navbar">
+                                    <div class="row">
+                                        <div class="col-xs-1">
+                                            <div class="menu-navbar-pre"><i class="fa fa-angle-left"></i></div>
+                                        </div>
+                                        <div class="col-xs-10">
+                                            <div class="menu-navbar-nav swiper-container">
+                                                <div class="swiper-wrapper">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <div class="menu-navbar-next"><i class="fa fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 右边内容区域 -->
+                        <div id="mainRightContent"  style="min-height:1300px">
+                            <div id="LevelTwoMenuContainer" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- 工单追溯 -->
+                                    <div id="workOrderAscend" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>工单追溯</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="workOrderAscendInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+                                                        <div class="row">
+                                                            <div class="col-sm-12" style="display:none">
+                                                                <!-- 搜索框 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">输入查询条件：</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="panel-body-table table-height" style="padding:5px">
+                                                                        <div class="row">
+                                                                            <div class="col-md-1 col-xs-2">
+                                                                                    <h5 class="panel-title text-right" style="font-size:16px"></h5>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">生产计划批次号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">订单编号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">工单号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <transition name="fade">
+                                                                            <div v-show="inquireShow" style="overflow:hidden">
+                                                                            <!--产出物：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">产出物：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">产出物名称：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">产出物编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--人员：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">人员：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">生产计划创建人：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">生产计划负责人：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">生产计划审核人：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">工单创建人：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">工序负责人：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">设备操作人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">投料人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">领料人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">补料人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">物料调批人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">产出物记录人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">报废品记录人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">不良品记录人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">不良品处理人员：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--设备：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">设备：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">设备名称：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">设备编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--物料：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">物料：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">物料名称：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">物料编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">领料批次号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">物料批次号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">BOM名称：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">BOM版本号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--测试记录：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">测试记录：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">IQC编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">PQC编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">FQC编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--工艺名称：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                    <h5 class="modal-title text-center" style="font-size:16px">工艺：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">工艺名称：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">工艺版本号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--维修记录编号：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                    <h5 class="modal-title text-center" style="font-size:16px">维修：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-5">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:80px">维修记录编号：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--班次：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">班次：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-2 col-xs-5">
+
+                                                                                        <select class="form-control">
+                                                                                            <option value="">未选择</option>
+                                                                                            <option value="0">合格</option>
+                                                                                            <option value="1">不合格</option>
+                                                                                        </select>
+
+                                                                                </div>
+                                                                                <div class="col-md-3 col-xs-6">
+                                                                                    <h5 class="modal-title text-right" style="font-size:16px">车间：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-2 col-xs-5">
+
+                                                                                        <select class="form-control">
+                                                                                            <option value="">未选择</option>
+                                                                                            <option value="0">合格</option>
+                                                                                            <option value="1">不合格</option>
+                                                                                        </select>
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--环境：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px">环境：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-4 col-xs-6">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:50px">温度：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="温度上限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label">~</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="温度下限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-4 col-xs-6">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:50px">湿度：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="湿度上限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label">~</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="湿度下限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-2">
+                                                                                        <h5 class="modal-title text-center" style="font-size:16px"></h5>
+                                                                                </div>
+                                                                                <div class="col-md-4 col-xs-6">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:50px">清洁度：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="清洁度上限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label">~</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="清洁度下限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="col-md-4 col-xs-6">
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label" style="width:50px">露点：</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="露点上限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    <form class="form-inline pull-left" action="" onsubmit="return false;">
+                                                                                        <label class="control-label">~</label>
+                                                                                        <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                            <input class="form-control" type="text" placeholder="露点下限" maxlength="25" />
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--工单执行时间：-->
+                                                                            <div class="row" style="padding-top:10px">
+                                                                                <div class="col-md-2 col-xs-4">
+                                                                                    <h5 class="modal-title text-center" style="font-size:16px">工单执行时间：</h5>
+                                                                                </div>
+                                                                                <div class="col-md-2 col-xs-4">
+                                                                                    <select class="form-control">
+                                                                                        <option value="">起始时间</option>
+                                                                                        <option value="0">合格</option>
+                                                                                        <option value="1">不合格</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-2 col-xs-4">
+                                                                                    <select class="form-control">
+                                                                                        <option value="">终止时间</option>
+                                                                                        <option value="0">合格</option>
+                                                                                        <option value="1">不合格</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            </div>
+                                                                        </transition>
+                                                                    </div>
+                                                                    <div class="panel-footer">
+                                                                            <div class="row">
+                                                                                <div class="col-xs-12 text-center">
+                                                                                    <button class="btn btn-primary modal-submit">查询</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                                <!-- 生产计划 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">生产计划</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 15%;">订单编号</th>
+                                                                                        <th style="width: 15%;">生产批号</th>
+                                                                                        <th style="width: 15%;">订单生产数</th>
+                                                                                        <th style="width: 15%;">生产状态</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>A001</td>
+                                                                                        <td>20171129</td>
+                                                                                        <td>2000</td>
+                                                                                        <td>已完成</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看计划详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                                <!-- 工单信息 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">工单信息</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <!--搜索框 -->
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        <div class="input-group-btn">
+                                                                                            <button type="button" class="btn btn-primary head-main-btn-2">
+                                                                                                <i class="fa fa-search"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height-10">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 5%;">序号</th>
+                                                                                        <th style="width: 10%;">工单编号</th>
+                                                                                        <th style="width: 10%;">工序</th>
+                                                                                        <th style="width: 10%;">产出物</th>
+                                                                                        <th style="width: 10%;">产出数量</th>
+                                                                                        <th style="width: 10%;">完成时间</th>
+                                                                                        <th style="width: 10%;">不良数</th>
+                                                                                        <th style="width: 10%;">不良率</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>gd025</td>
+                                                                                        <td>搅拌</td>
+                                                                                        <td>电池01</td>
+                                                                                        <td>2000</td>
+                                                                                        <td>2018.1.1</td>
+                                                                                        <td>40</td>
+                                                                                        <td>40%</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#workOrderParticulars" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>工单详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-pencil-square-o"></i>PQC详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-pencil-square-o"></i>生产过程详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="panel-footer panel-footer-table text-center">
+                                                                            <ul class="pagination pagination-sm pull-right">
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 正向追溯 -->
+                                    <div id="forwardDirectionAscend" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>正向追溯</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="forwardDirectionAscendInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+                                                        <div class="row">
+                                                            <div class="col-sm-12" style="display:none">
+                                                                <!-- 搜索框 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">输入查询条件：</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="panel-body-table table-height" style="padding:5px">
+                                                                        <div class="row">
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">物料编号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">物料批号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-4 col-xs-6">
+                                                                            </div>
+                                                                            <div class="col-md-1 col-xs-2 text-center">
+                                                                                <button class="btn btn-primary modal-submit">查询</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row" style="padding-top:10px">
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">BOM名称：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">BOM版本：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-4 col-xs-6">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">到</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="起始时间" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">时间：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="终止时间" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-1 col-xs-2 text-center">
+                                                                                <button class="btn btn-primary modal-submit">查询</button>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 成品批次信息 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">成品批次信息</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 15%;">生产计划批次号</th>
+                                                                                        <th style="width: 15%;">成品数量</th>
+                                                                                        <th style="width: 15%;">单位</th>
+                                                                                        <th style="width: 15%;">不良数</th>
+                                                                                        <th style="width: 15%;">不良率</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>A001</td>
+                                                                                        <td>500</td>
+                                                                                        <td>箱</td>
+                                                                                        <td>1000</td>
+                                                                                        <td>10%</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>生产计划详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>PQC详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>FQC详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                                <!-- 成品信息 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">成品信息</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <!--搜索框 -->
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        <div class="input-group-btn">
+                                                                                            <button type="button" class="btn btn-primary head-main-btn-2">
+                                                                                                <i class="fa fa-search"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height-10">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 5%;">序号</th>
+                                                                                        <th style="width: 10%;">成品名称</th>
+                                                                                        <th style="width: 10%;">成品编号</th>
+                                                                                        <th style="width: 10%;">规格</th>
+                                                                                        <th style="width: 10%;">型号</th>
+                                                                                        <th style="width: 10%;">产出时间</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>电池001</td>
+                                                                                        <td>dc20180101</td>
+                                                                                        <td>A001</td>
+                                                                                        <td>Z-1</td>
+                                                                                        <td>2018.1.10</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>生产详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="panel-footer panel-footer-table text-center">
+                                                                            <ul class="pagination pagination-sm pull-right">
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--逆向追溯 -->
+                                    <div id="reverseAscend" class="swiper-slide">
+                                        <!-- 右侧外部swiper -->
+
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="content-header">
+                                                    <div class="col-xs-10">
+                                                        <div class="content-header-tab">
+                                                            <div class="tab-logo">
+                                                                <i class="fa fa-window-restore"></i>
+                                                            </div>
+                                                            <div class="tab-body">
+                                                                <div class="tab-title">
+                                                                    <p>逆向追溯</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container-fluid">
+                                            <div class="content-body swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-no-swiping" id="reverseAscendInerSwiper">
+                                                        <!-- 右侧内部swiper -->
+                                                        <div class="row">
+                                                            <div class="col-sm-12" style="display:none">
+                                                                <!-- 搜索框 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">输入查询条件：</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="panel-body-table table-height" style="padding:5px">
+                                                                        <div class="row">
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">电芯批号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-3 col-xs-5">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <label class="control-label">电芯编号：</label>
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            <div class="col-md-4 col-xs-6">
+                                                                            </div>
+                                                                            <div class="col-md-1 col-xs-2 text-center">
+                                                                                <button class="btn btn-primary modal-submit">查询</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                 <!-- 生产计划 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">生产计划</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 15%;">订单编号</th>
+                                                                                        <th style="width: 15%;">生产批号</th>
+                                                                                        <th style="width: 15%;">订单生产数</th>
+                                                                                        <th style="width: 15%;">生产状态</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>A001</td>
+                                                                                        <td>20171129</td>
+                                                                                        <td>2000</td>
+                                                                                        <td>已完成</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看计划详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                                 <!-- 物料信息 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">物料信息</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <form class="form-inline pull-right" action="">
+                                                                                    <!--搜索框 -->
+                                                                                    <div class="input-group input-group-sm fuzzy-search-group">
+                                                                                        <input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+                                                                                        <div class="input-group-btn">
+                                                                                            <button type="button" class="btn btn-primary head-main-btn-2">
+                                                                                                <i class="fa fa-search"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+                                                                        <div class="panel-body-table table-height">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 5%;">序号</th>
+                                                                                        <th style="width: 10%;">物料名称</th>
+                                                                                        <th style="width: 10%;">物料编号</th>
+                                                                                        <th style="width: 10%;">物料批次号</th>
+                                                                                        <th style="width: 10%;">规格</th>
+                                                                                        <th style="width: 10%;">型号</th>
+                                                                                        <th style="width: 10%;">单位</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>石墨</td>
+                                                                                        <td>v-1.01</td>
+                                                                                        <td>2018.1.1</td>
+                                                                                        <td>A001</td>
+                                                                                        <td>Z-1</td>
+                                                                                        <td>桶</td>
+                                                                                        <td class="table-input-td">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>物料详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>IQC详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="panel-footer panel-footer-table text-center">
+                                                                            <ul class="pagination pagination-sm pull-right">
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                                <!-- 工序信息 -->
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading panel-heading-table">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                                <h5 class="panel-title">工序信息</h5>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-heading end -->
+                                                                    <div class="vueel">
+
+                                                                        <div class="panel-body-table table-height">
+                                                                            <table class="table  table-bordered table-hover table-condensed">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="width: 5%;">序号</th>
+                                                                                        <th style="width: 10%;">工序名称</th>
+                                                                                        <th style="width: 10%;">工序负责人</th>
+                                                                                        <th style="width: 10%;">使用物料名称</th>
+                                                                                        <th style="width: 10%;">物料编号</th>
+                                                                                        <th style="width: 10%;">物料批次号</th>
+                                                                                        <th style="width: 15%;">操作</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td rowspan="3">1</td>
+                                                                                        <td rowspan="3">匀浆</td>
+                                                                                        <td>张</td>
+                                                                                        <td>石墨</td>
+                                                                                        <td>v-1.01</td>
+                                                                                        <td>2018.1.1</td>
+                                                                                        <td class="table-input-td" rowspan="3">
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>工单详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>PQC详情</a>
+                                                                                            <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>生产过程详情</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>张</td>
+                                                                                        <td>石墨</td>
+                                                                                        <td>v-1.01</td>
+                                                                                        <td>2018.1.1</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>张</td>
+                                                                                        <td>石墨</td>
+                                                                                        <td>v-1.01</td>
+                                                                                        <td>2018.1.1</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="panel-footer panel-footer-table text-center">
+                                                                            <ul class="pagination pagination-sm pull-right">
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--panel-footer end -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- mainRightContent -->
+                            </div>
+                        <!-- mainRight -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+                <!-- wrapper -->
+        <!-- 模态框 -->
+        <div class="">
+            <!-- 生产详情模态框 -->
+            <div class="modal fade" id="productionDetails"></div>
+             <!-- 工单详情 -->
+            <div class="modal fade" id="workOrderParticulars">
+                <div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">工单详情</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+                                        <!-- 基础信息 -->
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">工单号</th>
+                                                            <td style="width:19%">gd001</td>
+
+															<th style="width:14%">所属生产批号</th>
+                                                            <td style="width:19%">20171129A59001</td>
+
+															<th style="width:14%">产品型号</th>
+															<td style="width:19%">18650-500</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">工艺</th>
+                                                            <td style="width:19%">A工艺</td>
+
+															<th style="width:14%">工艺版本</th>
+                                                            <td style="width:19%">v-1.01</td>
+
+															<th style="width:14%">工序</th>
+															<td style="width:19%">搅拌</td>
+														</tr>
+
+                                                        <tr>
+															<th style="width:14%">工序优率</th>
+                                                            <td style="width:19%">97%</td>
+
+															<th style="width:14%">工序负责人</th>
+                                                            <td style="width:19%">李元芳</td>
+
+															<th style="width:14%">级性</th>
+															<td style="width:19%">正级/负极/—</td>
+                                                        </tr>
+
+                                                        <tr>
+															<th style="width:14%">半成品类型</th>
+                                                            <td style="width:19%">浆料</td>
+
+															<th style="width:14%">半成品型号</th>
+                                                            <td style="width:19%">GB-JL002</td>
+
+															<th style="width:14%">产出量</th>
+															<td style="width:19%">3420</td>
+                                                        </tr>
+
+                                                        <tr>
+															<th style="width:14%">半成品单位</th>
+                                                            <td style="width:19%">kg</td>
+
+															<th style="width:14%">生产线</th>
+                                                            <td style="width:19%">电池试制线</td>
+
+															<th style="width:14%">生产车间</th>
+															<td style="width:19%">搅拌车间</td>
+                                                        </tr>
+
+                                                        <tr>
+															<th style="width:14%">完成日期</th>
+                                                            <td style="width:19%">2017-9-30</td>
+
+															<th style="width:14%">工单创建人</th>
+                                                            <td style="width:19%">刘伟荣</td>
+
+															<th style="width:14%">工单负责人</th>
+															<td style="width:19%">陈二</td>
+                                                        </tr>
+
+                                                        <tr>
+															<th style="width:14%">生产优先级</th>
+                                                            <td style="width:19%">紧急\正常</td>
+
+															<th style="width:14%">工单创建时间</th>
+                                                            <td style="width:19%">2017-08-08</td>
+
+															<th style="width:14%"></th>
+															<td style="width:19%"></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!-- 工 步 -->
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title"> 工 步</h5>
+													</div>
+													<div class="col-xs-8">
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:4%">序号</th>
+															<th style="width:9%">工步名称</th>
+															<th style="width:9%">参数</th>
+															<th style="width:9%">参考值</th>
+															<th style="width:9%">单位</th>
+															<th style="width:9%">设备类型</th>
+															<th style="width:20%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>投料</td>
+															<td>转速</td>
+															<td>10 < V < 12</td>
+															<td>kg</td>
+															<td>搅拌</td>
+															<td class="table-input-td">
+                                                                <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看物料使用详情</a>
+                                                                <a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看工步参数</a>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+                                        </div>
+                                        <!-- 环境参数 -->
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">环境参数</h5>
+													</div>
+													<div class="col-xs-8">
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:4%">序号</th>
+															<th style="width:9%">参数名称</th>
+															<th style="width:9%">参考值</th>
+															<th style="width:9%">单位</th>
+															<th style="width:9%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>温度</td>
+															<td>10-29</td>
+															<td>摄氏度</td>
+															<td class="table-input-td">
+                                                                <a class="table-link" data-toggle-modal-target="#parameterModel" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看参数记录</a>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+                                        </div>
+                                        <!-- 半成品参数 -->
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">半成品参数</h5>
+													</div>
+													<div class="col-xs-8">
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:4%">序号</th>
+															<th style="width:9%">参数名称</th>
+															<th style="width:9%">参考值</th>
+															<th style="width:9%">单位</th>
+															<th style="width:9%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>粘度*</td>
+															<td>10 < V < 12</td>
+															<td>阿萨德</td>
+															<td class="table-input-td">
+                                                                <a class="table-link" data-toggle-modal-target="#parameterModel" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看参数记录</a>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+                                        </div>
+                                        <!-- 其他参数 -->
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">其他参数</h5>
+													</div>
+													<div class="col-xs-8">
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:4%">序号</th>
+															<th style="width:9%">参数名称</th>
+															<th style="width:9%">参考值</th>
+															<th style="width:9%">单位</th>
+															<th style="width:9%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>粘度*</td>
+															<td>10 < V < 12</td>
+															<td>sad</td>
+															<td class="table-input-td">
+                                                                <a class="table-link" data-toggle-modal-target="#parameterModel" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>查看参数记录</a>
+                                                            </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+             <!-- 查看参数记录 -->
+             <div class="modal fade" id="parameterModel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">
+                                <span>
+                                    <i class="fa fa-close"></i>
+                                </span>
+                            </button>
+                            <h4 class="modal-title">参数详情</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading panel-heading-table">
+                                                <div class="col-xs-6"></div>
+                                                <div class="col-xs-6">
+                                                </div>
+                                            </div>
+                                            <div class="table-height-10">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 20%">实际值</th>
+                                                            <th style="width: 20%">记录人</th>
+                                                            <th style="width: 20%">记录时间</th>
+                                                            <th style="width: 40%">备注</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>测试</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <!-- <tr v-show="!dataList.length"><td colspan=15 class="text-center text-warning">没有可以显示的数据，请重新选择或输入查询条件</td></tr> -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="panel-footer panel-footer-table text-right">
+                                                <!-- <el-pagination @current-change="handleCurrentChange" background small layout="total,prev,pager,next" :current-page="currenPage" :page-size="pagesize" :total="lines"></el-pagination> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- 查看物料使用详情 -->
+            <div class="modal fade" id="materialModel"></div>
+            <!-- 查看工步参数 -->
+            <div class="modal fade" id="stepParameterModel"></div>
+            <!-- 查看设备操作记录 -->
+            <div class="modal fade" id="deviceParametersModel"></div>
+            <!-- XX工步物料详情查看 -->
+            <div class="modal fade" id="stepMaterialModel"></div>
+            <!-- IQC详情模态框 -->
+            <div class="modal fade" id="addInQualityReportModal"></div>
+            <!-- FQC详情模态框 -->
+            <div class="modal fade" id="addFinalQualityReportModal"></div>
+            <!-- PQC详情模态框 -->
+            <div class="modal fade" id="commonModal1"></div>
+            <!-- PQC报告来料参数详情模态框 -->
+            <div class="modal fade" id="commonModal2"></div>
+            <!-- 生产计划详情模态框 -->
+            <div class="modal fade" id="productionPlanDetails"></div>
+            <!-- 物料详情模态框 -->
+            <div class="modal fade" id="materialDetails"></div>
+            <!-- 选择人员模态框 -->
+            <div class="modal fade" id="staffModel"></div>
+            <!-- BOM清单的物料详情 -->
+            <div class="modal fade" id="bomrMaterialModel"></div>
+            <!-- 尺寸特性抽样结果查看 -->
+            <div class="modal fade" id="samplingResults"></div>
+        </div>
+        <!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jquery-cookie -->
+		<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<!-- js动画 -->
+		<script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- sweetalert弹窗 -->
+		<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+		<!--Moment日期处理-->
+		<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+		<!-- swiper轮播图 -->
+		<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- mydate97日期插件-->
+		<script src="js/vendors/dateControl/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- mock.js-->
+		<script src="js/vendors/mock.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- vue -->
+		<script src="js/vue/vue.js"></script>
+		<!-- <script src="js/vue/vueCommon.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/qualityManagement.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/quality/basicsMessage.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- element-ui -->
+		<script src="js/vue/element-ui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- JS -->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/basevalue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/retrospect/retrospectReqUrl.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- <script src="js/retrospect/qualityMock.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/quality/qualityManagement.js" type="text/javascript" charset="UTF-8"></script> -->
+		<script src="js/retrospect/retrospect.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- <script src="js/retrospect/retrospect2.js" type="text/javascript" charset="UTF-8"></script> -->
+
+
+		<script>
+
+
+		</script>
+	</body>
+
+</html>

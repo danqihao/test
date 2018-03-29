@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+		<head lang="zh-cmn-Hans">
+		<!-- 编码方式 -->
+		<meta charset="UTF-8">
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+		<title>滕剑测试页面</title>
+	</head>
+
+	<body>
+<div class="text-center" style="margin-top:35%; ">
+		<button id="testBtn" class="btn btn-danger btn-lg">测试按钮</button>
+</div>
+
+	</body>
+
+
+
+
+
+		<!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+		<script>
+			$(function(){
+				var projectStandards = [
+				                        {projectId:'1231211',standards:'4545'},
+				                        {projectId:'1231211',standards:'4545'},
+				                        {projectId:'1231211',standards:'4545'}
+				                        
+				var iqcReport = `{
+					'quality_iqc_template_id': '1daef509c2684ad9a15cfc2b1f604fea',
+					'quality_iqc_report_name': '电池盖',
+					'supplier_id': '416d699255cd4bb2910e79d12e0c48c2',
+					'quality_iqc_report_number': 'QUE34',
+					'warehouse_material_batch': '10',
+					'warehouse_material_number': '1000',
+					'quality_iqc_examine': '25cb9b536f1747faa0d13dee94a080f8',
+					'quality_iqc_approve': '25cb9b536f1747faa0d13dee94a080f8',
+					'quality_iqc_comprehensive_result': '0',
+					'quality_iqc_remarks': '备注'
+					// quality_iqc_template_status:null,
+				}`
+				var iqcTemplate = {
+					// quality_iqc_template_id:'iqc检验模板id',
+					'quality_iqc_template_name': '模板名称',
+					'warehouse_material_type_id': '物料类型id',
+					'warehouse_material_id': '物料id',
+					// quality_iqc_template_edittion: '模板版本',
+					// quality_iqc_template_date: null,
+					'quality_iqc_remarks': '备注',
+					// quality_iqc_template_status:null,
+				}
+				
+				var tempdata = `{'quality_iqc_template_name': '方形电池盖','quality_iqc_template_type': '电池盖','warehouse_material_id': '02fe76bad1e54822a27598c1e7fc7c6d','quality_iqc_remarks': '备注'}`;
+				var projectStandards = `[{'quality_project_id': '83829a936d1c44dabea52ac3ec4e4563','quality_iqc_project_standard': 'sss','quality_iqc_project_units': 'cm','quality_iqc_project_up': '10','quality_iqc_project_down': '1','quality_iqc_project_criterion': '5'},
+				                         {'quality_project_id': '82dcfc9bf50a4eb0bb9ad6159bee0e2d','quality_iqc_project_standard': 'sss','quality_iqc_project_units': 'cm','quality_iqc_project_up': '10','quality_iqc_project_down': '1','quality_iqc_project_criterion': '5'},
+				                         {'quality_project_id': '0494ddf49107439ead5de9bc55b7c6f5','quality_iqc_project_standard': 'sss','quality_iqc_project_units': 'cm','quality_iqc_project_up': '10','quality_iqc_project_down': '1','quality_iqc_project_criterion': '5'}
+				
+				]`;
+				var projectAppliances = `[{'quality_project_id': '83829a936d1c44dabea52ac3ec4e4563','quality_appliance_id': '0b250d552e3b4c838ddda7bb5fb8afe7'},
+				                          {'quality_project_id': '82dcfc9bf50a4eb0bb9ad6159bee0e2d','quality_appliance_id': '5994c150f06248ef8e16abc2d96f323d'},
+				                          {'quality_project_id': '0494ddf49107439ead5de9bc55b7c6f5','quality_appliance_id': 'd4ef7e1186a046c89447d61cb6efce4e'}
+				
+				]`;
+				var iqcResult = `[{'quality_project_id': '83829a936d1c44dabea52ac3ec4e4563','quality_iqc_check_level': '1','quality_iqc_receive_ac_level': '2','quality_iqc_receive_rc_level': '3','quality_iqc_result_number': '4','quality_iqc_check_result': '0','quality_iqc_checker': '09cee7a801fb418680072bd933545d88'},
+				                  {'quality_project_id': '7002856e623d465dbed73667dd74dda0','quality_iqc_check_level': '1','quality_iqc_receive_ac_level': '2','quality_iqc_receive_rc_level': '3','quality_iqc_checker': '09cee7a801fb418680072bd933545d88','checkDate': '2017-12-21 13:23:36'},
+				                  {'quality_project_id': '7002856e623d465dbed73667dd74dda0','quality_iqc_check_level': '1','quality_iqc_receive_ac_level': '2','quality_iqc_receive_rc_level': '3','quality_iqc_check_result': '0','quality_iqc_checker': '09cee7a801fb418680072bd933545d88','checkDate': '2017-12-21 13:23:36'}
+				]`;
+				var iqcProjectResult = `[{'quality_project_id': '83829a936d1c44dabea52ac3ec4e4563','quality_iqc_project_number': '100','quality_iqc_project_value': '10,20,30,40','quality_iqc_project_average_value': '30','quality_iqc_project_range': '25','quality_iqc_project_determine': '1'},
+				                         {'quality_project_id': '7002856e623d465dbed73667dd74dda0','quality_iqc_project_average_value': '30','quality_iqc_project_range': '25','quality_iqc_project_determine': '1'},
+				                         {'quality_project_id': '7002856e623d465dbed73667dd74dda0','quality_iqc_project_number': '100','quality_iqc_project_value': '10,20,30,40','quality_iqc_project_average_value': '30','quality_iqc_project_range': '25','quality_iqc_project_determine': '1'}
+				
+				]`;
+				var iqcUnqualified = `[{'quality_iqc_unqualified_content': '磨损','quality_sample_number': '30','quality_iqc_unqualified_number': '10','quality_iqc_unqualified_probability': '30%'},
+				                       {'quality_iqc_unqualified_content': '小','quality_sample_number': '30','quality_iqc_unqualified_number': '10','quality_iqc_unqualified_probability': '30%'},
+				                       {'quality_iqc_unqualified_content': '大','quality_sample_number': '30','quality_iqc_unqualified_number': '10','quality_iqc_unqualified_probability': '30%'}
+				]`;
+				
+
+				var projectTypes = ['c0dcc5f30f73446ab1efe72df1164b48', '07f5004f82c24d2babcefe74b61874f5','2490642c9a384f54a9a3f2f06ef93bea']
+
+				$('#testBtn').click(function(){
+						$.ajax({
+							type: "POST",
+							url: 'http://localhost/mes/saveIQCReport.do',
+							data:
+							{
+								inspectionDate: '2017-12-21 13:23:36',
+								examineDate: '2017-12-21 13:23:36',
+								approveDate: '2017-12-21 13:23:36',
+								iqcReport: iqcReport,
+								iqcResult: iqcResult,
+								iqcProjectResult: iqcProjectResult,
+								iqcUnqualified: iqcUnqualified,
+								
+								
+							},
+							success: function (result, status, xhr) {
+								console.log(result.status)
+								switch(result.status){
+									case 0:{ //有数据
+
+									}break;
+									case 1:{ //非法数据
+
+									}break;
+									case 2:{ //无数据
+
+									}break;
+								}
+
+							},
+							error:function(){
+								alert("请求失败");
+							}
+						});
+
+						// $.ajax({
+						// 	type: "POST",
+						// 	url: 'http://localhost/mes/test1220.do',
+						// 	success: function (result, status, xhr) {
+						// 		if (result.status === 0) {
+						// 			devicesTypeList = result.map.devices_control_devices_type
+						// 		}
+						// 		else {
+						// 			swallFail();	//操作失败
+						// 		}
+						// 	}
+						// })
+
+				})
+			})
+		</script>
+</html>

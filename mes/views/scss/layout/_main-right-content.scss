@@ -1,0 +1,166 @@
+#mainRightContent {
+    overflow: hidden;
+    .content-header {
+        margin-top: -10px;
+        border-bottom: 1px $gray-light3 solid;
+        height: 80px;
+        
+        .content-header-tab {
+            display: flex;
+            align-items:flex-end;
+            margin-top: -9px;
+            
+            height: 80px;
+            
+            .tab-logo {
+                border-radius: 4px;
+                height: 45px;
+                width: 45px;
+                background-color: $brand-primary;
+                
+                line-height: 40px;
+                text-align: center;
+                
+                i {
+                    vertical-align: middle;
+                    font-size: 20px;
+                    color: $gray-lighter;
+                }
+            }
+            
+            // 标签主体
+            .tab-body {
+                display: flex;
+                flex-direction: column;
+                justify-content:flex-end;
+                margin-left: 15px;                    
+                
+                .tab-title {
+                    p {
+                        font-size: $font-size-large;
+                        margin-bottom: 0;
+                    }
+                }
+                
+                // 标签菜单
+                .tab-menu {
+                    margin: 8px 0 0 0;
+                    
+                    > li {
+                        padding: 0;
+                        margin-right: -5px;
+                        
+                         > a {  
+                            position: relative;
+                            border-left: 1px solid $gray-light3;
+                            vertical-align: text-bottom;
+                            overflow: hidden;
+                            padding: 0 10px;
+                            color: $gray-dark;
+                            font-size: $font-size-base;
+                                                    
+                            &:hover {
+                                color: $brand-primary;
+                            }
+                        }
+                        
+                        .dropdown-menu {
+                            margin-top: 10px;
+                            
+                            a {
+                                font-size: $font-size-small;
+                                
+                                &:hover {
+                                    background: none;
+                                    color: $brand-primary;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                    
+                    > li:first-of-type {
+                        > a {
+                            border-left:none;
+                            padding-left: 0px;
+                        }
+                    }
+                    
+                    // 选中效果
+                    .tab-menu-active {
+                        color: $brand-primary;
+                        
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            left: 50%;
+                            bottom: -10px;
+                            transform: translateX(-7px);
+                            border-left: 7px solid transparent;
+                            border-right: 7px solid transparent;
+                            border-bottom: 7px solid $gray-light3 ;
+                            height: 0;
+                            width: 0;                  
+                        }
+                    }
+                }
+            }
+        }
+        
+        // 工具栏
+        .content-header-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-top: -10px;
+            height: 80px;
+            
+            .header-toolbar {
+                display: flex;
+                align-items: flex-end;
+                margin: 0;
+                
+                li {
+                    cursor: pointer;
+                }
+            }             
+        }
+    }
+    
+    // 内容主体
+    .content-body {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        
+        // 轮播图
+        .content-body-carousel {
+            border-radius: 4px;
+            width: 100%;
+            height: 300px;
+            margin-bottom: 17px;
+            .swiper-slide {
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        
+        // 日历
+        .content-body-calendar {
+            height: 300px;
+        }
+        
+        // 工作流程
+        .content-body-workFlow {
+            height: 400px;
+            .panel-body {
+                overflow-y: auto;
+            }
+        }
+        
+        // 通讯录
+        .content-body-addressBook {
+            height: 400px;
+        }
+    }
+}

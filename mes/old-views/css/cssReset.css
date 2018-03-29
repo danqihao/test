@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* 页面初始化 */
+* {
+	margin: 0px auto;
+	padding: 0;
+}
+
+body {
+/* 	background-color: #F3F9FD; */
+	background-color: #F1FAFA;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+
+ol, ul, li {
+	list-style: none;
+}
+
+input {
+	border: 1px solid #91c0e3;
+}
+
+table th, table td {
+	text-align: center;
+	vertical-align: middle !important;
+	padding: 0;
+}
+/*html5*/
+article, aside, dialog, footer, header, section, footer, nav, figure,
+	menu {
+	display: block
+}

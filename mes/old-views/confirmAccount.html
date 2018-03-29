@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>账户验证</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+<!-- 引入bootstrap css样式 -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- 自定义样式 -->
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/cssReset.css">
+
+<!-- 	为了IE8支持HTML5元素和媒体查询 -->
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js" type="text/javascript"></script>
+      <script src ="js/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+
+<!-- 头部样式 -->
+<style type="text/css">
+.header{
+ border-bottom:1px solid #fff;
+ height:100px;
+ color:#fff;
+}
+.logo{
+  margin-top:40px;
+  border-right:1px solid #fff;
+}
+.account-seting{
+   margin-top:40px;
+}
+</style>
+</head>
+<body>
+<!-- 头部 -->
+	<div class="html-container">
+	  <div class="container header">
+	    <div class="row">
+	      <div class="logo col-md-2 pull-left">LBPLMES</div>
+	      <div class="account-seting col-md-10 pull-left">账户设置</div>
+	    </div>
+	  </div>
+		
+		<!-- 中间盒子 -->
+		<div class="demo form-bg" style="padding: 20px 0;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-3 col-md-6">
+<!-- 					表单开始 -->
+						<form id="form-cofAccount" class="form-horizontal">
+							<span class="heading">账户验证</span>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label">用户名:</label>
+								<div class="col-md-9">
+<!-- 							用户名输入框，name=username -->
+									<input type="text" class="form-control" id="username" name="username" maxlength="16">
+								</div>
+<!-- 								信息提示，放在id为name属性+notice后缀的span里 -->
+								<span id="username_notice" class="notice"></span>
+							</div>
+							
+						<!-- 	<div class="form-group">
+								<label class="col-md-3 control-label">邮&nbsp&nbsp&nbsp&nbsp箱:</label>
+								<div class="col-md-9">
+<!-- 								邮箱输入框，name=email 
+									<input type="email" name="email" id="email" class="form-control" />
+								</div>
+								<span id="email_notice" class="notice"></span>
+
+							</div>
+						 -->	
+							<div class="form-group">
+								<label class="col-md-3 control-label">密保问题:</label>
+								<div class="col-md-9">
+									<select class="form-control" id="secretQuestion">
+									    <option value="school_name">你小学校名是？</option>
+										<option value="father_name">你父亲的名字？</option>
+										<option value="birthday">你的生日是？</option>
+										<option value="favorite">你最喜欢的人是？</option>
+										<option value="like_food">你最喜欢吃的食物是？</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label  class="col-md-3 control-label">密保答案:</label>
+								<div class="col-md-9">
+<!-- 								密保问题答案输入框，name=answer -->
+									<input type="text" class="form-control" id="answer" name="answer" maxlength="25">
+								</div>
+								<span id="answer_notice" class="notice"></span>
+
+							</div>	
+                           <div class="form-group">
+								<label class="col-md-3 control-label">验证码:</label>
+								<div class="col-md-9">
+<!-- 								验证码输入框，name=verification -->
+									<input type="text" name="verification" id="verification" class="verification form-control " maxlength="4"/>
+                                    <img src="http://localhost/mes/verifyCode.do?type=confirmAccount" class="pull-right img-rounded " onclick="this.setAttribute('src','http://localhost/mes/verifyCode.do?type=confirmAccount&x='+Math.random())" />
+								</div>
+								<span id="code_notice" class="notice"></span>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-12">
+<!-- 							提交按钮 -->
+									<button type="button" class="btn btn-default sub" id="formButton">提&nbsp&nbsp&nbsp&nbsp交</button>
+								</div>
+							</div>
+<!--                             链接到登录页 -->
+							<div class="link">
+<!-- 								<input type="button" class="btn btn-link btn-link-style" value="返回登录" id="returnLoginButton"/> -->
+                               <a href="login.html">返回登录</a>
+							</div>
+						</form>
+<!-- 						表单结束 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 引入 js-->
+<script src="js/jquery-3.1.1.min.js"></script>
+<!--[if lt IE 9]>
+      <script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
+   <![endif]-->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/baseurl.js"></script>
+<script type="text/javascript" src="js/cookie_util.js"></script>
+<script type="text/javascript" src="js/confirmAccount.js"></script>
+</body>
+</html>

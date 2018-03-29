@@ -1,0 +1,3301 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- 中文简体 -->
+
+	<!--<head>-->
+		<head lang="zh-cmn-Hans">
+
+		<!-- 编码方式 -->
+		<meta charset="UTF-8">
+		<!-- IE兼容模式 -->
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- 响应式设置 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 选择渲染引擎 -->
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<!-- 内容安全政策-->
+		<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+		<!-- 应用名称-->
+		<meta name="application-name" content="天蓝MES系统">
+		<!-- 非常简短的描述（少于 10 个字） -->
+		<meta name="abstract" content="制造企业生产过程执行管理系统">
+		<!-- 简短描述（限制 150 字符）-->
+		<meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+		<!-- 网站主题 -->
+		<meta name="subject" content="MES">
+		<!-- 完整的域名或网址 -->
+		<meta name="url" content="">
+		<!-- 修改器 -->
+		<meta name="generator" content="HBuilder">
+
+		<!-- 相对URL -->
+		<!--<base href="http://localhost/mes/views/">-->
+
+		<!-- 作者信息
+		<link rel="author" href="http://www.blue-skyauto.com/show_116.html">
+		<link rel="me" href="http://www.blue-skyauto.com/" type="text/html">
+		<link rel="me" href="tl002@blue-skyauto.com">
+		<link rel="me" href="+86 18825858567">-->
+		<!-- LOGO -->
+		<!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+		<link rel="icon" href="" sizes="32x32" type="image/png">
+		<link rel="icon" href="" sizes="48x48" type="image/png">
+		<link rel="icon" href="" sizes="62x62" type="image/png">
+		<link rel="icon" href="" sizes="192x192" type="image/png"> -->
+		<!-- 版权 -->
+		<!-- <link rel="copyright" href=""> -->
+
+		<!-- CSS插件 -->
+		<!-- sweetalert弹窗 -->
+		<link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+		<!-- animate动画 -->
+		<link rel="stylesheet" href="css/vendors/animate.css" />
+		<!-- hover鼠标悬浮 -->
+		<link rel="stylesheet" href="css/vendors/hover-min.css" />
+		<!-- font-awesome字形图标 -->
+		<link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+		<!-- swiper轮播图 -->
+		<link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+		<!-- element-ui -->
+		<link rel="stylesheet" href="css/vendors/element-ui.css" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+
+		<title>质量管控</title>
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div id="mainLeft" class="col-sm-2 hidden-xs">
+						<div id="mainLeftSidebar">
+
+							<!-- LOGO -->
+							<div class="sidebar-logo">
+								天蓝<b>MES</b>
+							</div>
+
+							<!-- 搜索 -->
+							<!--<div class="sidebar-search">
+								<div class="input-group input-group-sm">
+									<input class="form-control" type="text" placeholder="搜索" />
+									<span class="input-group-btn">
+										<button class="btn btn-primary">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
+								</div>
+							</div>-->
+
+							<!-- 边栏导航标题 -->
+							<div class="sidebar-nav-header">
+								<span>品质管理</span>
+							</div>
+							<ul class="sidebar-nav">
+
+								<li class="treeview">
+									<a class="" href="#checkItemTypeManage">
+										<i class="fa fa-reorder"></i>
+										<span>基础数据维护</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+											<li>
+												<a href="#checkItemTypeManage">
+													<i class="fa fa-fw fa-circle-o"></i>
+													<span>项目类型管理</span>
+												</a>
+											</li>
+												<li>
+													<a href="#checkItemManage">
+														<i class="fa fa-fw fa-circle-o"></i>
+														<span>检验项目管理</span>
+													</a>
+												</li>
+										<li>
+											<a href="#measureManage"><i class="fa fa-fw fa-circle-o"></i><span>测试量具管理</span></a>
+										</li>
+										<li>
+											<a href="#badnessCodeManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>不良代号管理</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview">
+									<a class="" href="#inQualityReport">
+										<i class="fa fa-reorder"></i>
+										<span>IQC管理</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li>
+											<a href="#inQualityReport">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>进货检验报告</span>
+											</a>
+										</li>
+										<!-- <li>
+											<a href="#materialCheckItemManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>检测项目管理</span>
+											</a>
+										</li> -->
+										<li>
+											<a href="#materialClassTemplateManager">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>类模板管理</span>
+											</a>
+										</li>
+										<li>
+											<a href="#materialTemplateManager">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>物料模板管理</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview">
+									<a class="" href="#processQualityReport">
+										<i class="fa fa-reorder"></i>
+										<span>PQC管理</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li>
+											<a href="#processQualityReport">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>品质日报</span>
+											</a>
+										</li>
+										<!-- <li>
+											<a href="#processItemManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>检测项目管理</span>
+											</a>
+										</li> -->
+										<li>
+											<a href="#processTemplateManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>检测方案管理</span>
+											</a>
+										</li>
+										<li>
+											<a href="#processPlanManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>检测计划管理</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview">
+									<a class="" href="#finalQualityReport">
+										<i class="fa fa-reorder"></i>
+										<span>FQC管理</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li>
+											<a href="#finalQualityReport">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>电芯出货报告</span>
+											</a>
+										</li>
+										<li>
+											<a href="#finaltemplateManage">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>出货报告模板管理</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview">
+									<a class="" href="#SPCMange">
+										<i class="fa fa-reorder"></i>
+										<span>SPC控制</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li>
+											<a href="#SPCMange">
+												<i class="fa fa-fw fa-circle-o"></i>
+												<span>控制图列表</span>
+											</a>
+										</li>
+
+									</ul>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<!-- mainLeft -->
+
+					<!-- 右边 -->
+					<div id="mainRight" class="col-sm-10">
+
+						<!-- 右边顶部 -->
+						<div id="mainRightTop">
+							<div id="mainRightTopMenu">
+
+								<!-- 右边顶部工具栏 -->
+								<div class="menu-toolbar clearfix">
+									<ul class="menu-toolbar-left">
+										<li>
+											<a class="sidebar-toggle" href="javascript:;"><i class="fa fa-bars"></i></a>
+										</li>
+									</ul>
+									<ul class="menu-toolbar-right pull-right">
+										<li class="toolbar-user">
+											<img src="images/demo/demo.jpg" />
+											<span id="showUserName">&nbsp</span>
+										</li>
+											<!--
+											<li class="dropdown">
+												<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="fa fa-bell-o"></i><span class="badge badge-success">5</span></a>
+												<ul class="dropdown-menu dropdown-menu-notifications dropdown-menu-right">
+													<li class="header"><a href="javascript:;">通知</a></li>
+													<li>
+														<ul class="menu">
+															<li>
+																<a href="javascript:;"><i class="fa fa-lg fa-exclamation-circle text-success"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+															</li>
+															<li>
+																<a href="javascript:;"><i class="fa fa-lg fa-exclamation-circle text-warning"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+															</li>
+															<li>
+																<a href="javascript:;"><i class="fa fa-lg fa-exclamation-circle text-danger"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+															</li>
+															<li>
+																<a href="javascript:;"><i class="fa fa-lg fa-exclamation-circle text-primary"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+															</li>
+														</ul>
+													</li>
+													<li class="footer"><a href="javascript:;">查看全部通知</a></li>
+												</ul>
+											</li>
+											<li class="dropdown">
+												<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="fa fa fa-flag-o"></i><span class="badge badge-warning">3</span></a>
+												<ul class="dropdown-menu dropdown-menu-tasks dropdown-menu-right">
+													<li class="header">
+														<a href="javascript:;">工作进度</a>
+													</li>
+													<li>
+														<ul class="menu">
+															<li>
+																<a href="javascript:;">
+																	<h5>某项工作<span class="pull-right">60%</span></h5>
+																	<div class="progress xs">
+																		<div class="progress-bar progress-bar-success" style="width: 60%;">
+																		</div>
+																	</div>
+																</a>
+															</li>
+															<li>
+																<a href="javascript:;">
+																	<h5>某项工作<span class="pull-right">10%</span></h5>
+																	<div class="progress xs">
+																		<div class="progress-bar progress-bar-warning" style="width: 10%;">
+																		</div>
+																	</div>
+																</a>
+															</li>
+															<li>
+																<a href="javascript:;">
+																	<h5>某项工作<span class="pull-right">30%</span></h5>
+																	<div class="progress xs">
+																		<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																		</div>
+																	</div>
+																</a>
+															</li>
+															<li>
+																<a href="javascript:;">
+																	<h5>某项工作<span class="pull-right">30%</span></h5>
+																	<div class="progress xs">
+																		<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																		</div>
+																	</div>
+																</a>
+															</li>
+															<li>
+																<a href="javascript:;">
+																	<h5>某项工作<span class="pull-right">30%</span></h5>
+																	<div class="progress xs">
+																		<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																		</div>
+																	</div>
+																</a>
+															</li>
+														</ul>
+													</li>
+													<li class="footer">
+														<a href="javascript:;">查看全部工作进度</a>
+													</li>
+												</ul>
+											</li> -->
+
+											<li>
+												<a id="exitSystem" href="javascript:;"><i class="fa fa-power-off"></i></a>
+											</li>
+											<li>
+												<!-- 					<a href="javascript:;"><i class="fa fa-gears"></i></a> -->
+										</li>
+									</ul>
+								</div>
+
+								<!-- 右边顶部一级导航栏 -->
+								<div class="menu-navbar">
+									<div class="row">
+										<div class="col-xs-1">
+											<div class="menu-navbar-pre"><i class="fa fa-angle-left"></i></div>
+										</div>
+										<div class="col-xs-10">
+											<div class="menu-navbar-nav swiper-container">
+												<div class="swiper-wrapper">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-1">
+											<div class="menu-navbar-next"><i class="fa fa-angle-right"></i></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- 右边内容区域 -->
+						<div id="mainRightContent">
+							<div id="LevelTwoMenuContainer" class="swiper-container">
+								<div class="swiper-wrapper">
+									<!-- 项目类型管理 -->
+									<div id="checkItemTypeManage" class="swiper-slide">
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>项目类型管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="checkItemTypeManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-btn-add" data-toggle-modal-target="#addChecItemTypeModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-8">
+																				<mes-process-searchbar>
+																				</mes-process-searchbar>
+																				<!-- <form class="form-inline pull-right" name="queryProcessForm" enctype="multipart/form-data">
+																							<div class="input-group input-group-sm fuzzy-search-group">
+																								<input class="form-control" name="keyword" type="text" placeholder="输入关键字" maxlength="25">
+																								<div class="input-group-btn">
+																									<button type="button" class="btn btn-primary">
+																										<i class="fa fa-search"></i>
+																									</button>
+																								</div>
+																							</div>
+																						</form> -->
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	 <div class="vueel">
+																	<!-- <div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 30%;">类型名称</th>
+																					<th style="width: 30%;">区分</th>
+																					<th style="width: 30%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addChecItemTypeModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div> -->
+																	<!-- <div class="panel-footer panel-footer-table text-right" id="app">
+
+																	<el-pagination background layout="total prev, pager, next" :total="1000">
+																	</el-pagination>
+																	</div> -->
+																	<!--panel-footer end -->
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 检验项目管理 -->
+									<div id="checkItemManage" class="swiper-slide">
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>检验项目管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="checkItemManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-btn-add" data-toggle-modal-target="#addChecItemModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-8">
+																				<mes-process-searchbar>
+																				</mes-process-searchbar>
+																				<!-- <form class="form-inline pull-right" name="queryProcessForm" enctype="multipart/form-data">
+
+
+
+																														<div class="input-group input-group-sm fuzzy-search-group">
+																															<input class="form-control" name="keyword" type="text" placeholder="输入关键字" maxlength="25">
+																															<div class="input-group-btn">
+																																<button type="button" class="btn btn-primary">
+																																	<i class="fa fa-search"></i>
+																																</button>
+																															</div>
+																														</div>
+																													</form> -->
+																			</div>
+																		</div>
+																	</div>
+																	<div class="vueel">
+																	<!--panel-heading end -->
+																	<!-- <div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 30%;">代号-名称</th>
+																					<th style="width: 30%;">说明</th>
+																					<th style="width: 30%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addChecItemModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div> -->
+																	<!--panel-footer end -->
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 测试量具管理 -->
+									<div id="measureManage" class="swiper-slide">
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>测试量具管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="measureManageInerSwiper">	<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addMeasurefModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-8">
+																				<mes-process-searchbar>
+																				</mes-process-searchbar>
+																				<!-- <form class="form-inline pull-right" name="queryProcessForm" enctype="multipart/form-data">
+
+
+
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" name="keyword" type="text" placeholder="输入关键字" maxlength="25">
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form> -->
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 30%;">代号-名称</th>
+																					<th style="width: 30%;">说明</th>
+																					<th style="width: 30%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																							<a class="table-link" data-toggle-modal-target="#addMeasurefModal" href="javascript:;"><i class="fa fa-pencil-square-o"></i>修改</a>
+																							<a class="table-link text-danger" href="javascript:;"><i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 不良代号管理 -->
+									<div id="badnessCodeManage" class="swiper-slide">
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>不良代号管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="badnessCodeManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addBadnessCodeModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-8">
+																				<mes-process-searchbar>
+																				</mes-process-searchbar>
+																				<!-- <form class="form-inline pull-right" name="queryProcessForm" enctype="multipart/form-data">
+
+
+
+																														<div class="input-group input-group-sm fuzzy-search-group">
+																															<input class="form-control" name="keyword" type="text" placeholder="输入关键字" maxlength="25">
+																															<div class="input-group-btn">
+																																<button type="button" class="btn btn-primary">
+																																	<i class="fa fa-search"></i>
+																																</button>
+																															</div>
+																														</div>
+																													</form> -->
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 30%;">不良代号</th>
+																					<th style="width: 30%;">代号说明</th>
+																					<th style="width: 30%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addBadnessCodeModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 进货检验报告 -->
+									<div id="inQualityReport" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>进货检验报告</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="inQualityReportInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addInQualityReportModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="vueel">
+																		<div class="panel-body-table table-height-10">
+																			<table class="table  table-bordered table-hover table-condensed">
+																				<thead>
+																					<tr>
+																						<th style="width: 5%;">序号</th>
+																						<th style="width: 15%;">物料名称</th>
+																						<th style="width: 15%;">批次</th>
+																						<th style="width: 15%;">规格型号</th>
+																						<th style="width: 15%;">数量</th>
+																						<th style="width: 15%;">检验结果结果</th>
+																						<th style="width: 15%;">操作</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr>
+																						<td>1</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td class="table-input-td">
+																							<a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-tasks fa-fw"></i>详情</a>
+																							<a class="table-link" data-toggle-modal-target="#addInQualityReportModal" href="javascript:;"><i class="fa fa-pencil-square-o"></i>修改</a>
+																							<a class="table-link text-danger" href="javascript:;"><i class="fa fa-trash-o"></i>删除</a>
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<div class="panel-footer panel-footer-table text-center">
+																			<ul class="pagination pagination-sm pull-right">
+																			</ul>
+																		</div>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 类模板管理 -->
+									<div id="materialClassTemplateManager" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>类模板管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="materialClassTemplateManagerInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addMaterialClassTemplateModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">物料名称</th>
+																					<th style="width: 15%;">批次</th>
+																					<th style="width: 15%;">规格型号</th>
+																					<th style="width: 15%;">数量</th>
+																					<th style="width: 15%;">检验结果结果</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addMaterialClassTemplateModal" href="javascript:void(0);">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addMaterialClassTemplateModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 物料模板管理 -->
+									<div id="materialTemplateManager" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>物料模板管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="materialTemplateManagerInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addMaterialTemplateModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">物料名称</th>
+																					<th style="width: 15%;">批次</th>
+																					<th style="width: 15%;">规格型号</th>
+																					<th style="width: 15%;">数量</th>
+																					<th style="width: 15%;">检验结果结果</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addMaterialTemplateModal" href="javascript:;">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addMaterialTemplateModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 品质报告 -->
+									<div id="processQualityReport" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>品质日报</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="processQualityReportInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addProcessQualityReportModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 20%;">报告名称</th>
+																					<th style="width: 20%;">工序名称</th>
+																					<th style="width: 20%;">检验方式</th>
+																					<th style="width: 20%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addProcessQualityReportModal" href="javascript:;">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addProcessQualityReportModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 检测方案管理 -->
+									<div id="processTemplateManage" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>检测方案管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="processTemplateManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addProcessTemplateModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">方案名称</th>
+																					<th style="width: 15%;">工序</th>
+																					<th style="width: 15%;">检验方式</th>
+																					<th style="width: 15%;">版本</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addProcessTemplateModal" href="javascript:;">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addProcessTemplateModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 检测计划管理 -->
+									<div id="processPlanManage" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>检测计划管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="processPlanManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addProcessPlanModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">计划名称</th>
+																					<th style="width: 15%;">批号</th>
+																					<th style="width: 15%;">计划进度</th>
+																					<th style="width: 15%;">优先级</th>
+																					<th style="width: 15%;">状态</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addProcessPlanModal" href="javascript:;">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addProcessPlanModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 电芯出货报告 -->
+									<div id="finalQualityReport" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>电芯出货报告</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="finalQualityReportInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addFinalQualityReportModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">报告名称</th>
+																					<th style="width: 15%;">报告类型</th>
+																					<th style="width: 15%;">电池型号</th>
+																					<th style="width: 15%;">电池批号</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addFinalQualityReportModal" href="javascript:void(0);">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addFinalQualityReportModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 电芯出货报告模板管理 -->
+									<div id="finaltemplateManage" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>出货报告模板管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="finaltemplateManageInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#addFinaltemplateModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">模板名称</th>
+																					<th style="width: 15%;">模板类型</th>
+																					<th style="width: 15%;">版本</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#addFinaltemplateModal" href="javascript:void(0);">
+																							<i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#addFinaltemplateModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 控制图列表 -->
+									<div id="SPCMange" class="swiper-slide">
+										<!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>控制图列表</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="SPCMangeInerSwiper">
+														<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#positionModal">新增</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																						<div class="input-group-btn">
+																							<button type="button" class="btn btn-primary head-main-btn-2">
+																								<i class="fa fa-search"></i>
+																							</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="panel-body-table table-height-10">
+																		<table class="table  table-bordered table-hover table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">物料名称</th>
+																					<th style="width: 15%;">批次</th>
+																					<th style="width: 15%;">规格型号</th>
+																					<th style="width: 15%;">数量</th>
+																					<th style="width: 15%;">检验结果结果</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#positionModal" href="javascript:;">
+																							<i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:;">
+																							<i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table text-center">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- mainRightContent -->
+					</div>
+					<!-- mainRight -->
+				</div>
+			</div>
+		</div>
+		<!-- wrapper -->
+
+		<!-- 模态框 -->
+		<div class="">
+			<!-- 新增项目类型态框 -->
+			<div class="modal fade" id="addChecItemTypeModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增项目类型</h5>
+													</div>
+												</div>
+											</div>
+											<div class="panel-body-table">
+												<table class="table table-bordered">
+													<tbody>
+														<tr>
+															<th style="width:20%">类型名称</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+														<tr>
+															<th style="width:20%">区分</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+											<!-- <div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增项目态框 -->
+			<div class="modal fade" id="addChecItemModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增项目</h5>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered">
+													<tbody>
+														<!-- <tr>
+															<th style="width:20%">项目名称</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+														<tr>
+															<th style="width:20%">项目类型</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr> -->
+
+													</tbody>
+												</table>
+											</div>
+											<!-- <div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增测量器具模态框 -->
+			<div class="modal fade" id="addMeasurefModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增量具</h5>
+													</div>
+												</div>
+											</div>
+											<div >
+												<table class="table table-bordered">
+													<tbody>
+														<tr>
+															<th style="width:20%">代号-名称</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+														<tr>
+															<th style="width:20%">说明</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增不良代号模态框 -->
+			<div class="modal fade" id="addBadnessCodeModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增不良代号</h5>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered">
+													<tbody>
+														<tr>
+															<th style="width:20%">不良代号</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+														<tr>
+															<th style="width:20%">代号说明</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增进货检验报告模态框 -->
+			<div class="modal fade" id="addInQualityReportModal">
+
+			</div>
+			<!-- 新增类模板模态框 -->
+			<div class="modal fade" id="addMaterialClassTemplateModal">
+
+			</div>
+			<!-- 新增物料模板模态框 -->
+			<div class="modal fade" id="addMaterialTemplateModal">
+
+			</div>
+			<!-- 新增品质日报模态框 -->
+			<div class="modal fade" id="addProcessQualityReportModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">新增品质日报</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">增加检验项</button> -->
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">表单编号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">生产日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">设备编号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">规格/型号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">批 号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">检验方式</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+														<tr>
+															<th style="width:14%">计划量</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">实际量</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">操作员</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+														<tr>
+															<th style="width:14%">检查员</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">检验日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">综合判定</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+														<tr>
+															<th style="width:14%">审核人</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">审核日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%"></th>
+															<td class="table-input-td" style="width:19%">
+
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">生产准备</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">增加特性</button> -->
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<td class="table-input-td">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">环境条件</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">来料确认</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加物料</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:25%">物料名称</th>
+															<th style="width:35%">参数</th>
+															<th style="width:15%">详情</th>
+															<th style="width:15%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+															</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+															</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">半成品参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加项目</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">设备参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加参数</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">其它参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<!-- <div class="row">
+																				<div class="col-xs-12 text-center">
+																					<button class="btn btn-primary modal-submit">确认提交</button>
+																				</div>
+																			</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增检验方案模态框 -->
+			<div class="modal fade" id="addProcessTemplateModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">新增检验方案</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">增加检验项</button> -->
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">方案编号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">方案名称</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">检验方式</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">工序名</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">版本</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%"></th>
+															<td class="table-input-td" style="width:19%">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">生产准备</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">增加特性</button> -->
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<td class="table-input-td">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">环境条件</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">来料确认</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加物料</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+													<table class="table table-bordered table-condensed">
+														<tbody>
+															<tr>
+																<th style="width:25%">物料名称</th>
+																<th style="width:35%">参数</th>
+																<th style="width:15%">详情</th>
+																<th style="width:15%">操作</th>
+															</tr>
+
+															<tr>
+																<td>测试</td>
+																<td></td>
+																<td class="table-input-td">
+																		<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+																</td>
+																<td class="table-input-td">
+																	<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																		<i class="fa fa-times"></i>移除</a>
+																</td>
+															</tr>
+															<tr>
+																<td>测试</td>
+																<td></td>
+																<td class="table-input-td">
+																	<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+																</td>
+																<td class="table-input-td">
+																	<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																		<i class="fa fa-times"></i>移除</a>
+																</td>
+															</tr>
+
+														</tbody>
+													</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">半成品参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加项目</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">设备参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加参数</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">其它参数</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">移除检验项</button> -->
+															<button class="btn btn-primary btn-sm">增加</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:38%">参数名称</th>
+															<th style="width:38%">标准</th>
+															<th style="width:23%">操作</th>
+														</tr>
+
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td></td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<!-- <div class="row">
+																	<div class="col-xs-12 text-center">
+																		<button class="btn btn-primary modal-submit">确认提交</button>
+																	</div>
+																</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增检验计划模态框 -->
+			<div class="modal fade" id="addProcessPlanModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">新增检验计划</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!-- <button class="btn btn-primary btn-sm">增加检验项</button> -->
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">计划名称</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">生产批号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">计划进度</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">优先级</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">状态</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">创建人</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+														<tr>
+															<th style="width:14%">创建日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">审批人</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">审批日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">工序</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<button class="btn btn-primary btn-sm">从历史计划里新建</button>
+															<button class="btn btn-primary btn-sm">增加工序</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:8%">序号</th>
+															<th style="width:20%">工序名称</th>
+															<th style="width:20%">检验方式</th>
+															<th style="width:20%">检验方案</th>
+															<th style="width:12%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td class="table-input-td">
+																<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+															</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td class="table-input-td">
+																<a class="table-link" data-toggle-modal-target="#productionLineDetailModal" href="javascript:;">查看</a>
+															</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 新增出货报告模态框 -->
+			<div class="modal fade" id="addFinalQualityReportModal">
+				<!-- <div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">新增出货报告</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<button class="btn btn-primary btn-sm">增加检验项</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">报检单号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">报检日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">客户名称</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">电池型号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">容量档次</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">电池批号</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">综合结果</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<button class="btn btn-primary btn-sm">增加检验项</button> 
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:14%">报检数量</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">抽样数量</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">综合判定</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">不良数量</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">不良率</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">检验员</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:14%">检验日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:14%">审核人</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+															<th style="width:14%">审查日期</th>
+															<td class="table-input-td" style="width:19%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">检验内容</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															 <button class="btn btn-primary btn-sm">增加项目</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:5%">序号</th>
+															<th style="width:9%">检验项目</th>
+															<th style="width:9%">检验标准</th>
+															<th style="width:9%">判定标准(IL)</th>
+															<th style="width:9%">判定标准(AQL)</th>
+															<th style="width:9%">测试方法</th>
+															<th style="width:9%">实测(min)</th>
+															<th style="width:9%">实测(max)</th>
+															<th style="width:9%">判断</th>
+															<th style="width:9%">不良内容</th>
+															<th style="width:9%">不良数量</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<!-- 新增出货报告模板模态框 -->
+			<div class="modal fade" id="addFinaltemplateModal">
+				<!-- <div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">新增出货报告模板</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<button class="btn btn-primary btn-sm">增加检验项</button> 
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:20%">模板名称</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:20%">模板编号</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on" onclick="WdatePicker()">
+															</td>
+														</tr>
+
+														<tr>
+															<th style="width:20%">模板类型</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+															<th style="width:20%">版本</th>
+															<td class="table-input-td" style="width:30%">
+																<input type="text" class="table-input" placeholder="请输入" autocomplete="on">
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">检验内容</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<button class="btn btn-primary btn-sm">增加项目</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div>
+												<table class="table table-bordered table-condensed">
+													<tbody>
+														<tr>
+															<th style="width:8%">序号</th>
+															<th style="width:15%">检验项目</th>
+															<th style="width:15%">检验标准</th>
+															<th style="width:15%">判定标准(IL)</th>
+															<th style="width:15%">判定标准(AQL)</th>
+															<th style="width:15%">测试方法</th>
+															<th style="width:12%">操作</th>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td>1</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:;" data-toggle-btn="delete">
+																	<i class="fa fa-times"></i>移除</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<!-- 新增选择物料模板模态框 -->
+			<div class="modal fade" id="materialTemplate"></div>
+			<!-- IQC增加检验项 -->
+			<div class="modal fade" id="addCondensation"></div>
+			<!-- IQC增加项目 -->
+			<div class="modal fade" id="addProject"></div>
+			<!-- IQC尺寸特性抽样结果查看 -->
+			<div class="modal fade" id="samplingResults"></div>
+			<!-- 新增前选择模板，物料模态框 -->
+			<div class="modal fade" id="optionTemplateModel"></div>
+			<!-- IQC新增修改项目选择器具 -->
+			<div class="modal fade" id="chooseAppliance"></div>
+			<!-- IQC新增不良项目 -->
+			<div class="modal fade" id="unhealthyInformation"></div>
+			<!-- IQC选择人员 -->
+			<div class="modal fade" id="staffModel"></div>
+			<!-- fqc选择模板 -->
+			<div class="modal fade" id="reportTemplateModel"></div>
+			<!-- iqc选择供应商 -->
+			<div class="modal fade" id="supplierModel"></div>
+			<!-- iqc选择产品 -->
+			<div class="modal fade" id="productOptionModel"></div>
+			<!-- 通用详情模态框 -->
+			<div class="modal fade" id="dataDetailsModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+							<span>
+								<i class="fa fa-close"></i>
+							</span>
+						</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">表单提交</h5>
+													</div>
+												</div>
+											</div>
+											<div class="panel-body-table table-height-10">
+													<table class="table table-bordered">
+														<thead>
+
+														</thead>
+														<tbody>
+
+														</tbody>
+													</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 通用表单提交模态框，横向表格，不含分页 -->
+
+		</div>
+
+		<!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jquery-cookie -->
+		<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<!-- js动画 -->
+		<script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- sweetalert弹窗 -->
+		<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+		<!--Moment日期处理-->
+		<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+		<!-- swiper轮播图 -->
+		<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- mydate97日期插件-->
+		<script src="js/vendors/dateControl/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- mock.js-->
+		<script src="js/vendors/mock.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- vue -->
+		<script src="js/vue/vue.js"></script>
+		<!-- <script src="js/vue/vueCommon.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/qualityManagement.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- <script src="js/quality/basicsMessage.js" type="text/javascript" charset="UTF-8"></script> -->
+		<!-- element-ui -->
+		<script src="js/vue/element-ui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- JS -->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/basevalue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/quality/qualityReqUrl.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/quality/qualityMock.js" type="text/javascript" charset="UTF-8"></script>
+		<!-- <script src="js/quality/qualityManagement.js" type="text/javascript" charset="UTF-8"></script> -->
+		<script src="js/quality/qualityManagement2.js" type="text/javascript" charset="UTF-8"></script>
+
+
+
+		<script>
+
+
+		</script>
+	</body>
+
+</html>

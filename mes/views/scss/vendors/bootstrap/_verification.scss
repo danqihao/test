@@ -1,0 +1,11 @@
+.verification {
+	border-radius: 2px;
+	height: 30px;
+	width: auto;
+	
+	&.lg {
+		border-radius: 3px;
+		height: 35px;
+		width: auto;
+	}
+}

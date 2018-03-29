@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- 中文简体 -->
+
+	<!--<head>-->
+		<head lang="zh-cmn-Hans">
+
+		<!-- 编码方式 -->
+		<meta charset="UTF-8">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+
+		<title>员工管理</title>
+
+	</head>
+	<body style="background:white">
+		<!-- <button id="testBtn">测试按钮</button> -->
+        <table id="table1">
+            <tr>
+              	<td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                <td>1212</td>
+                <td class="table-input-td">
+                    <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                </td>
+            </tr>
+            <tr>
+              	<td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                <td>1212</td>
+                <td class="table-input-td">
+                    <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                </td>
+            </tr>
+            <tr>
+              	<td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                <td>1212</td>
+                <td class="table-input-td">
+                    <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                </td>
+            </tr>
+          </table>
+        </br>
+          <table id="table2">
+              <tr>
+                  <td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                  <td>1212</td>
+                  <td class="table-input-td">
+                      <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                  </td>
+              </tr>
+              <tr>
+                  <td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                  <td>1212</td>
+                  <td class="table-input-td">
+                      <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                  </td>
+              </tr>
+              <tr>
+                  <td data="${resolveData.craftId}" qualityRate="${resolveData.qualityRate}">12121</td>
+                  <td>1212</td>
+                  <td class="table-input-td">
+                      <a class="table-link text-danger" href="javascript:;" class="delete"><i class="fa fa-bank"></i>删除</a>
+                  </td>
+              </tr>
+              
+          </table>
+
+
+
+
+		<!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<!-- <script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<!-- <script src="<%=request.getContextPath() %>/dwr/engine.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="<%=request.getContextPath() %>/dwr/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="dwrService.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- JS -->
+		<script>
+
+      $("#table1").find(".table-link").off('click').on('click', function(event) {
+        alert(1)
+        let thisTr=$(this).closest('tr');
+        thisTr.remove()
+        $("#table2").append(thisTr);
+      })
+      
+      var a= new Date()
+      console.log(a)
+     
+
+
+
+		</script>
+	</body>
+
+</html>
+
+

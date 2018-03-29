@@ -1,0 +1,3702 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- 中文简体 -->
+
+	<!--<head>-->
+		<head lang="zh-cmn-Hans">
+
+		<!-- 编码方式 -->
+		<meta charset="UTF-8">
+		<!-- IE兼容模式 -->
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- 响应式设置 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 选择渲染引擎 -->
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<!-- 内容安全政策-->
+		<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'">-->
+		<!-- 应用名称-->
+		<meta name="application-name" content="天蓝MES系统">
+		<!-- 非常简短的描述（少于 10 个字） -->
+		<meta name="abstract" content="制造企业生产过程执行管理系统">
+		<!-- 简短描述（限制 150 字符）-->
+		<meta name="description" content="MES系统是一套面向制造企业车间执行层的生产信息化管理系统，为企业打造一个扎实、可靠、全面、可行的制造协同管理平台。">
+		<!-- 网站主题 -->
+		<meta name="subject" content="MES">
+		<!-- 完整的域名或网址 -->
+		<meta name="url" content="">
+		<!-- 编辑器 -->
+		<meta name="generator" content="HBuilder">
+
+		<!-- 作者信息
+		<link rel="author" href="http://www.blue-skyauto.com/show_116.html">
+		<link rel="me" href="http://www.blue-skyauto.com/" type="text/html">
+		<link rel="me" href="tl002@blue-skyauto.com">
+		<link rel="me" href="+86 18825858567">-->
+		<!-- LOGO -->
+		<!-- <link rel="icon" href="" sizes="16x16" type="image/png">
+		<link rel="icon" href="" sizes="32x32" type="image/png">
+		<link rel="icon" href="" sizes="48x48" type="image/png">
+		<link rel="icon" href="" sizes="62x62" type="image/png">
+		<link rel="icon" href="" sizes="192x192" type="image/png"> -->
+		<!-- 版权 -->
+		<!-- <link rel="copyright" href=""> -->
+
+		<!-- CSS插件 -->
+		<!-- sweetalert弹窗 -->
+		<link rel="stylesheet" href="css/vendors/sweetalert2.css" />
+		<!-- animate动画 -->
+		<link rel="stylesheet" href="css/vendors/animate.css" />
+		<!-- hover鼠标悬浮 -->
+		<!-- <link rel="stylesheet" href="css/vendors/hover-min.css" /> -->
+		<!-- font-awesome字形图标 -->
+		<link rel="stylesheet" href="css/vendors/font-awesome.min.css" />
+		<!-- swiper轮播图 -->
+		<link rel="stylesheet" href="css/vendors/swiper-3.4.2.min.css" />
+
+		<!-- CS.S -->
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="js/vendors/build/kalendae.css" />
+		<link rel="stylesheet" href="js/vendors/calendar/calendar.css" />
+
+		<title>设备管理</title>
+
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div id="mainLeft" class="col-sm-2 hidden-xs">
+						<div id="mainLeftSidebar">
+
+							<!-- LOGO -->
+							<div class="sidebar-logo">
+								<b>MES</b>
+							</div>
+
+							<!-- 边栏导航标题 -->
+							<div class="sidebar-nav-header">
+								<span>设备管控</span>
+							</div>
+							<ul class="sidebar-nav">
+
+								<li class="treeview devicesStatus">
+									<a class="" href="#devicesStatus">
+										<i class="fa fa-fw fa-window-restore"></i>
+										<span>设备状况</span>
+									</a>
+								</li>
+
+								<li class="treeview devicesLedger">
+									<a class="" href="#devicesLedger">
+										<i class="fa fa-fw fa-table"></i>
+										<span>设备台账</span>
+									</a>
+								</li>
+
+								<li class="treeview checkPlan">
+									<a class="" href="#devicesMaintain">
+										<i class="fa fa-fw fa-wrench"></i>
+										<span>设备点检</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li class="checkPlanRecord">
+											<a href="#devicesMaintain"><i class="fa fa-fw fa-circle-o"></i><span>点检记录</span></a>
+										</li>
+										<li class="saveCheckPlan">
+											<a href="#devicesMaintain2"><i class="fa fa-fw fa-circle-o"></i><span>新建点检表</span></a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview upkeepPlan">
+									<a class="" href="#devicesCheck1">
+										<i class="fa fa-fw fa-dashboard"></i>
+										<span>维护保养</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li class="saveCheckPlanRecord">
+											<a href="#devicesCheck1"><i class="fa fa-fw fa-circle-o"></i><span>保养记录</span></a>
+										</li>
+										<li class="saveUpkeepPlan">
+											<a href="#devicesCheck2"><i class="fa fa-fw fa-circle-o"></i><span>新建保养计划</span></a>
+										</li>
+										<li class="checkPlanProjectManage ">
+											<a href="#devicesCheck3"><i class="fa fa-fw fa-circle-o"></i><span>保养指导书管理</span></a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="treeview devicesFault">
+									<a class="" href="#devicesfault">
+										<i class="fa fa-fw fa-bolt"></i>
+										<span>故障记录</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<!-- mainLeft -->
+
+					<!-- 右边 -->
+					<div id="mainRight" class="col-sm-10">
+
+						<!-- 右边顶部 -->
+						<div id="mainRightTop">
+							<div id="mainRightTopMenu">
+
+								<!-- 右边顶部工具栏 -->
+								<div class="menu-toolbar clearfix">
+									<ul class="menu-toolbar-left">
+										<li>
+											<a class="sidebar-toggle" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+										</li>
+									</ul>
+									<ul class="menu-toolbar-right pull-right">
+										<li class="toolbar-user">
+											<img src="images/demo/demo.jpg" />
+											<span id="showUserName">&nbsp</span>
+										</li>
+									<!--
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa-bell-o"></i><span class="badge badge-success">5</span></a>
+											<ul class="dropdown-menu dropdown-menu-notifications dropdown-menu-right">
+												<li class="header"><a href="javascript:void(0);">通知</a></li>
+												<li>
+													<ul class="menu">
+														<li>
+															<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-success"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+														</li>
+														<li>
+															<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-warning"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+														</li>
+														<li>
+															<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-danger"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+														</li>
+														<li>
+															<a href="javascript:void(0);"><i class="fa fa-lg fa-exclamation-circle text-primary"></i>测试<span class="fa fa-times fa-lg pull-right"></span></a>
+														</li>
+													</ul>
+												</li>
+												<li class="footer"><a href="javascript:void(0);">查看全部通知</a></li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa fa-flag-o"></i><span class="badge badge-warning">3</span></a>
+											<ul class="dropdown-menu dropdown-menu-tasks dropdown-menu-right">
+												<li class="header">
+													<a href="javascript:void(0);">工作进度</a>
+												</li>
+												<li>
+													<ul class="menu">
+														<li>
+															<a href="javascript:void(0);">
+																<h5>某项工作<span class="pull-right">60%</span></h5>
+																<div class="progress xs">
+																	<div class="progress-bar progress-bar-success" style="width: 60%;">
+																	</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:void(0);">
+																<h5>某项工作<span class="pull-right">10%</span></h5>
+																<div class="progress xs">
+																	<div class="progress-bar progress-bar-warning" style="width: 10%;">
+																	</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:void(0);">
+																<h5>某项工作<span class="pull-right">30%</span></h5>
+																<div class="progress xs">
+																	<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																	</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:void(0);">
+																<h5>某项工作<span class="pull-right">30%</span></h5>
+																<div class="progress xs">
+																	<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																	</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="javascript:void(0);">
+																<h5>某项工作<span class="pull-right">30%</span></h5>
+																<div class="progress xs">
+																	<div class="progress-bar progress-bar-danger" style="width: 30%;">
+																	</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+												</li>
+												<li class="footer">
+													<a href="javascript:void(0);">查看全部工作进度</a>
+												</li>
+											</ul>
+										</li> -->
+
+										<li>
+											<a id="exitSystem" href="javascript:void(0);"><i class="fa fa-power-off"></i></a>
+										</li>
+										<li>
+										</li>
+									</ul>
+								</div>
+
+								<!-- 右边顶部一级导航栏 -->
+								<div class="menu-navbar">
+									<div class="row">
+										<div class="col-xs-1">
+											<div class="menu-navbar-pre"><i class="fa fa-angle-left"></i></div>
+										</div>
+										<div class="col-xs-10">
+											<div class="menu-navbar-nav swiper-container">
+												<div class="swiper-wrapper">
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-1">
+											<div class="menu-navbar-next"><i class="fa fa-angle-right"></i></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- 右边内容区域 -->
+						<div id="mainRightContent">
+							<div id="LevelTwoMenuContainer" class="swiper-container">
+								<div class="swiper-wrapper">
+
+									<!-- 设备状况内容区域 -->
+									<div id="devicesStatus" class="swiper-slide devicesStatus"> <!-- 右侧外部swiper -->
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-window-restore"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>设备状况</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesStatusInerSwiper">	<!-- 右侧内部swiper -->
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<h5 class="panel-title">设备状况实时监控</h5>
+																			</div>
+																			<div class="col-xs-8">
+																				<form class="form-inline pull-right" action="">
+																					<div class="input-group input-group-sm">
+																						<select class="form-control devices-type-option">
+																							<option value="">全部</option>
+																						</select>
+																					</div>
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25"/>
+																						<div class="input-group-btn">
+																								<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<!--panel-heading end -->
+																	<div class="table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 10%;">设备名称</th>
+																					<th style="width: 10%;">设备编号</th>
+																					<th style="width: 10%;">运行状况</th>
+																					<th style="width: 15%;">参数一</th>
+																					<th style="width: 15%;">参数二</th>
+																					<th style="width: 15%;">参数三</th>
+																					<th style="width: 10%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#moreParameterModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>参数详情</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																	<!--panel-footer end -->
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- 设备台账内容区域 -->
+									<div id="devicesLedger" class="swiper-slide devicesLedger">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-table"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>设备台账</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesLedgerInerSwiper">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<!--<h5 class="panel-title">设备台账记录</h5>-->
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1 devicesTypeManage" data-toggle-modal-target="#devicesTypeManage">设备类型管理</a>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-2 saveDevices" data-toggle-modal-target="#submitModelModal">新增设备</a>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-3">导出Excel</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+																					<div class="input-group input-group-sm">
+																						<select class="form-control devices-type-option">
+																							<option value="">全部类型</option>
+																						</select>
+																					</div>
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25"/>
+																						<div class="input-group-btn">
+																								<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 4%;">序号</th>
+																					<th style="width: 12%;">设备名称</th>
+																					<th style="width: 12%;">设备编号</th>
+																					<th style="width: 12%;">供应商</th>
+																					<th style="width: 12%;">购入时间</th>
+																					<th style="width: 12%;">使用时间</th>
+																					<th style="width: 10%;">所在车间</th>
+																					<th style="width: 10%;">设备状态</th>
+																					<th style="width: 16%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#devicesDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#editDevices" href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- 点检记录内容区域 -->
+									<div id="devicesMaintain" class="swiper-slide checkPlanRecord">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-wrench"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>设备点检</p>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div id="devicesMaintainInerSwiper" class="swiper-slide swiper-no-swiping">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<h5 class="panel-title">点检记录</h5>
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+
+																					<div class="input-group input-group-sm">
+																						<select class="form-control devices-type-option">
+																							<!-- <option value="">全部</option> -->
+																						</select>
+
+																					</div>
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25"/>
+																						<div class="input-group-btn">
+																								<button type="button" class="btn btn-primary">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="table-height-10">
+																		<table class="table table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 5%;">序号</th>
+																					<th style="width: 15%;">设备名称</th>
+																					<th style="width: 15%;">设备编号</th>
+																					<th style="width: 15%;">点检表版本号</th>
+																					<th style="width: 10%;">状态</th>
+																					<th style="width: 10%;">点检人</th>
+																					<th style="width: 10%;">确认人</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody id="">
+																				<tr>
+																					<td>1</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td class="table-input-td">
+																						<select class="form-control table-input input-group">
+																							<option>启用</option>
+																							<option>关闭</option>
+																						</select>
+																					</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#devicesCheckDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>详情</a>
+																						<a class="table-link" data-toggle-modal-target="#editDevicesCheckModal" href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>执行</a>
+																						<!-- <a class="table-link text-danger" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a> -->
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesMaintain2" class="swiper-slide saveCheckPlan">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-wrench"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>设备点检</p>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesMaintain2InerSwiper">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<h5 class="panel-title">基础信息</h5>
+
+																			</div>
+
+																		</div>
+																	</div>
+																	<table class="table table-bordered">
+
+																		<tbody>
+																			<tr>
+																				<th>设备名称</th>
+																				<td class="table-input-td">
+																					<input class="table-input seleteDevices" type="text" placeholder="点此选择设备" />
+																				</td>
+																				<th>设备编号</th>
+																				<td class="table-input-td">
+																					<input class="table-input" type="text" placeholder="请先选择设备" disabled  />
+																				</td>
+																				<th>点检表版本号</th>
+																				<td class="table-input-td">
+																					<input class="table-input" type="text" placeholder="请在下面选择版本" disabled  />
+																				</td>
+																			</tr>
+																			<tr>
+																				<th>点检人</th>
+																				<td class="table-input-td">
+																					<input class="table-input" type="text" placeholder="请输入" />
+																				</td>
+																				<th>确认人</th>
+																				<td class="table-input-td">
+																					<input class="table-input" type="text" placeholder="请输入" />
+																				</td>
+
+																				<th></th>
+																				<td></td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-6">
+																				<h5 class="panel-title">点检项目</h5>
+
+																			</div>
+																			<div class="col-xs-6">
+																				<form class="form-inline pull-right" action="">
+
+																					<div class="input-group input-group-sm">
+
+																					</div>
+
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																							<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1">增加项目</a>
+																					</div>
+
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="table-height-10">
+																		<table class="table table-bordered">
+																			<thead>
+																				<tr>
+																					<th style="width: 30%;">项目名称</th>
+																					<th style="width: 30%;">基准</th>
+																					<th style="width: 13%;">点检方法</th>
+																					<th style="width: 13%;">点检时机</th>
+																					<th style="width: 13%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody id="checkItemTbody">
+																				<tr>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<td class="table-input-td">
+																						<select class="form-control table-input input-sm">
+																								<option value="目测">目测</option>
+																								<option value="实测">实测</option>
+																								<option value="其它">其它</option>
+																							</select>
+																					</td>
+																					<td class="table-input-td">
+																						<select class="form-control table-input input-sm">
+																								<option value="班前">班前</option>
+																								<option value="班时">班时</option>
+																								<option value="班后">班后</option>
+																							</select>
+																					</td>
+																					<td class="table-input-td">
+																						<a class="table-link text-danger delete" href="javascript:;"><i class="fa fa-times"></i>移除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<div class="row">
+																			<div class="col-xs-12 text-center">
+																				<button class="btn btn-primary modal-submit">保存</button>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- 维护保养记录内容区域 -->
+									<div id="devicesCheck1" class="swiper-slide saveCheckPlanRecord">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-dashboard"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>保养记录</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+
+											<!-- 右边内容区域 -->
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesCheck1InerSwiper">
+
+														<!-- 警告框,预留，暂时不要删除
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="content-body-alert">
+																	<div class="alert alert-danger alert-dismissable fade in">
+																		<button type="button" class="close" data-dismiss="alert">
+																		<i class="fa fa-close"></i>
+																	</button>
+																		<span>#Y07机器进料故障！</span>
+																		<a href="javascript:void(0);" class="alert-link">详情</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														-->
+														<!-- /警告框 -->
+
+														<!-- 内容区域 -->
+														<div class="row">
+
+															<div class="col-sm-12">
+																<div class="panel-group">
+																	<div class="panel panel-default">
+																		<div class="panel-heading panel-heading-table" id="border_buttom">
+																			<div class="row">
+																				<div class="col-xs-4">
+																					<h5 class="panel-title">保养记录</h5>
+																				</div>
+																				<div class="col-xs-8">
+																					<form class="form-inline pull-right" action="">
+																						<div class="input-group input-group-sm">
+																							<select class="form-control devices-type-option">
+																									<option value="">全部类型</option>
+																									<option value="月度保养">月度保养</option>
+																									<option value="假期保养">假期保养</option>
+																									<option value="年度保养">年度保养</option>
+																							</select>
+
+																						</div>
+																						<!--搜索框 -->
+																						<div class="input-group input-group-sm fuzzy-search-group">
+																							<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" id="devicesStatusKeywordsInput"/>
+																							<div class="input-group-btn">
+																									<button type="button" class="btn btn-primary">
+																										<i class="fa fa-search"></i>
+																									</button>
+																							</div>
+																						</div>
+
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="table-height-10">
+																			<table class="table table-hover table-bordered">
+																				<thead>
+																					<tr>
+																						<th style="width: 5%;">序号</th>
+																						<th style="width: 15%;">计划编号</th>
+																						<th style="width: 10%;">计划类型</th>
+																						<th style="width: 15%;">下次保养时间</th>
+																						<th style="width: 20%;">创建者</th>
+																						<th style="width: 10%;">创建时间</th>
+																						<th style="width: 10%;">状态</th>
+																						<th style="width: 25%;">操作</th>
+																					</tr>
+																				</thead>
+																				<tbody class="craftTbody" id="craftTbody1">
+	 																				<tr>
+	 																					<td>1</td>
+	 																					<td>测试</td>
+	 																					<td>测试</td>
+	 																					<td>测试</td>
+	 																					<td>测试</td>
+	 																					<td>测试</td>
+	 																					<td>测试</td>
+																						<td class="table-input-td">
+	 																						<a class="table-link" data-toggle-modal-target="#maintainDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>详情</a>
+	 																						<a class="table-link" data-toggle-modal-target="#editMaintainRecordModal" href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>编辑</a>
+																							<a class="table-link text-danger" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a>
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<div class="panel-footer panel-footer-table">
+																			<ul class="pagination pagination-sm pull-right">
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="devicesCheck2" class="swiper-slide saveUpkeepPlan">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-6">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-dashboard"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>新建保养计划</p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-6">
+														<div class="content-header-tab pull-right">
+															<form class="form-inline ">
+																<!-- <a href="javascript:;" class="btn btn-primary btn-sm" id="headLeftBtn1">从历史计划里新建</a> -->
+																<button class="btn btn-primary btn-sm" id="headLeftBtn2">增加设备</button>
+															</form>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+
+											<!-- 右边内容区域 -->
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesCheck2InerSwiper">
+
+														<!-- 内容区域 -->
+														<div class="row">
+															<div class="col-sm-12" id="devicesCheck2Panel">
+																	<div class="panel panel-default">
+																		<div class="panel-heading panel-heading-table">
+																			<div class="row">
+																				<div class="col-xs-4">
+																					<h5 class="panel-title">基础信息</h5>
+																				</div>
+																				<div class="col-xs-8">
+																				</div>
+																			</div>
+																		</div>
+
+																		<table class="table table-bordered table-condensed">
+
+																			<tbody>
+																				<tr>
+																					<th>计划名称</th>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<th>计划编号</th>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<th>计划类型</th>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																				</tr>
+																				<tr>
+																					<th>创建者</th>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<th>总负责人</th>
+																					<td class="table-input-td">
+																						<input class="table-input" type="text" placeholder="请输入" />
+																					</td>
+																					<th></th>
+																					<td class="table-input-td">
+
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+
+																	</div>
+																	<!-- <div class="panel panel-default">
+																		<div class="panel-heading panel-heading-table">
+																			<div class="row">
+																				<div class="col-xs-4">
+																					<h5 class="panel-title">设备名称/设备编号</h5>
+																				</div>
+																				<div class="col-xs-8">
+																					<form class="form-inline pull-right" >
+																						<a href="javascript:;" class="btn btn-primary btn-sm deleteDevices">删除设备</a>
+																						<a href="javascript:;" class="btn btn-primary btn-sm addItemBtn">增加项目</a>
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+																		<table class="table table-bordered table-condensed">
+																			<thead>
+																				<tr>
+																					<th style="width: 18%;">项目名称</th>
+																					<th style="width: 18%;">保养基准</th>
+																					<th style="width: 8%;">周期</th>
+																					<th style="width: 8%;">负责人</th>
+																					<th style="width: 40%;">计划日期</th>
+																					<th style="width: 8%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody class="craftTbody">
+
+																			</tbody>
+																		</table>
+
+																	</div> -->
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-footer text-center">
+													<div class="col-xs-12">
+															<button class="btn btn-primary modal-submit">确认提交</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- container-body -->
+									</div>
+									<div id="devicesCheck3" class="swiper-slide checkPlanProjectManage">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-dashboard"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>保养指导书管理</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+
+											<!-- 右边内容区域 -->
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesCheck3InerSwiper">
+
+														<!-- 内容区域 -->
+														<div class="row">
+
+															<div class="col-sm-12">
+																<div class="panel-group">
+																	<div class="panel panel-default">
+																		<div class="panel-heading panel-heading-table"  id="border_buttom">
+																			<div class="row">
+																				<div class="col-xs-4">
+																					<h5 class="panel-title">指导书列表</h5>
+																				</div>
+																				<div class="col-xs-8">
+																					<form class="form-inline pull-right">
+																						<!-- <div class="input-group input-group-sm">
+																							<select class="form-control devices-type-option">
+																								<option value="0">全部类型</option>
+																							</select>
+																						</div> -->
+																						<!--搜索框 -->
+																						<div class="input-group input-group-sm fuzzy-search-group">
+																							<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																							<div class="input-group-btn">
+																								<button type="button" class="btn btn-primary">
+																										<i class="fa fa-search"></i>
+																									</button>
+																							</div>
+																						</div>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" data-toggle-modal-target="#submitModelModal">新增项目</a>
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+																			<div class="table-height-10">
+																				<table class="table table-hover table-bordered ">
+																					<thead>
+																						<tr>
+																							<th style="width: 5%;">序号</th>
+																							<th style="width: 15%;">检修保养项目</th>
+																							<th style="width: 10%;">检修保养基准</th>
+																							<th style="width: 15%;">检修保养要点</th>
+																							<th style="width: 20%;">周期</th>
+																							<th style="width: 10%;">级别</th>
+																							<th style="width: 25%;">操作</th>
+																						</tr>
+																					</thead>
+																					<tbody class="craftTbody">
+																						<tr>
+																							<td>1</td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td class="table-input-td">
+																								<a class="table-link" href="#" data-toggle-modal-target="#submitModelModal"><i class="fa fa-pencil-square-o"></i>修改</a>
+																								<a class="table-link text-danger" href="#" data-toggle-btn="delete"><i class="fa fa-trash-o fa-fw"></i>删除</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</div>
+																		<div class="panel-footer panel-footer-table">
+																			<ul class="pagination pagination-sm pull-right">
+																			</ul>
+																		</div>
+																	</div>
+																	<!-- <div class="panel panel-default">
+																		<div class="panel-heading panel-heading-table">
+																			<div class="row">
+																				<div class="col-xs-4">
+																					<h5 class="panel-title">指导书详情</h5>
+																				</div>
+																				<div class="col-xs-8">
+																					<form class="form-inline pull-right">
+
+																						<div class="input-group input-group-sm">
+																							<select class="form-control devicesTypeSelect">
+																									<option value="noSelect">选择版本</option>
+																							</select>
+ 																							<div class="input-group-btn">
+ 																								<button type="button" class="btn btn-primary">
+ 																									<i class="fa fa-search"></i>
+ 																								</button>
+ 																							</div>
+																						</div>
+
+																					</form>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="table-height-10">
+																			<table class="table table-hover table-bordered ">
+																				<thead>
+																					<tr>
+																						<th style="width: 5%;">#</th>
+																						<th style="width: 15%;">检修保养项目</th>
+																						<th style="width: 10%;">检修保养基准</th>
+																						<th style="width: 15%;">检修保养要点</th>
+																						<th style="width: 20%;">周期</th>
+																						<th style="width: 10%;">级别</th>
+																						<th style="width: 25%;">操作</th>
+																					</tr>
+																				</thead>
+																				<tbody class="craftTbody">
+																					<tr>
+																						<td>1</td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																						<td></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																		<div class="panel-footer panel-footer-table">
+
+																		</div>
+																	</div> -->
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- 故障记录内容区域 -->
+									<div id="devicesfault" class="swiper-slide devicesFault">
+
+										<div class="container-fluid">
+											<div class="row">
+												<div class="content-header">
+													<div class="col-xs-10">
+														<div class="content-header-tab">
+															<div class="tab-logo">
+																<i class="fa fa-bolt"></i>
+															</div>
+															<div class="tab-body">
+																<div class="tab-title">
+																	<p>故障记录</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="container-fluid">
+											<div class="content-body swiper-container">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide swiper-no-swiping" id="devicesfaultInerSwiper">
+														<div class="row">
+															<div class="col-sm-12">
+																<div class="panel panel-default">
+																	<div class="panel-heading panel-heading-table">
+																		<div class="row">
+																			<div class="col-xs-4">
+																				<!--<h5 class="panel-title">故障记录总览</h5>-->
+																				<form class="form-inline">
+																					<fieldset>
+																						<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1 saveDevicesFault" data-toggle-modal-target="#submitModelModal">新增记录</a>
+																					</fieldset>
+																				</form>
+																			</div>
+																			<div class="col-xs-8">
+																				<form class="form-inline pull-right">
+
+																					<div class="input-group input-group-sm">
+																						<select class="form-control devices-type-option">
+																							<option value="">全部</option>
+																						</select>
+
+																					</div>
+																					<!--搜索框 -->
+																					<div class="input-group input-group-sm fuzzy-search-group">
+																						<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" id="faultRecordKeywordsInput"/>
+																						<div class="input-group-btn">
+																								<button type="button" class="btn btn-primary" id="faultRecordKeywordsBtn">
+																									<i class="fa fa-search"></i>
+																								</button>
+																						</div>
+																					</div>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="table-height-10">
+																		<table class="table  table-bordered table-hover">
+																			<thead>
+																				<tr>
+																					<th style="width: 4%;">序号</th>
+																					<th style="width: 10%;">设备名称</th>
+																					<th style="width: 10%;">设备编号</th>
+																					<th style="width: 10%;">发生时间</th>
+																					<th style="width: 10%;">故障部位</th>
+																					<th style="width: 10%;">处理情况</th>
+																					<th style="width: 10%;">记录人</th>
+																					<th style="width: 10%;">处理人</th>
+																					<th style="width: 10%;">确认人</th>
+																					<th style="width: 15%;">操作</th>
+																				</tr>
+																			</thead>
+																			<tbody id="faultRecordTbody">
+																				<tr>
+																					<td>1</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td>测试</td>
+																					<td class="table-input-td">
+																						<a class="table-link" data-toggle-modal-target="#faultRecordDetailsModal" href="#"><i class="fa fa-tasks fa-fw"></i>更多</a>
+																						<a class="table-link" data-toggle-modal-target="#addFaultRecord" href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>修改</a>
+																						<a class="table-link text-danger" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																	<div class="panel-footer panel-footer-table">
+																		<ul class="pagination pagination-sm pull-right">
+																		</ul>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- mainRightContent -->
+					</div>
+					<!-- mainRight -->
+				</div>
+			</div>
+		</div>
+		<!-- wrapper -->
+
+		<!-- 模态框 -->
+		<div class="">
+
+			<!-- 设备参数详情模态框 -->
+			<div class="modal fade" id="moreParameterModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+					<span>
+						<i class="fa fa-close"></i>
+					</span>
+				</button>
+							<h4 class="modal-title">设备参数详情</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<!--<h5 class="panel-title">设备类型管理</h5>-->
+													</div>
+													<div class="col-xs-8">
+
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered table-hover">
+													<thead>
+														<tr>
+															<th style="width: 9%;">序号</th>
+															<th style="width: 30%;">参数名</th>
+															<th style="width: 30%;">参数值</th>
+															<th style="width: 30%;">单位</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 设备历史参数详情模态框 -->
+			<div class="modal fade" id="moreParameterModal2">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span><i class="fa fa-close"></i></span>
+							</button>
+							<h4 class="modal-title">设备历史状况</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-2">
+														<button type="button" class="btn btn-primary exportExcel">导出Excel</button>
+													</div>
+													<div class="col-xs-10">
+														<form class="form-inline pull-right">
+															<div class="input-group input-group-sm">
+																<label>显示页码：</label>
+																<select class="pageSizeSelect" style="width: 45px;height: 28px;">
+																	<option value="20">20</option>
+																	<option value="50">50</option>
+																	<option value="100">100</option>
+																	<option value="200">200</option>
+																</select>
+															</div>
+															<div class="input-group input-group-sm">
+																<!-- <input class="form-control startTime" type="text" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'%y-%M-%d'})"	placeholder="开始日期" />
+																<input class="form-control endTime" type="text" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'%y-%M-%d'})"	placeholder="结束日期" /> -->
+																<input type="text" class="form-control2 startTime"  id="d4311"  onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true,maxDate:'#F{$dp.$D(\'d4312\') || \'%y-%M-%d\'}'})"	placeholder="开始日期"/>
+																<input type="text" class="form-control2 endTime"  id="d4312" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true,minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'%y-%M-%d'})"	placeholder="结束日期"/>
+
+																<!-- <input type="text" class="form-control day" placeholder="选择日期"  onclick="WdatePicker({startDate:'%y-%M-01',dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
+																<input type="text" class="form-control startTime" placeholder="开始时段"  onclick="WdatePicker({dateFmt:'H:mm:ss'})"  />
+																<input type="text" class="form-control endTime" placeholder="结束时段"  onclick="WdatePicker({dateFmt:'H:mm:ss'})" /> -->
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary head-main-btn-1">
+																			<i class="fa fa-search"></i>
+																	</button>
+																</div>
+															</div>
+															<!--搜索框 -->
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="text" placeholder="输入关键字" maxlength="25" />
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary head-main-btn-2">
+																			<i class="fa fa-search"></i>
+																		</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+											<!--panel-heading end -->
+											<div class="table-height-15">
+												<table class="table  table-bordered table-condensed">
+													<thead>
+														<tr>
+															<th style="width: 5%;">序号</th>
+															<th style="width: 20%;">参数名</th>
+															<th style="width: 10%;">参数值</th>
+															<th style="width: 15%;">参数单位</th>
+															<th style="width: 20%;">采集时间</th>
+															<th style="width: 10%;">设备状态</th>
+															<th style="width: 15%;">备注</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table text-center">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+												<button class="btn btn-primary footerMainBtn_1">上一页</button>
+												<button class="btn btn-primary footerMainBtn_2">下一页</button>
+											</div>
+											<!--panel-footer end -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 设备类型管理模态框 -->
+			<div class="modal fade" id="devicesTypeManage">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">设备类型管理</h4>
+						</div>
+
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<!--<h5 class="panel-title">设备类型管理</h5>-->
+													</div>
+													<div class="col-xs-8">
+															<form class="form-inline pull-right">
+																<fieldset>
+																	<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" id="#addDevicesTypeBtn">新增类型</a>
+																</fieldset>
+															</form>
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered table-hover table-condensed">
+													<thead>
+														<tr>
+															<th style="width: 9%;">序号</th>
+															<th style="width: 30%;">类型名称</th>
+															<th style="width: 30%;">类型描述</th>
+															<th style="width: 30%;">操作</th>
+														</tr>
+													</thead>
+													<tbody id="devicesTypeManageTbody">
+														<tr>
+															<td>1</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																<a class="table-link" btntype="edit" href="javascript:void(0);"><i class="fa fa-pencil-square-o"></i>修改</a>
+																<a class="table-link text-danger" btntype="delete" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 编辑设备类型模态框 -->
+			<div class="modal fade" id="editDevicesType">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+												<table class="table table-bordered">
+
+													<thead>
+														<tr>
+															<th style="width: 30%;">类型名称</th>
+															<th style="width: 30%;">类型描述</th>
+														</tr>
+													</thead>
+													<tbody id="maintainRecordTbody2">
+														<tr>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary">确认提交</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 新增设备模态框 -->
+			<div class="modal fade" id="editDevices">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增设备</h5>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th>设备名称</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>设备类型</th>
+														<td class="table-input-td">
+															<select class="form-control table-input input-group-sm">
+																<option>未选择</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<th>供应商</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>品牌</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>购买日期</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>使用日期</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>设备状态</th>
+														<td class="table-input-td">
+															<select class="form-control table-input input-group-sm">
+																<option>保养</option>
+																<option>维修</option>
+																<option>停机</option>
+																<option>封存</option>
+															</select>
+														</td>
+														<th>设备IP</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>设备描述</th>
+														<td class="table-input-td" colspan="3">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 设备台账详情模态框 -->
+			<div class="modal fade" id="devicesDetailsModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">设备详情</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+													<div class="col-xs-8">
+															<form class="form-inline pull-right">
+																<!--搜索框 -->
+																<div class="input-group input-group-sm fuzzy-search-group">
+																	<div class="input-group-btn">
+																		<button type="button" class="btn btn-primary">
+																			同步到工控机
+																		</button>
+																	</div>
+																</div>
+															</form>
+													</div>
+												</div>
+												</div>
+											<table class="table table-bordered ">
+												<tbody>
+													<tr>
+														<th style="width: 10%;">设备名称</th>
+														<td style="width: 15%;">DI制水机</td>
+														<th style="width: 10%;">设备类型</th>
+														<td style="width: 15%;">清洗设备</td>
+														<th style="width: 10%;">设备编号</th>
+														<td style="width: 15%;"></td>
+
+													</tr>
+													<tr>
+														<th>供应商</th>
+														<td></td>
+														<th>品牌</th>
+														<td></td>
+														<th>购买日期</th>
+														<td></td>
+													</tr>
+													<tr>
+														<th>使用日期</th>
+														<td></td>
+														<th>设备状态</th>
+														<td></td>
+														<th>管理者</th>
+														<td></td>
+													</tr>
+													<tr>
+														<th>存放位置</th>
+														<td>北京仓库</td>
+														<th>所属车间</th>
+														<td>化成车间</td>
+														<th>设备IP</th>
+														<td>192.168.1.235</td>
+													</tr>
+													<tr>
+														<th>设备描述</th>
+														<td colspan="7"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="modal-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 设备点检记录详情模态框 -->
+			<div class="modal fade" id="devicesCheckDetailsModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">点检详情</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">基础信息</h5>
+
+													</div>
+
+												</div>
+											</div>
+											<table class="table table-bordered table-condensed">
+
+												<tbody>
+													<tr>
+														<th width="15%">设备名称</th>
+														<td class="table-input-td" width="18%">
+														</td>
+														<th width="15%">设备编号</th>
+														<td class="table-input-td" width="18%">
+														</td>
+														<th width="15%">点检表版本号</th>
+														<td class="table-input-td" width="18%">
+														</td>
+													</tr>
+													<tr>
+														<th>点检人</th>
+														<td class="table-input-td">
+														</td>
+														<th>确认人</th>
+														<td class="table-input-td">
+														</td>
+														<th>制表时间</th>
+														<td></td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">点检项目</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right" action="">
+
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="text" placeholder="请选择年月" onclick="WdatePicker({dateFmt:'yyyy-MM',minDate:'2017-1',maxDate:'2117-1'})"/>
+															</div>
+															<!--搜索框 -->
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<select class="form-control">
+																	<option value="0">第一周</option>
+																	<option value="1">第二周</option>
+																	<option value="2">第三周</option>
+																	<option value="3">第四周</option>
+																	<option value="4">第五周</option>
+																</select>
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+												<table class="table table-bordered table-condensed">
+													<thead>
+														<tr>
+															<th rowspan="2" style="width: 8%;">项目名称</th>
+															<th rowspan="2" style="width: 8%;"></th>
+															<th colspan="2" style="width: 6%;">1号</th>
+															<th colspan="2" style="width: 6%;">2号</th>
+															<th colspan="2" style="width: 6%;">3号</th>
+															<th colspan="2" style="width: 6%;">4号</th>
+															<th colspan="2" style="width: 6%;">5号</th>
+															<th colspan="2" style="width: 6%;">6号</th>
+															<th colspan="2" style="width: 6%;">7号</th>
+														</tr>
+														<tr>
+															<th  style="width: 6%;">上午</th>
+															<th  style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+															<th style="width: 6%;">上午</th>
+															<th style="width: 6%;">下午</th>
+														</tr>
+													</thead>
+													<tbody >
+														<tr>
+															<td rowspan="4">
+															</td>
+															<td >点检结果</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+														</tr>
+															<tr>
+															<td>点检人</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+														</tr>
+														<tr>
+															<td>班长确认</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+														</tr>
+														<tr>
+															<td>技术确认</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+														</tr>
+													</tbody>
+												</table>
+
+											<div class="panel-footer panel-footer-table">
+
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">异常记录</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right">
+
+															<div class="input-group input-group-sm">
+																<!-- <a href="javascript:;" class="btn btn-primary btn-sm" id="addCheckChangeRecordBtn">增加记录</a> -->
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+												<table class="table table-bordered table-condensed">
+													<thead>
+														<tr>
+															<th style="width: 15%;">发生时间</th>
+															<th style="width: 15%;">异常类型</th>
+															<th style="width: 15%;">异常内容</th>
+															<th style="width: 15%;">确认人</th>
+															<th style="width: 15%;">异常处置</th>
+															<th style="width: 15%;">确认人</th>
+														</tr>
+													</thead>
+													<tbody id="changeRecordTbody">
+														<tr>
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+														</tr>
+													</tbody>
+												</table>
+
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+										<!-- <button class="btn btn-primary">保存</button> -->
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 点检表登记模态框 -->
+			<div class="modal fade" id="editDevicesCheckModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">点检登记</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">基础信息</h5>
+
+													</div>
+
+												</div>
+											</div>
+											<table class="table table-bordered table-condensed">
+
+												<tbody>
+													<tr>
+														<th style="width:16%">设备名称</th>
+														<td style="width:16%">
+														</td>
+														<th style="width:16%">设备编号</th>
+														<td style="width:16%">
+														</td>
+														<th style="width:16%">点检表版本号</th>
+														<td style="width:16%">
+														</td>
+													</tr>
+													<tr>
+														<th>确认人</th>
+														<td>
+														</td>
+														<th>制表时间</th>
+														<td></td>
+
+														<th></th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">点检项目</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right" action="">
+
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="text" placeholder="请选择日期"  onclick="WdatePicker({minDate:'%y-%M-01',maxDate:'%y-%M-%d'})" onsubmit="return false;"/>
+																<div class="input-group-btn">
+																	<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+																</div>
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+												<table class="table table-bordered table-condensed">
+													<thead>
+														<tr>
+															<th style="width: 15%;">项目名称</th>
+															<th style="width: 15%;">基准</th>
+															<th style="width: 15%;">点检方法</th>
+															<th style="width: 8%;">周期</th>
+															<th style="width: 8%;">点检时段</th>
+															<th style="width: 13%;">点检结果</th>
+															<th style="width: 12%;">点检人</th>
+															<th style="width: 12%;">确认人</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td rowspan="2"></td>
+															<td rowspan="2"></td>
+															<td rowspan="2"></td>
+															<td rowspan="2"></td>
+															<td >上午</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+														</tr>
+														<tr>
+															<td >下午</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right hide">
+												</ul>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">异常记录</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right">
+
+															<div class="input-group input-group-sm">
+																<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1" >增加记录</a>
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+												<table class="table table-bordered table-condensed">
+													<thead>
+														<tr>
+															<th style="width: 15%;">发生时间</th>
+															<th style="width: 15%;">异常内容</th>
+															<th style="width: 15%;">记录人</th>
+															<th style="width: 15%;">异常处置</th>
+															<th style="width: 15%;">确认人</th>
+															<th style="width: 15%;">操作</th>
+														</tr>
+													</thead>
+													<tbody>
+
+														<!-- <tr>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" onclick="WdatePicker()" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input selectStaff" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<input class="table-input selectStaff" type="text" placeholder="请输入" />
+															</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger delete" href="javascript:;"><i class="fa fa-trash-o"></i>移除</a>
+															</td>
+														</tr> -->
+
+													</tbody>
+												</table>
+
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12">
+										<button class="btn btn-primary modal-submit">保存</button>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 点检表登记审核模态框 -->
+			<div class="modal fade" id="editDevicesCheckModal2">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">点检登记</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">基础信息</h5>
+
+													</div>
+
+												</div>
+											</div>
+											<table class="table table-bordered table-condensed">
+
+												<tbody>
+													<tr>
+														<th style="width:16%">设备名称</th>
+														<td style="width:16%">
+														</td>
+														<th style="width:16%">设备编号</th>
+														<td style="width:16%">
+														</td>
+														<th style="width:16%">点检表版本号</th>
+														<td style="width:16%">
+														</td>
+													</tr>
+													<tr>
+														<th>确认人</th>
+														<td>
+														</td>
+														<th>制表时间</th>
+														<td></td>
+
+														<th></th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">点检项目</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right" action="">
+
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="text" placeholder="请选择日期" onclick="WdatePicker({minDate:'%y-%M-01',maxDate:'%y-%M-%d'})"
+																 onsubmit="return false;" />
+																<div class="input-group-btn">
+																	<button class="btn btn-primary">
+																		<i class="fa fa-search"></i>
+																	</button>
+																</div>
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered table-condensed">
+												<thead>
+													<tr>
+														<th style="width: 15%;">项目名称</th>
+														<th style="width: 15%;">基准</th>
+														<th style="width: 15%;">点检方法</th>
+														<th style="width: 8%;">周期</th>
+														<th style="width: 8%;">点检时段</th>
+														<th style="width: 13%;">点检结果</th>
+														<th style="width: 12%;">点检人</th>
+														<th style="width: 12%;">确认人</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td rowspan="2"></td>
+														<td rowspan="2"></td>
+														<td rowspan="2"></td>
+														<td rowspan="2"></td>
+														<td>上午</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<td>下午</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right hide">
+												</ul>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">异常记录</h5>
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right">
+
+															<div class="input-group input-group-sm">
+																<!-- <a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1">增加记录</a> -->
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered table-condensed">
+												<thead>
+													<tr>
+														<th style="width: 15%;">发生时间</th>
+														<th style="width: 15%;">异常内容</th>
+														<th style="width: 15%;">记录人</th>
+														<th style="width: 15%;">异常处置</th>
+														<th style="width: 15%;">确认人</th>
+														<th style="width: 15%;">操作</th>
+													</tr>
+												</thead>
+												<tbody>
+
+													<!-- <tr>
+																		<td class="table-input-td">
+																			<input class="table-input" type="text" placeholder="请输入" onclick="WdatePicker()" />
+																		</td>
+																		<td class="table-input-td">
+																			<input class="table-input" type="text" placeholder="请输入" />
+																		</td>
+																		<td class="table-input-td">
+																			<input class="table-input selectStaff" type="text" placeholder="请输入" />
+																		</td>
+																		<td class="table-input-td">
+																			<input class="table-input" type="text" placeholder="请输入" />
+																		</td>
+																		<td class="table-input-td">
+																			<input class="table-input selectStaff" type="text" placeholder="请输入" />
+																		</td>
+																		<td class="table-input-td">
+																			<a class="table-link text-danger delete" href="javascript:;"><i class="fa fa-trash-o"></i>移除</a>
+																		</td>
+																	</tr> -->
+
+												</tbody>
+											</table>
+
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12">
+									<button class="btn btn-primary modal-submit">保存</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 选择设备模态框 -->
+			<div class="modal fade" id="seleteDevicesModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">选择设备</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<!--<h5 class="panel-title">基础信息</h5>-->
+
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right" action="">
+
+															<div class="input-group input-group-sm">
+																<select class="form-control">
+																	<option value="">全部</option>
+																</select>
+
+															</div>
+															<!--搜索框 -->
+															<div class="input-group input-group-sm">
+																<input class="form-control" type="text" placeholder="输入关键字" maxlength="25"/>
+																<div class="input-group-btn">
+																		<button type="button" class="btn btn-primary">
+																			<i class="fa fa-search"></i>
+																		</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered table-hover">
+													<thead>
+														<tr>
+															<th style="width: 9%;">序号</th>
+															<th style="width: 30%;">类型名称</th>
+															<th style="width: 30%;">类型描述</th>
+															<th style="width: 30%;">操作</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																<div class="table-input-warp">
+																		<label class="checkbox-inline"><input type="checkbox">选择</label>
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<!-- 分页盒子 -->
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="col-xs-12 text-center">
+								<button class="btn btn-primary">确认</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 检修保养详情模态框 -->
+			<div class="modal fade" id="maintainDetailsModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered table-hover">
+												<tbody>
+													<tr>
+														<th width="16%">计划名称</th>
+														<td width="17%"></td>
+														<th width="16%">计划编号</th>
+														<td width="17%"></td>
+														<th width="16%">计划类型</th>
+														<td width="17%"></td>
+													</tr>
+													<tr>
+														<th>创建者</th>
+														<td></td>
+														<th>创建时间</th>
+														<td></td>
+														<th>确认人</th>
+														<td></td>
+													</tr>
+													<tr>
+														<th>下次保养时间</th>
+														<td></td>
+														<th>状态</th>
+														<td></td>
+														<th></th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">明细记录</h5>
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered table-hover">
+													<thead>
+														<tr>
+															<th style="width: 5%;">序号</th>
+															<th style="width: 10%;">设备名称</th>
+															<th style="width: 10%;">设备编号</th>
+															<th style="width: 10%;">保养项目</th>
+															<th style="width: 10%;">保养基准</th>
+															<th style="width: 10%;">周期</th>
+															<th style="width: 10%;">负责人</th>
+															<th style="width: 25%;">计划实施日期</th>
+															<th style="width: 10%;">明细记录</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<!-- <td rowspan="3">1</td>
+															<td  rowspan="3">测试</td>
+															<td  rowspan="3">测试</td> -->
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																	<a class="table-link" data-toggle-modal-target="#devicesDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>明细</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																	<a class="table-link" data-toggle-modal-target="#devicesDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>明细</a>
+															</td>
+														</tr>
+														<tr>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																	<a class="table-link" data-toggle-modal-target="#devicesDetailsModal" href="javascript:void(0);"><i class="fa fa-tasks fa-fw"></i>明细</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">变更记录</h5>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered table-hover">
+												<thead>
+													<tr>
+														<th style="width: 5%;">序号</th>
+ 														<th style="width: 11%;">设备名称</th>
+														<th style="width: 11%;">设备编号</th>
+														<th style="width: 11%;">变更类型</th>
+														<th style="width: 11%;">变更内容</th>
+														<th style="width: 11%;">变更原因</th>
+														<th style="width: 11%;">记录时间</th>
+														<th style="width: 11%;">记录人</th>
+														<th style="width: 11%;">确认人</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 执行检修保养模态框 -->
+			<div class="modal fade" id="editMaintainRecordModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">编辑计划</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered table-hover">
+												<tbody>
+													<tr>
+														<th width="16%">计划名称</th>
+														<td width="17%"></td>
+														<th width="16%">计划编号</th>
+														<td width="17%"></td>
+														<th width="16%">计划类型</th>
+														<td width="17%"></td>
+													</tr>
+													<tr>
+														<th>创建者</th>
+														<td></td>
+														<th>创建时间</th>
+														<td></td>
+														<th>确认人</th>
+														<td></td>
+													</tr>
+													<tr>
+														<th>下次保养时间</th>
+														<td></td>
+														<th>状态</th>
+														<td></td>
+														<th></th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">设备&项目</h5>
+													</div>
+													<!--<div class="col-xs-8">
+														<form class="form-inline pull-right" >
+															<a href="javascript:;" class="btn btn-primary btn-sm">删除设备</a>
+															<a href="javascript:;" class="btn btn-primary btn-sm">增加项目</a>
+														</form>
+													</div>-->
+												</div>
+											</div>
+											<div class="table-height-10">
+											<table class="table table-bordered ">
+												<thead>
+													<tr>
+														<th style="width: 12%;">设备名称</th>
+														<th style="width: 6%;">负责人</th>
+														<th style="width: 10%;">项目名称</th>
+														<th style="width: 10%;">保养基准</th>
+														<th style="width: 10%;">计划日期</th>
+														<th style="width: 10%;">实施日期</th>
+														<th style="width: 10%;">保养结果</th>
+														<th style="width: 10%;">异常情况记录</th>
+														<th style="width: 10%;">记录人</th>
+													</tr>
+												</thead>
+												<tbody class="craftTbody">
+													<tr>
+														<td>1</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td>1</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">变更记录</h5>
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right">
+
+															<div class="input-group input-group-sm">
+																<a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1">增加变更</a>
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered table-hover">
+												<thead>
+													<tr>
+														<th style="width: 5%;">序号</th>
+														<th style="width: 11%;">设备名称</th>
+														<th style="width: 11%;">设备编号</th>
+														<th style="width: 8%;">变更类型</th>
+														<th style="width: 11%;">变更内容</th>
+														<th style="width: 11%;">变更原因</th>
+														<th style="width: 11%;">记录时间</th>
+														<th style="width: 8%;">记录人</th>
+														<th style="width: 8%;">确认人</th>
+														<th style="width: 8%;">操作</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- <tr>
+														<td>1</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr> -->
+												</tbody>
+											</table>
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 审核检修保养模态框 -->
+			<div class="modal fade" id="editMaintainRecordModal2">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title">编辑计划</h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered table-hover">
+												<tbody>
+													<tr>
+														<th width="16%">计划名称</th>
+														<td width="17%"></td>
+														<th width="16%">计划编号</th>
+														<td width="17%"></td>
+														<th width="16%">计划类型</th>
+														<td width="17%"></td>
+													</tr>
+													<tr>
+														<th>创建者</th>
+														<td></td>
+														<th>创建时间</th>
+														<td></td>
+														<th>确认人</th>
+														<td></td>
+													</tr>
+													<tr>
+														<th>下次保养时间</th>
+														<td></td>
+														<th>状态</th>
+														<td></td>
+														<th></th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">设备名称/设备编号</h5>
+													</div>
+													<!--<div class="col-xs-8">
+																	<form class="form-inline pull-right" >
+																		<a href="javascript:;" class="btn btn-primary btn-sm">删除设备</a>
+																		<a href="javascript:;" class="btn btn-primary btn-sm">增加项目</a>
+																	</form>
+																</div>-->
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered ">
+													<thead>
+														<tr>
+															<th style="width: 12%;">设备名称</th>
+															<th style="width: 8%;">负责人</th>
+															<th style="width: 10%;">项目名称</th>
+															<th style="width: 10%;">保养基准</th>
+															<th style="width: 10%;">计划日期</th>
+															<th style="width: 10%;">实施日期</th>
+															<th style="width: 10%;">保养结果</th>
+															<th style="width: 10%;">异常情况记录</th>
+															<th style="width: 10%;">记录人</th>
+															<th style="width: 10%;">确认人</th>
+														</tr>
+													</thead>
+													<tbody class="craftTbody">
+														<tr>
+															<td>1</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-6">
+														<h5 class="panel-title">变更记录</h5>
+													</div>
+													<div class="col-xs-6">
+														<form class="form-inline pull-right">
+
+															<div class="input-group input-group-sm">
+																<!-- <a href="javascript:;" class="btn btn-primary btn-sm head-main-btn-1">增加变更</a> -->
+															</div>
+
+														</form>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered table-hover">
+												<thead>
+													<tr>
+														<th style="width: 5%;">序号</th>
+														<th style="width: 11%;">设备名称</th>
+														<th style="width: 11%;">设备编号</th>
+														<th style="width: 8%;">变更类型</th>
+														<th style="width: 11%;">变更内容</th>
+														<th style="width: 11%;">变更原因</th>
+														<th style="width: 11%;">记录时间</th>
+														<th style="width: 8%;">记录人</th>
+														<th style="width: 8%;">确认人</th>
+														<th style="width: 8%;">操作</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- <tr>
+																	<td>1</td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																	<td></td>
+																</tr> -->
+												</tbody>
+											</table>
+											<div class="panel-footer panel-footer-table hide">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 保养明细记录模态框 -->
+			<div class="modal fade" id="upkeepEnterDetailsModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+					<span>
+						<i class="fa fa-close"></i>
+					</span>
+				</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增设备</h5>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th>设备名称</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>设备类型</th>
+														<td class="table-input-td">
+															<select class="form-control table-input input-group-sm">
+													<option>未选择</option>
+												</select>
+														</td>
+													</tr>
+													<tr>
+														<th>供应商</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>品牌</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>购买日期</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>使用日期</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>设备状态</th>
+														<td class="table-input-td">
+															<select class="form-control table-input input-group-sm">
+													<option>保养</option>
+													<option>维修</option>
+													<option>停机</option>
+													<option>封存</option>
+												</select>
+														</td>
+														<th>设备IP</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>设备描述</th>
+														<td class="table-input-td" colspan="3">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 更多故障记录模态框 -->
+			<div class="modal fade" id="faultRecordDetailsModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title fade"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">基础信息</h5>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered">
+												<tbody id="faultRecordTbody2">
+													<tr>
+														<th width="16%">设备名称</th>
+														<td width="16%"></td>
+														<th width="16%">设备编号</th>
+														<td width="16%"></td>
+														<th width="16%">设备类型</th>
+														<td width="16%"></td>
+													</tr>
+													<tr>
+														<th>购买日期</th>
+														<td>
+														</td>
+														<th>使用日期</th>
+														<td>
+														</td>
+														<th>安放地点</th>
+														<td>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">历史记录</h5>
+													</div>
+													<div class="col-xs-8 pull-right">
+														<!-- <form class="form-inline pull-right">
+															<fieldset>
+																<div class="input-group input-group-sm">
+																	<input class="form-control" type="text" id="planStatusStartDate" placeholder="起始日期" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'planStatusEndDate\')}'})" />
+																</div>
+																<div class="input-group input-group-sm">
+																	<input class="form-control" type="text" id="planStatusEndDate" placeholder="结束日期" onclick="WdatePicker({minDate:'#F{$dp.$D(\'planStatusStartDate\')}'})"/>
+																	<div class="input-group-btn">
+																		<button type="button" class="btn btn-primary" id="statusSearchDateBtn">
+																			<i class="fa fa-search"></i>
+																		</button>
+																	</div>
+																</div>
+															</fieldset>
+														</form> -->
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered table-hover">
+													<thead>
+														<tr>
+															<th style="width: 4%;">序号</th>
+															<th style="width: 10%;">故障时间</th>
+															<th style="width: 10%;">故障部位</th>
+															<th style="width: 10%;">处理情况</th>
+															<th style="width: 10%;">处理人</th>
+															<th style="width: 10%;">确认人</th>
+															<th style="width: 20%;">故障描述</th>
+															<th style="width: 10%;">操作</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td>测试</td>
+															<td class="table-input-td">
+																<a class="table-link text-danger" href="javascript:void(0);"><i class="fa fa-trash-o"></i>删除</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 新增故障记录模态框 -->
+			<div class="modal fade" id="addFaultRecord">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+							</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">新增故障记录</h5>
+													</div>
+												</div>
+											</div>
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th>设备名称</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>故障类型</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>发生时间</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>处理情况</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>处理人</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+														<th>确认人</th>
+														<td class="table-input-td">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+													<tr>
+														<th>故障描述</th>
+														<td class="table-input-td" colspan="3">
+															<input class="table-input" type="text" placeholder="请输入" />
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 通用详情模态框 -->
+			<div class="modal fade" id="dataDetailsModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+					<span>
+						<i class="fa fa-close"></i>
+					</span>
+				</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">表单提交</h5>
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+													<table class="table table-bordered">
+														<thead>
+
+														</thead>
+														<tbody>
+
+														</tbody>
+													</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12 text-center">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 通用表单提交模态框，横向表格，不含分页 -->
+			<div class="modal fade" id="submitModelModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+					<span>
+						<i class="fa fa-close"></i>
+					</span>
+				</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">表单提交</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<!--搜索框 -->
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary hide">
+																		同步到工控机
+																	</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered">
+												<tbody>
+
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12">
+									<button type ="button" class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 通用表格选择提交模态框，竖向表格，含分页 -->
+			<div class="modal fade" id="submitModelModal2">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">
+					<span>
+						<i class="fa fa-close"></i>
+					</span>
+				</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="panel panel-default">
+											<div class="panel-heading panel-heading-table">
+												<div class="row">
+													<div class="col-xs-4">
+														<h5 class="panel-title">表单提交</h5>
+													</div>
+													<div class="col-xs-8">
+														<form class="form-inline pull-right">
+															<fieldset>
+																<select class="form-control input-sm pullDownMenu-1"></select>
+																<div class="input-group input-group-sm fuzzy-search-group">
+																	<input class="form-control" type="search" placeholder="搜索" />
+																	<div class="input-group-btn">
+																		<button type="button" class="btn btn-primary">
+																				<i class="fa fa-search"></i>
+																		</button>
+																	</div>
+																</div>
+															</fieldset>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div class="table-height-10">
+												<table class="table table-bordered">
+													<thead>
+
+													</thead>
+													<tbody>
+
+													</tbody>
+												</table>
+											</div>
+											<div class="panel-footer panel-footer-table">
+												<ul class="pagination pagination-sm pull-right">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-12">
+									<button class="btn btn-primary modal-submit">确认提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- 通用选择模态框  -->
+		<div class="modal fade" id="publicSelectModalBox">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close">
+						<span>
+							<i class="fa fa-close"></i>
+						</span>
+				</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+												<div class="col-xs-8">
+													<form class="form-inline pull-right">
+														<fieldset>
+															<select class="form-control input-sm pullDownMenu-1"></select>
+															<div class="input-group input-group-sm fuzzy-search-group">
+																<input class="form-control" type="search" placeholder="搜索" />
+																<div class="input-group-btn">
+																	<button type="button" class="btn btn-primary">
+																			<i class="fa fa-search"></i>
+																	</button>
+																</div>
+															</div>
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div class="table-height-10">
+											<table class="table table-bordered table-responsive table-hover .table-condensed">
+												<thead>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+										<div class="panel-footer panel-footer-table">
+											<ul class="pagination pagination-sm pull-right">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 导出设备历史参数时选择导出数量模态框  -->
+		<div class="modal fade" id="publicSelectModalBox2">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close">
+								<span>
+									<i class="fa fa-close"></i>
+								</span>
+						</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="panel panel-default">
+										<div class="panel-heading panel-heading-table">
+											<div class="row">
+												<div class="col-xs-4">
+													<h5 class="panel-title"></h5>
+												</div>
+												<div class="col-xs-8">
+													<form class="form-inline pull-right">
+														<fieldset>
+															<select class="form-control input-sm pullDownMenu-1">
+																<option>500</option>
+																<option>1000</option>
+																<option>2000</option>
+																<option>5000</option>
+																<option>10000</option>
+															</select>
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div class="row">
+									<div class="col-xs-12">
+										<button type ="button" class="btn btn-primary modal-submit">确认提交</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- JS插件 -->
+		<!-- jquery -->
+		<script src="js/vendors/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vendors/calendar/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- bootstrap-js -->
+		<script src="js/vendors/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- jquery-cookie -->
+		<script src="js/vendors/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<!-- js动画 -->
+		<script src="js/vendors/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- sweetalert弹窗 -->
+		<script src="js/vendors/sweetalert2.js" type="text/javascript" charset="utf-8"></script>
+		<!--Moment日期处理-->
+		<script src="js/vendors/moment-with-locales.js" type="text/javascript" charset="utf-8"></script>
+		<!--echarts图表插件-->
+		<script src="js/vendors/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- swiper轮播图 -->
+		<script src="js/vendors/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- mydate97日期插件-->
+		<script src="js/vendors/dateControl/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="js/vendors/build/kalendae.standalone.js" type="text/javascript"></script>
+
+		<script src="js/vendors/calendar/calendar.js" type="text/javascript"></script>
+
+		<!-- JS -->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/basevalue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/devices.js" type="text/javascript" charset="UTF-8"></script>
+		<script>
+
+
+		</script>
+	</body>
+
+</html>
